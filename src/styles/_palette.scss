@@ -1,13 +1,15 @@
-$color-header-footer-bg: #222831; // Header and footer background color
-$color-content-bg: #393e46; // Content background color
-$input-border-color: #d3d3d3; // Input border color
-$color-text: #eeeeee; // Text color
-$modal-overlay: rgba(0, 0, 0, 0.5);
+$deep-blue: #222831;
+$light-charcoal: #393e46;
 
-// Button color
-$color-button: #535bf2;
-$color-button-hover: darken($color-button, 10%);
-$color-button-active: lighten($color-button, 10%);
+$pale-gray: #d3d3d3;
+$light-gray: #eeeeee;
 
-// Link color
-$color-link: #00adb5;
+$semi-transparent-black: rgba(0, 0, 0, 0.5);
+
+// Primary
+$button-color: #535bf2;
+$button-color-hover: darken($button-color, 10%);
+$button-color-active: lighten($button-color, 10%);
+
+// Secondary
+$link-color: #00adb5;

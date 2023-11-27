@@ -1,14 +1,14 @@
 <template>
-  <div class="body">
+  <div>
     <Suspense>
-      <template #default> <CityViewTest /></template>
+      <template #default> <CityViewContent /></template>
       <template #fallback><p>Loading</p></template>
     </Suspense>
   </div>
 </template>
 
 <script setup lang="ts">
-import CityViewTest from "../components/CityViewTest.vue";
+import CityViewContent from "../components/CityViewContent.vue";
 </script>
 
 <style scoped></style>

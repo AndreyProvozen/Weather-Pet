@@ -1,8 +1,8 @@
 <template>
-  <div class="body">
-    <button @click="toggleCreateModal" class="filled">
+  <div>
+    <Button @click="toggleCreateModal" variant="filled">
       Open add City modal
-    </button>
+    </Button>
   </div>
 
   <ModalWrapper
@@ -12,16 +12,18 @@
     <AddCityModal
       :searchCitiesList="searchCitiesList"
       :searchCitiesError="searchCitiesError"
-      @inputChange="handleInputChange"
+      :searchCitiesQuery="searchQuery"
+      :onInputValueChange="onInputValueChange"
     />
   </ModalWrapper>
 </template>
 
 <script lang="ts" setup>
-import ModalWrapper from "@/components/ModalWrapper.vue";
+import ModalWrapper from "@/components/atoms/ModalWrapper.vue";
 import AddCityModal from "@/components/modals/AddCityModal.vue";
 import { Ref, ref } from "vue";
 import { CityData } from "../interface";
+import Button from "../components/atoms/Button.vue";
 
 const isAddCityModalOpen = ref(false);
 const searchQuery = ref("");
@@ -33,7 +35,7 @@ const toggleCreateModal = () => {
   isAddCityModalOpen.value = !isAddCityModalOpen.value;
 };
 
-const handleInputChange = async (value: string) => {
+const onInputValueChange = async (value: string) => {
   searchQuery.value = value;
 
   if (searchQuery.value.length > 2) return await searchCitiesAutoComplete();
@@ -66,18 +68,11 @@ const searchCitiesAutoComplete = async () => {
 </script>
 
 <style lang="scss">
-.body {
-  width: 100%;
-  height: 100vh;
-  box-sizing: border-box;
-  background-color: $color-content-bg;
-}
-
 .autocomplete-input {
   width: 100%;
   list-style-type: none;
   padding: 8px 16px;
-  border: 2px solid $input-border-color;
+  border: 2px solid $pale-gray;
   color: black;
   margin: 8px 0 0;
   border-radius: 4px;

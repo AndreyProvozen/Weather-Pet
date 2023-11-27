@@ -2,20 +2,22 @@
   <div class="navigation">
     <h1 class="logo">Weather-Pet</h1>
     <div class="right-navigation">
-      <a href="#">Main</a>
-      <a href="#">Test</a>
+      <Link href="#">Main</Link>
+      <Link href="#">Test</Link>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script lang="ts" setup>
+import Link from "./atoms/Link.vue";
+</script>
 
 <style lang="scss" scoped>
 .navigation {
   display: flex;
   align-items: center;
   padding: 10px 15px;
-  background-color: $color-header-footer-bg;
+  background-color: $deep-blue;
   justify-content: space-between;
 }
 

@@ -7,12 +7,12 @@
             <CloseIcon class="close-icon" @click="$emit('close-modal')" />
             <slot />
             <div class="btn-wrapper">
-              <button class="outlined" @click="$emit('close-modal')">
+              <Button variant="outlined" @click="$emit('close-modal')">
                 Close
-              </button>
-              <button class="filled" @click="$emit('submit-modal')">
+              </Button>
+              <Button variant="filled" @click="$emit('submit-modal')">
                 Submit
-              </button>
+              </Button>
             </div>
           </div>
         </Transition>
@@ -22,7 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import CloseIcon from "../assets/icons/close.svg";
+import CloseIcon from "../../assets/icons/close.svg";
+import Button from "./Button.vue";
 
 defineEmits(["close-modal", "submit-modal"]);
 defineProps({ isModalOpen: { type: Boolean, default: false } });
@@ -31,8 +32,10 @@ defineProps({ isModalOpen: { type: Boolean, default: false } });
 <style lang="scss" scoped>
 .close-icon {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  border-radius: 50%;
+  background-color: $pale-gray;
+  top: 12px;
+  right: 12px;
   cursor: pointer;
 }
 
@@ -45,7 +48,7 @@ defineProps({ isModalOpen: { type: Boolean, default: false } });
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $semi-transparent-black;
   z-index: $z-50;
 }
 
@@ -61,7 +64,7 @@ defineProps({ isModalOpen: { type: Boolean, default: false } });
   flex-direction: column;
   position: relative;
   background-color: white;
-  padding: 40px;
+  padding: 32px;
   border-radius: 16px;
   width: 100%;
   max-width: 500px;
