@@ -3,7 +3,7 @@
     <img
       class="modal-image"
       alt="Add new city modal image"
-      src="@/assets/images/add-city-modal.jpg"
+      :src="getImageUrl()"
     />
     <h4 class="modal-title">Add new city</h4>
     <input
@@ -36,6 +36,8 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { CityData } from "../../interface";
+import getCurrentSeason from "../../utils/getCurrentSeason";
+import { SEASON_IMAGE_URLS } from "../../constants";
 
 interface Props {
   searchCitiesList?: CityData[];
@@ -46,6 +48,9 @@ defineEmits(["inputChange"]);
 defineProps<Props>();
 
 const router = useRouter();
+const season = getCurrentSeason();
+
+const getImageUrl = () => SEASON_IMAGE_URLS[season];
 
 const redirectToCityView = (cityData: CityData) => {
   const [city, state] = cityData.place_name.split(",");
