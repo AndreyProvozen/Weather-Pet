@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content-height-container">
     <Suspense>
       <template #default> <CityViewContent /></template>
       <template #fallback><p>Loading</p></template>

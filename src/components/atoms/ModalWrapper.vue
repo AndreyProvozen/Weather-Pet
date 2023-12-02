@@ -1,7 +1,11 @@
 <template>
   <Teleport to="body">
     <Transition name="modal-outer">
-      <div v-show="isModalOpen" class="modal-wrapper">
+      <div
+        v-show="isModalOpen"
+        class="modal-wrapper"
+        @mousedown="handleClickOutside"
+      >
         <Transition name="modal-inner">
           <div v-if="isModalOpen" class="modal-content">
             <CloseIcon class="close-icon" @click="$emit('close-modal')" />
@@ -25,8 +29,21 @@
 import CloseIcon from "../../assets/icons/close.svg";
 import Button from "./Button.vue";
 
-defineEmits(["close-modal", "submit-modal"]);
-defineProps({ isModalOpen: { type: Boolean, default: false } });
+const emit = defineEmits(["close-modal", "submit-modal"]);
+interface Props {
+  isModalOpen: boolean;
+}
+
+const props = defineProps<Props>();
+
+const handleClickOutside = (event: MouseEvent) => {
+  if (
+    props.isModalOpen &&
+    !(event.target as HTMLElement).closest(".modal-content")
+  ) {
+    emit("close-modal");
+  }
+};
 </script>
 
 <style lang="scss" scoped>

@@ -1,40 +1,15 @@
 <template>
-  <div>
-    <div class="container temperature-container">
-      <img
-        class="season-image"
-        src="../assets/images/autumn-city-page-image.jpg"
-        alt="season background"
-      />
-      <div style="width: 48%">
-        <p>Hourly forecast</p>
-        <div class="hourly-forecast-container">
-          <div
-            style="display: flex; flex-direction: column; padding: 10px"
-            v-for="(hourWeather, i) in weatherData.hourly"
-            :key="hourWeather.dt"
-          >
-            <p class="m-0">
-              {{
-                i === 0 ? "Now" : dayjs(hourWeather.currentTime).format("HH:mm")
-              }}
-            </p>
-            <p class="m-0">{{ `${Math.round(hourWeather.temp)}&deg;` }}</p>
-            <img
-              style="width: 50px; height: 50px"
-              :src="`https://openweathermap.org/img/wn/${hourWeather.weather[0].icon}@2x.png`"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>{{ route.params.city }}</div>
+  <div class="container temperature-container">
+    <LeftWeatherContent />
+    <RightWeatherContent :weatherData="weatherData" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useRoute } from "vue-router";
-import dayjs from "dayjs";
+
+import LeftWeatherContent from "./cityViewComponents/LeftWeatherContent.vue";
+import RightWeatherContent from "./cityViewComponents/RightWeatherContent.vue";
 
 const route = useRoute();
 
@@ -72,27 +47,10 @@ console.log(weatherData);
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  font-weight: bold;
-}
-
 .temperature-container {
   display: flex;
   justify-content: space-between;
-}
-
-.hourly-forecast-container {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  overflow-x: scroll;
-}
-
-.season-image {
-  width: 48%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  gap: 30px;
+  align-items: flex-start;
 }
 </style>

@@ -12,7 +12,8 @@ import { SEASONS } from "../constants";
  */
 
 const getCurrentSeason = (): (typeof SEASONS)[number] => {
-  const currentMonth = dayjs().month();
+  const currentMonth = dayjs().month() + 1;
+
   const seasonIndex = Math.floor((currentMonth % 12) / 3);
 
   return SEASONS[seasonIndex];

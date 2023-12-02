@@ -17,6 +17,7 @@ import Link from "./atoms/Link.vue";
   display: flex;
   align-items: center;
   padding: 10px 15px;
+  margin-bottom: 20px;
   background-color: $deep-blue;
   justify-content: space-between;
 }

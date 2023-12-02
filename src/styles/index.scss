@@ -9,20 +9,12 @@
   margin: 0 auto;
 
   @media (max-width: 1280px) {
-    max-width: 1024px;
+    margin: 0 16px;
   }
+}
 
-  @media (max-width: 1024px) {
-    max-width: 768px;
-  }
-
-  @media (max-width: 768px) {
-    max-width: 640px;
-  }
-
-  @media (max-width: 640px) {
-    max-width: 420px;
-  }
+.content-height-container {
+  height: calc(100vh - #{$HEADER_HEIGHT + 20});
 }
 
 .m-0 {
