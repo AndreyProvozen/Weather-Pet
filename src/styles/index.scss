@@ -14,7 +14,7 @@
 }
 
 .content-height-container {
-  height: calc(100vh - #{$HEADER_HEIGHT + 20});
+  height: calc(100vh - #{$HEADER_HEIGHT + $HEADER_MARGIN_BOTTOM});
 }
 
 .m-0 {

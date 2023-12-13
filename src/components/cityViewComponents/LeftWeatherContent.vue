@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <Input
       class="search-input"
       variant="outlined"
@@ -20,13 +20,19 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .season-image {
+  height: 80vh;
   width: 100%;
-  height: auto;
+  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+.container {
+  width: 50%;
+}
+
 .search-input {
   margin-bottom: 20px;
 }
