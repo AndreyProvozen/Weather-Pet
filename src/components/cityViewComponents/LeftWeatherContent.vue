@@ -7,7 +7,7 @@
     />
     <img
       class="season-image"
-      src="../../assets/images/autumn-cityPage-image.jpg"
+      src="../../assets/images/CityPageView/summer-image.jpg"
       alt="season background"
     />
   </div>
