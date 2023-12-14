@@ -14,7 +14,10 @@
         <BookmarkPlusIcon />
       </Button>
     </div>
-    <img class="season-image" :src="getImageUrl()" alt="season background" />
+    <div class="image-wrapper">
+      <img class="season-image" :src="getImageUrl()" alt="season background" />
+      <div class="image-overlay" />
+    </div>
   </div>
 </template>
 
@@ -26,12 +29,19 @@ import BookmarkPlusIcon from "../../assets/icons/bookmark-plus.svg";
 import { useRoute } from "vue-router";
 import Button from "../atoms/Button.vue";
 import { nanoid } from "nanoid";
-import { ref } from "vue";
+import { Ref, ref } from "vue";
+
+interface savedCitiesListProps {
+  id: string;
+  state: string;
+  city: string;
+  coordinates: { lat: string; lng: string };
+}
 
 const route = useRoute();
 const season = getCurrentSeason();
 
-const savedCitiesList = ref([]);
+const savedCitiesList: Ref<savedCitiesListProps[]> = ref([]);
 
 const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
 
@@ -42,9 +52,12 @@ const addCityToLocalStorage = () => {
 
   const locationObj = {
     id: nanoid(),
-    state: route.params.state,
-    city: route.params.city,
-    coordinates: { lat: route.query.lat, lng: route.query.lng },
+    state: route.params.state as string,
+    city: route.params.city as string,
+    coordinates: {
+      lat: route.query.lat as string,
+      lng: route.query.lng as string,
+    },
   };
 
   savedCitiesList.value.push(locationObj);
@@ -58,8 +71,8 @@ const addCityToLocalStorage = () => {
 
 <style lang="scss" scoped>
 .season-image {
-  height: 80vh;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -71,5 +84,20 @@ const addCityToLocalStorage = () => {
 
 .search-input-container {
   width: 100%;
+}
+
+.image-wrapper {
+  position: relative;
+  height: 80vh;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
 }
 </style>
