@@ -35,7 +35,7 @@ import { useRouter } from "vue-router";
 import { CityData } from "../../interface";
 import getCurrentSeason from "../../utils/getCurrentSeason";
 import Input from "../atoms/Input.vue";
-import { SEASON_IMAGE_URLS } from "../../constants";
+import { MODAL_SEASON_IMAGE } from "../../constants";
 
 interface Props {
   searchCitiesList?: CityData[];
@@ -50,7 +50,7 @@ defineProps<Props>();
 const router = useRouter();
 const season = getCurrentSeason();
 
-const getImageUrl = () => SEASON_IMAGE_URLS[season];
+const getImageUrl = () => MODAL_SEASON_IMAGE[season];
 
 const redirectToCityView = (cityData: CityData) => {
   const [city, state] = cityData.place_name.split(",");

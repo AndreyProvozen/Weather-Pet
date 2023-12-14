@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import CityViewContent from "../components/CityViewContent.vue";
+import CityViewContent from "../components/cityViewComponents/CityViewContent.vue";
 </script>
 
 <style scoped></style>

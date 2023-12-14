@@ -8,8 +8,8 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 
-import LeftWeatherContent from "./cityViewComponents/LeftWeatherContent.vue";
-import RightWeatherContent from "./cityViewComponents/RightWeatherContent.vue";
+import LeftWeatherContent from "./LeftWeatherContent.vue";
+import RightWeatherContent from "./RightWeatherContent.vue";
 
 const route = useRoute();
 
