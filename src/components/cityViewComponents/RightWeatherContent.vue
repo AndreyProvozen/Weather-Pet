@@ -28,8 +28,8 @@
     </div>
     <div class="hourly-forecast">
       <div class="title-wrapper">
-        <ClockIcon />
-        <h4 class="m-0">WEEKLY FORECAST</h4>
+        <CalendarIcon />
+        <h4 class="m-0">7-DAY FORECAST</h4>
       </div>
       <div class="content-list-wrapper">
         <div
@@ -61,6 +61,7 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 import ClockIcon from "../../assets/icons/clock.svg";
+import CalendarIcon from "../../assets/icons/calendar.svg";
 
 interface Props {
   weatherData: any;
