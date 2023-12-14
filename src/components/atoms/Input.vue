@@ -1,5 +1,5 @@
 <template>
-  <div :class="`input-container ${variant}`">
+  <div :class="`input-container ${variant} ${containerClass}`">
     <input
       @input="$emit('onChange', ($event.target as HTMLInputElement).value)"
       :value="value"
@@ -12,6 +12,7 @@
 interface Props {
   variant: "filled" | "outlined" | "standard";
   value: string;
+  containerClass?: string;
 }
 
 defineProps<Props>();
