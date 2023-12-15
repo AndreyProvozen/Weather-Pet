@@ -1,6 +1,10 @@
 <template>
   <div class="container temperature-container">
-    <LeftWeatherContent />
+    <LeftWeather
+      :weatherToday="weatherData.daily[0]"
+      :currentTemperature="weatherData.current.temp"
+      :currentVisibility="weatherData.current.visibility"
+    />
     <RightWeatherContent :weatherData="weatherData" />
   </div>
 </template>
@@ -8,7 +12,7 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 
-import LeftWeatherContent from "./LeftWeatherContent.vue";
+import LeftWeather from "./LeftWeather";
 import RightWeatherContent from "./RightWeatherContent.vue";
 
 const route = useRoute();
@@ -20,7 +24,7 @@ const getWeatherData = async () => {
         route.query.lat
       }&lon=${route.query.lng}&appid=${
         import.meta.env.VITE_APP_WEATHER_API_KEY
-      }&units=metric`
+      }&units=metric&exclude=minutely`
     );
 
     const weatherResponse = await response.json();
