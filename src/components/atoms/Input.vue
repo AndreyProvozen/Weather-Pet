@@ -1,29 +1,25 @@
 <template>
   <div :class="`input-container ${variant} ${containerClass}`">
-    <component
-      :is="startInputIcon"
-      class="start-input-icon"
-      v-if="startInputIcon"
-    />
+    <component :is="startInputIcon" v-if="startInputIcon" class="start-input-icon" />
     <input
-      @input="$emit('onChange', ($event.target as HTMLInputElement).value)"
-      :value="value"
       :class="`${startInputIcon ? 'has-start-icon' : ''}`"
+      :value="value"
       v-bind="$attrs"
+      @input="$emit('onChange', ($event.target as HTMLInputElement).value)"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
 interface Props {
-  variant: "filled" | "outlined" | "standard";
+  variant: 'filled' | 'outlined' | 'standard';
   value: string;
   containerClass?: string;
   startInputIcon?: any;
 }
 
 defineProps<Props>();
-defineEmits(["onChange"]);
+defineEmits(['onChange']);
 </script>
 
 <style lang="scss" scoped>
@@ -47,6 +43,7 @@ defineEmits(["onChange"]);
     color: $pale-gray;
   }
 }
+
 .start-input-icon {
   position: absolute;
   top: 50%;
@@ -75,9 +72,10 @@ input {
 .standard {
   border-bottom: 2px solid $pale-gray;
 }
+
 .filled {
   border-bottom: 2px solid $pale-gray;
   border-radius: 4px;
-  background: rgba($color: #fff, $alpha: 0.2);
+  background: rgba($color: #fff, $alpha: 20%);
 }
 </style>

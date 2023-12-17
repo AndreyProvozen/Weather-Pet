@@ -3,16 +3,16 @@
     <LeftWeatherHeader />
     <LeftWeatherContent
       :current-temperature="currentTemperature"
-      :weatherToday="weatherToday"
-      :currentVisibility="currentVisibility"
+      :weather-today="weatherToday"
+      :current-visibility="currentVisibility"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { LeftWeatherProps } from ".";
-import LeftWeatherContent from "./LeftWeatherContent.vue";
-import LeftWeatherHeader from "./LeftWeatherHeader.vue";
+import { LeftWeatherProps } from '.';
+import LeftWeatherContent from './LeftWeatherContent.vue';
+import LeftWeatherHeader from './LeftWeatherHeader.vue';
 
 defineProps<LeftWeatherProps>();
 </script>

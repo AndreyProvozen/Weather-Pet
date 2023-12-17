@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 interface Props {
-  variant: "outlined" | "filled";
+  variant: 'outlined' | 'filled';
 }
 
 defineProps<Props>();
@@ -22,7 +22,6 @@ button {
   &.outlined {
     border: 2px solid $button-color;
     background: transparent;
-
     color: $button-color;
 
     &:hover {

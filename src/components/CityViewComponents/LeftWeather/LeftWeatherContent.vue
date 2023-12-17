@@ -3,24 +3,18 @@
     <img class="season-image" :src="getImageUrl()" alt="season background" />
     <div class="image-overlay">
       <div style="text-align: center">
-        <p class="m-0" style="font-size: 90px; line-height: 120px">
-          {{ Math.round(currentTemperature) }}&deg;
-        </p>
-        <p
-          class="m-0 capitalize-first-letter"
-          style="font-size: 30px; line-height: 40px"
-        >
+        <p class="m-0" style="font-size: 90px; line-height: 120px">{{ Math.round(currentTemperature) }}&deg;</p>
+        <p class="m-0 capitalize-first-letter" style="font-size: 30px; line-height: 40px">
           {{ weatherToday.weather[0].description }}
         </p>
         <p class="m-0 capitalize-first-letter" style="text-wrap: balance">
           The forecast for today anticipates
-          {{ weatherToday.weather[0].description }}, with temperatures expected
-          to vary between a low of {{ Math.round(weatherToday.temp.min) }}&deg;C
-          and a high of {{ Math.round(weatherToday.temp.max) }}&deg;C.
+          {{ weatherToday.weather[0].description }}, with temperatures expected to vary between a low of
+          {{ Math.round(weatherToday.temp.min) }}&deg;C and a high of {{ Math.round(weatherToday.temp.max) }}&deg;C.
         </p>
       </div>
       <div class="card-wrapper">
-        <div class="card" v-for="card in weatherDetails" :key="card.title">
+        <div v-for="card in weatherDetails" :key="card.title" class="card">
           <component :is="card.icon" />
           <div class="mx-auto">
             <h5 class="m-0">{{ card.title }}</h5>
@@ -35,38 +29,38 @@
 </template>
 
 <script setup lang="ts">
-import getCurrentSeason from "@/utils/getCurrentSeason";
-import SunriseIcon from "@/assets/icons/sunrise.svg";
-import SunsetIcon from "@/assets/icons/sunset.svg";
-import HumidityIcon from "@/assets/icons/humidity.svg";
-import EyeIcon from "@/assets/icons/eye.svg";
-import metersToKilometers from "@/utils/metersToKilometers";
-import { LeftWeatherProps } from ".";
-import { CITY_PAGE_VIEW_SEASON_IMAGE } from "@/constants";
-import dayjs from "dayjs";
+import getCurrentSeason from '@/utils/getCurrentSeason';
+import SunriseIcon from '@/assets/icons/sunrise.svg';
+import SunsetIcon from '@/assets/icons/sunset.svg';
+import HumidityIcon from '@/assets/icons/humidity.svg';
+import EyeIcon from '@/assets/icons/eye.svg';
+import metersToKilometers from '@/utils/metersToKilometers';
+import { LeftWeatherProps } from '.';
+import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
+import dayjs from 'dayjs';
 
 const props = defineProps<LeftWeatherProps>();
 
 const weatherDetails = [
   {
     icon: EyeIcon,
-    title: "Visibility",
+    title: 'Visibility',
     value: metersToKilometers(props.currentVisibility),
   },
   {
     icon: HumidityIcon,
-    title: "Humidity",
+    title: 'Humidity',
     value: `${props.weatherToday.humidity}%`,
   },
   {
     icon: SunriseIcon,
-    title: "Sunrise",
-    value: dayjs.unix(props.weatherToday.sunrise).format("HH:mm"),
+    title: 'Sunrise',
+    value: dayjs.unix(props.weatherToday.sunrise).format('HH:mm'),
   },
   {
     icon: SunsetIcon,
-    title: "Sunset",
-    value: dayjs.unix(props.weatherToday.sunset).format("HH:mm"),
+    title: 'Sunset',
+    value: dayjs.unix(props.weatherToday.sunset).format('HH:mm'),
   },
 ];
 
@@ -81,7 +75,7 @@ const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba($color: #000, $alpha: 20%);
 }
 
 .image-wrapper {
@@ -103,7 +97,7 @@ const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
   flex: 1;
   align-items: center;
   text-align: center;
-  background: rgba($color: $deep-blue, $alpha: 0.8);
+  background: rgba($color: $deep-blue, $alpha: 80%);
 
   .value {
     font-size: 28px;
@@ -123,7 +117,7 @@ const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba($color: #000, $alpha: 40%);
   border-radius: 10px;
 }
 </style>

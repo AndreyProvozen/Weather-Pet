@@ -1,22 +1,16 @@
 <template>
-  <img
-    class="modal-image"
-    alt="Add new city modal image"
-    :src="getImageUrl()"
-  />
+  <img class="modal-image" alt="Add new city modal image" :src="getImageUrl()" />
   <h4 class="modal-title">Add new city</h4>
   <Input
     type="text"
     placeholder="Search for a city or state"
     variant="outlined"
     :value="searchCitiesQuery"
-    @onChange="onInputValueChange"
+    @on-change="onInputValueChange"
   />
   <ul v-if="searchCitiesList" class="autocomplete-input">
-    <p class="m-0" v-if="searchCitiesError">
-      Something went wrong, please try again later
-    </p>
-    <p class="m-0" v-if="searchCitiesList.length === 0">No results found</p>
+    <p v-if="searchCitiesError" class="m-0">Something went wrong, please try again later</p>
+    <p v-if="searchCitiesList.length === 0" class="m-0">No results found</p>
     <template v-else>
       <li
         v-for="cityData in searchCitiesList"
@@ -31,20 +25,20 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router";
-import { CityData } from "@/interface";
-import getCurrentSeason from "@/utils/getCurrentSeason";
-import Input from "../atoms/Input.vue";
-import { MODAL_SEASON_IMAGE } from "@/constants";
+import { useRouter } from 'vue-router';
+import { CityData } from '@/interface';
+import getCurrentSeason from '@/utils/getCurrentSeason';
+import Input from '../atoms/Input.vue';
+import { MODAL_SEASON_IMAGE } from '@/constants';
 
 interface Props {
   searchCitiesList?: CityData[];
   searchCitiesError: boolean;
   searchCitiesQuery: string;
-  onInputValueChange: (value: Event) => void;
+  onInputValueChange: () => void;
 }
 
-defineEmits(["inputChange"]);
+defineEmits(['inputChange']);
 defineProps<Props>();
 
 const router = useRouter();
@@ -53,11 +47,11 @@ const season = getCurrentSeason();
 const getImageUrl = () => MODAL_SEASON_IMAGE[season];
 
 const redirectToCityView = (cityData: CityData) => {
-  const [city, state] = cityData.place_name.split(",");
+  const [city, state] = cityData.place_name.split(',');
 
   router.push({
-    name: "cityView",
-    params: { city, state: state.replaceAll(" ", "") },
+    name: 'cityView',
+    params: { city, state: state.replaceAll(' ', '') },
     query: {
       lng: cityData.geometry.coordinates[0],
       lat: cityData.geometry.coordinates[1],
@@ -75,7 +69,7 @@ const redirectToCityView = (cityData: CityData) => {
   }
 
   &-title {
-    color: rgb(2, 1, 1);
+    color: $deep-blue;
     margin: 16px 0;
   }
 

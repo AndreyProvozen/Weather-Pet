@@ -1,29 +1,25 @@
 <template>
   <div style="display: flex; margin-bottom: 20px; gap: 10px">
     <Input
-      containerClass="search-input-container"
+      container-class="search-input-container"
       variant="outlined"
-      :startInputIcon="LocationIcon"
+      :start-input-icon="LocationIcon"
       :value="`${route.params.state}, ${route.params.city}`"
     />
-    <Button
-      @click="addCityToLocalStorage"
-      variant="filled"
-      style="padding: 4px 8px"
-    >
+    <Button variant="filled" style="padding: 4px 8px" @click="addCityToLocalStorage">
       <BookmarkPlusIcon />
     </Button>
   </div>
 </template>
 
 <script setup lang="ts">
-import BookmarkPlusIcon from "@/assets/icons/bookmark-plus.svg";
-import LocationIcon from "@/assets/icons/location.svg";
-import { useRoute } from "vue-router";
-import Button from "../../atoms/Button.vue";
-import { nanoid } from "nanoid";
-import { Ref, ref } from "vue";
-import Input from "../../atoms/Input.vue";
+import BookmarkPlusIcon from '@/assets/icons/bookmark-plus.svg';
+import LocationIcon from '@/assets/icons/location.svg';
+import { useRoute } from 'vue-router';
+import Button from '../../atoms/Button.vue';
+import { nanoid } from 'nanoid';
+import { Ref, ref } from 'vue';
+import Input from '../../atoms/Input.vue';
 
 interface savedCitiesListProps {
   id: string;
@@ -37,7 +33,7 @@ const route = useRoute();
 const savedCitiesList: Ref<savedCitiesListProps[]> = ref([]);
 
 const addCityToLocalStorage = () => {
-  const citiesList = localStorage.getItem("saved_cities_list") || "";
+  const citiesList = localStorage.getItem('saved_cities_list') || '';
 
   if (citiesList) savedCitiesList.value = JSON.parse(citiesList);
 
@@ -53,10 +49,7 @@ const addCityToLocalStorage = () => {
 
   savedCitiesList.value.push(locationObj);
 
-  localStorage.setItem(
-    "saved_cities_list",
-    JSON.stringify(savedCitiesList.value)
-  );
+  localStorage.setItem('saved_cities_list', JSON.stringify(savedCitiesList.value));
 };
 </script>
 

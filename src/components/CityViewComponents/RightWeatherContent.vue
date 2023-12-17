@@ -7,14 +7,12 @@
       </div>
       <div class="content-list-wrapper">
         <div
-          class="content-list-item"
           v-for="(hourWeather, i) in weatherData.hourly.slice(0, 24)"
           :key="hourWeather.dt"
+          class="content-list-item"
         >
           <p class="m-0">
-            {{
-              i === 0 ? "Now" : dayjs(hourWeather.currentTime).format("HH:mm")
-            }}
+            {{ i === 0 ? 'Now' : dayjs(hourWeather.currentTime).format('HH:mm') }}
           </p>
           <p class="temperature">
             {{ `${Math.round(hourWeather.temp)}&deg;` }}
@@ -32,18 +30,12 @@
         <h4 class="m-0">7-DAY FORECAST</h4>
       </div>
       <div class="content-list-wrapper">
-        <div
-          class="content-list-item"
-          v-for="(dailyWeather, i) in weatherData.daily"
-          :key="dailyWeather.dt"
-        >
+        <div v-for="(dailyWeather, i) in weatherData.daily" :key="dailyWeather.dt" class="content-list-item">
           <p class="m-0">
-            {{
-              i === 0 ? "Today" : dayjs(dailyWeather.dt * 1000).format("ddd")
-            }}
+            {{ i === 0 ? 'Today' : dayjs(dailyWeather.dt * 1000).format('ddd') }}
           </p>
           <p style="margin: 10px 0">
-            {{ dayjs(dailyWeather.dt * 1000).format("DD/MM") }}
+            {{ dayjs(dailyWeather.dt * 1000).format('DD/MM') }}
           </p>
           <p class="temperature">
             {{ `${Math.round(dailyWeather.temp.day)}&deg;` }}
@@ -59,9 +51,9 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from "dayjs";
-import ClockIcon from "@/assets/icons/clock.svg";
-import CalendarIcon from "@/assets/icons/calendar.svg";
+import dayjs from 'dayjs';
+import ClockIcon from '@/assets/icons/clock.svg';
+import CalendarIcon from '@/assets/icons/calendar.svg';
 
 interface Props {
   weatherData: any;
@@ -91,7 +83,7 @@ defineProps<Props>();
 }
 
 .hourly-forecast {
-  background: rgba($color: $deep-blue, $alpha: 0.4);
+  background: rgba($color: $deep-blue, $alpha: 40%);
   padding: 16px;
   border-radius: 10px;
 }

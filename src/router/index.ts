@@ -1,16 +1,16 @@
-import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import CityView from "../views/CityView.vue";
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import CityView from '../views/CityView.vue';
 
 const routes = [
   {
-    path: "/",
-    name: "homeView",
+    path: '/',
+    name: 'homeView',
     component: HomeView,
   },
   {
-    path: "/weather/:state/:city",
-    name: "cityView",
+    path: '/weather/:state/:city',
+    name: 'cityView',
     component: CityView,
   },
 ];

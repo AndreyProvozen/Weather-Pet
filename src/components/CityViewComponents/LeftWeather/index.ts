@@ -1,4 +1,4 @@
-export { default } from "./LeftWeather.vue";
+export { default } from './LeftWeather.vue';
 
 export interface LeftWeatherProps {
   currentTemperature: number;

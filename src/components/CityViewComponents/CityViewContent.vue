@@ -1,27 +1,25 @@
 <template>
   <div class="container temperature-container">
     <LeftWeather
-      :weatherToday="weatherData.daily[0]"
-      :currentTemperature="weatherData.current.temp"
-      :currentVisibility="weatherData.current.visibility"
+      :weather-today="weatherData.daily[0]"
+      :current-temperature="weatherData.current.temp"
+      :current-visibility="weatherData.current.visibility"
     />
-    <RightWeatherContent :weatherData="weatherData" />
+    <RightWeatherContent :weather-data="weatherData" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useRoute } from "vue-router";
-import LeftWeather from "./LeftWeather";
-import RightWeatherContent from "./RightWeatherContent.vue";
+import { useRoute } from 'vue-router';
+import LeftWeather from './LeftWeather';
+import RightWeatherContent from './RightWeatherContent.vue';
 
 const route = useRoute();
 
 const getWeatherData = async () => {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${
-        route.query.lat
-      }&lon=${route.query.lng}&appid=${
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lng}&appid=${
         import.meta.env.VITE_APP_WEATHER_API_KEY
       }&units=metric&exclude=minutely`
     );
