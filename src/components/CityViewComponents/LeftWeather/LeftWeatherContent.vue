@@ -19,62 +19,13 @@
           and a high of {{ Math.round(weatherToday.temp.max) }}&deg;C.
         </p>
       </div>
-      <div
-        style="
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          gap: 20px;
-        "
-      >
-        <div class="card">
-          <EyeIcon />
-          <div style="margin: 0 auto">
-            <h5 class="m-0">VISIBILITY</h5>
-            <p
-              class="m-0"
-              style="margin-left: auto; margin-top: 5px; font-size: 30px"
-            >
-              {{ metersToKilometers(currentVisibility) }}
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <HumidityIcon />
-          <div style="margin: 0 auto">
-            <h5 class="m-0">HUMIDITY</h5>
-            <p
-              class="m-0"
-              style="margin-left: auto; margin-top: 5px; font-size: 30px"
-            >
-              {{ weatherToday.humidity }}%
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <SunriseIcon />
-          <div style="margin: 0 auto">
-            <h5 class="m-0">SUNRISE</h5>
-            <p
-              class="m-0"
-              style="margin-left: auto; margin-top: 5px; font-size: 30px"
-            >
-              {{ dayjs.unix(weatherToday.sunrise).format("HH:mm") }}
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <SunsetIcon />
-          <div style="margin: 0 auto">
-            <h5 class="m-0">SUNSET</h5>
-            <p
-              class="m-0"
-              style="margin-left: auto; margin-top: 5px; font-size: 30px"
-            >
-              {{ dayjs.unix(weatherToday.sunset).format("HH:mm") }}
+      <div class="card-wrapper">
+        <div class="card" v-for="card in weatherDetails" :key="card.title">
+          <component :is="card.icon" />
+          <div class="mx-auto">
+            <h5 class="m-0">{{ card.title }}</h5>
+            <p class="m-0 value">
+              {{ card.value }}
             </p>
           </div>
         </div>
@@ -95,7 +46,29 @@ import { CITY_PAGE_VIEW_SEASON_IMAGE } from "../../../constants";
 import dayjs from "dayjs";
 
 const props = defineProps<LeftWeatherProps>();
-console.log(props.weatherToday);
+
+const weatherDetails = [
+  {
+    icon: EyeIcon,
+    title: "Visibility",
+    value: metersToKilometers(props.currentVisibility),
+  },
+  {
+    icon: HumidityIcon,
+    title: "Humidity",
+    value: `${props.weatherToday.humidity}%`,
+  },
+  {
+    icon: SunriseIcon,
+    title: "Sunrise",
+    value: dayjs.unix(props.weatherToday.sunrise).format("HH:mm"),
+  },
+  {
+    icon: SunsetIcon,
+    title: "Sunset",
+    value: dayjs.unix(props.weatherToday.sunset).format("HH:mm"),
+  },
+];
 
 const season = getCurrentSeason();
 
@@ -116,6 +89,13 @@ const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
   height: 80vh;
 }
 
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 .card {
   padding: 15px;
   border-radius: 10px;
@@ -124,6 +104,12 @@ const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
   align-items: center;
   text-align: center;
   background: rgba($color: $deep-blue, $alpha: 0.8);
+
+  .value {
+    font-size: 28px;
+    margin-top: 5px;
+    margin-left: auto;
+  }
 }
 
 .image-overlay {

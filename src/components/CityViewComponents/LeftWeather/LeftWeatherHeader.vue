@@ -3,6 +3,7 @@
     <Input
       containerClass="search-input-container"
       variant="outlined"
+      :startInputIcon="LocationIcon"
       :value="`${route.params.state}, ${route.params.city}`"
     />
     <Button
@@ -17,6 +18,7 @@
 
 <script setup lang="ts">
 import BookmarkPlusIcon from "../../../assets/icons/bookmark-plus.svg";
+import LocationIcon from "../../../assets/icons/location.svg";
 import { useRoute } from "vue-router";
 import Button from "../../atoms/Button.vue";
 import { nanoid } from "nanoid";

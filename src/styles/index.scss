@@ -21,6 +21,11 @@
   margin: 0;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .capitalize-first-letter::first-letter {
   text-transform: uppercase;
 }

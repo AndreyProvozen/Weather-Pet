@@ -8,7 +8,7 @@
       <div class="content-list-wrapper">
         <div
           class="content-list-item"
-          v-for="(hourWeather, i) in weatherData.hourly"
+          v-for="(hourWeather, i) in weatherData.hourly.slice(0, 24)"
           :key="hourWeather.dt"
         >
           <p class="m-0">
