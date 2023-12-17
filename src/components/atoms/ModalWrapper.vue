@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import CloseIcon from "../../assets/icons/close.svg";
+import CloseIcon from "@/assets/icons/close.svg";
 import Button from "./Button.vue";
 
 const emit = defineEmits(["close-modal", "submit-modal"]);

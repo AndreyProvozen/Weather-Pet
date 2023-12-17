@@ -22,8 +22,8 @@
 import ModalWrapper from "@/components/atoms/ModalWrapper.vue";
 import AddCityModal from "@/components/modals/AddCityModal.vue";
 import { Ref, ref } from "vue";
-import { CityData } from "../interface";
-import Button from "../components/atoms/Button.vue";
+import { CityData } from "@/interface";
+import Button from "@/components/atoms/Button.vue";
 
 const isAddCityModalOpen = ref(false);
 const searchQuery = ref("");

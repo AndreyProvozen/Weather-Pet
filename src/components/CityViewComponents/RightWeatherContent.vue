@@ -60,8 +60,8 @@
 
 <script setup lang="ts">
 import dayjs from "dayjs";
-import ClockIcon from "../../assets/icons/clock.svg";
-import CalendarIcon from "../../assets/icons/calendar.svg";
+import ClockIcon from "@/assets/icons/clock.svg";
+import CalendarIcon from "@/assets/icons/calendar.svg";
 
 interface Props {
   weatherData: any;

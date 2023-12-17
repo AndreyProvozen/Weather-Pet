@@ -35,14 +35,14 @@
 </template>
 
 <script setup lang="ts">
-import getCurrentSeason from "../../../utils/getCurrentSeason";
-import SunriseIcon from "../../../assets/icons/sunrise.svg";
-import SunsetIcon from "../../../assets/icons/sunset.svg";
-import HumidityIcon from "../../../assets/icons/humidity.svg";
-import EyeIcon from "../../../assets/icons/eye.svg";
-import metersToKilometers from "../../../utils/metersToKilometers";
+import getCurrentSeason from "@/utils/getCurrentSeason";
+import SunriseIcon from "@/assets/icons/sunrise.svg";
+import SunsetIcon from "@/assets/icons/sunset.svg";
+import HumidityIcon from "@/assets/icons/humidity.svg";
+import EyeIcon from "@/assets/icons/eye.svg";
+import metersToKilometers from "@/utils/metersToKilometers";
 import { LeftWeatherProps } from ".";
-import { CITY_PAGE_VIEW_SEASON_IMAGE } from "../../../constants";
+import { CITY_PAGE_VIEW_SEASON_IMAGE } from "@/constants";
 import dayjs from "dayjs";
 
 const props = defineProps<LeftWeatherProps>();

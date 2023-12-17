@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import BookmarkPlusIcon from "../../../assets/icons/bookmark-plus.svg";
-import LocationIcon from "../../../assets/icons/location.svg";
+import BookmarkPlusIcon from "@/assets/icons/bookmark-plus.svg";
+import LocationIcon from "@/assets/icons/location.svg";
 import { useRoute } from "vue-router";
 import Button from "../../atoms/Button.vue";
 import { nanoid } from "nanoid";

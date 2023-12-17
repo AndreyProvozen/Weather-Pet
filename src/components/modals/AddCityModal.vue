@@ -32,10 +32,10 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { CityData } from "../../interface";
-import getCurrentSeason from "../../utils/getCurrentSeason";
+import { CityData } from "@/interface";
+import getCurrentSeason from "@/utils/getCurrentSeason";
 import Input from "../atoms/Input.vue";
-import { MODAL_SEASON_IMAGE } from "../../constants";
+import { MODAL_SEASON_IMAGE } from "@/constants";
 
 interface Props {
   searchCitiesList?: CityData[];
