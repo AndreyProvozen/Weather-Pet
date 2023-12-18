@@ -17,7 +17,6 @@ import BookmarkPlusIcon from '@/assets/icons/bookmark-plus.svg';
 import LocationIcon from '@/assets/icons/location.svg';
 import { useRoute } from 'vue-router';
 import Button from '../../atoms/Button.vue';
-import { nanoid } from 'nanoid';
 import { Ref, ref } from 'vue';
 import Input from '../../atoms/Input.vue';
 
@@ -38,7 +37,7 @@ const addCityToLocalStorage = () => {
   if (citiesList) savedCitiesList.value = JSON.parse(citiesList);
 
   const locationObj = {
-    id: nanoid(),
+    id: `${route.params.state}&${route.params.city}`,
     state: route.params.state as string,
     city: route.params.city as string,
     coordinates: {
