@@ -94,6 +94,7 @@ const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
   padding: 15px;
   border-radius: 10px;
   display: flex;
+  gap: 10px;
   flex: 1;
   align-items: center;
   text-align: center;

@@ -35,7 +35,7 @@ interface Props {
   searchCitiesList?: CityData[];
   searchCitiesError: boolean;
   searchCitiesQuery: string;
-  onInputValueChange: () => void;
+  onInputValueChange: (value: string) => void;
 }
 
 defineEmits(['inputChange']);
