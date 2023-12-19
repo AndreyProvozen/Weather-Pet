@@ -16,23 +16,17 @@
 import BookmarkPlusIcon from '@/assets/icons/bookmark-plus.svg';
 import LocationIcon from '@/assets/icons/location.svg';
 import { useRoute } from 'vue-router';
-import Button from '../../atoms/Button.vue';
+import Button from '@/atoms/Button.vue';
 import { Ref, ref } from 'vue';
-import Input from '../../atoms/Input.vue';
-
-interface savedCitiesListProps {
-  id: string;
-  state: string;
-  city: string;
-  coordinates: { lat: string; lng: string };
-}
+import Input from '@/atoms/Input.vue';
+import { CityListItemData } from '@/interface';
 
 const route = useRoute();
 
-const savedCitiesList: Ref<savedCitiesListProps[]> = ref([]);
+const savedCitiesList: Ref<CityListItemData[]> = ref([]);
 
 const addCityToLocalStorage = () => {
-  const citiesList = localStorage.getItem('saved_cities_list') || '';
+  const citiesList = localStorage.getItem('saved_cities_list') || '[]';
 
   if (citiesList) savedCitiesList.value = JSON.parse(citiesList);
 
@@ -41,8 +35,8 @@ const addCityToLocalStorage = () => {
     state: route.params.state as string,
     city: route.params.city as string,
     coordinates: {
-      lat: route.query.lat as string,
-      lng: route.query.lng as string,
+      lat: Number(route.query.lat),
+      lon: Number(route.query.lon),
     },
   };
 

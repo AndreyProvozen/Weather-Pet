@@ -2,7 +2,7 @@
   <div>
     <Button variant="filled" @click="toggleCreateModal"> Open add City modal </Button>
   </div>
-
+  <HomeViewContainer />
   <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="toggleCreateModal">
     <AddCityModal
       :search-cities-list="searchCitiesList"
@@ -14,11 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-import ModalWrapper from '@/components/atoms/ModalWrapper.vue';
+import ModalWrapper from '@/atoms/ModalWrapper.vue';
+import HomeViewContainer from '@/components/HomeViewComponents';
 import AddCityModal from '@/components/modals/AddCityModal.vue';
 import { Ref, ref } from 'vue';
 import { CityData } from '@/interface';
-import Button from '@/components/atoms/Button.vue';
+import Button from '@/atoms/Button.vue';
 
 const isAddCityModalOpen = ref(false);
 const searchQuery = ref('');

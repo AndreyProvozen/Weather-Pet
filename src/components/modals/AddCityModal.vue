@@ -28,7 +28,7 @@
 import { useRouter } from 'vue-router';
 import { CityData } from '@/interface';
 import getCurrentSeason from '@/utils/getCurrentSeason';
-import Input from '../atoms/Input.vue';
+import Input from '@/atoms/Input.vue';
 import { MODAL_SEASON_IMAGE } from '@/constants';
 
 interface Props {
@@ -53,7 +53,7 @@ const redirectToCityView = (cityData: CityData) => {
     name: 'cityView',
     params: { city, state: state.replaceAll(' ', '') },
     query: {
-      lng: cityData.geometry.coordinates[0],
+      lon: cityData.geometry.coordinates[0],
       lat: cityData.geometry.coordinates[1],
     },
   });

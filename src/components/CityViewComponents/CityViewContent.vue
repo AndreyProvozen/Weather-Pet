@@ -19,7 +19,7 @@ const route = useRoute();
 const getWeatherData = async () => {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lng}&appid=${
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lon}&appid=${
         import.meta.env.VITE_APP_WEATHER_API_KEY
       }&units=metric&exclude=minutely`
     );
