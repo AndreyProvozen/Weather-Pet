@@ -1,8 +1,10 @@
 <template>
   <Suspense>
     <template #fallback><p>Loading</p></template>
-    <div v-for="city in savedCities" :key="city.id">
-      <CityCard :city-data="city" />
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 20px">
+      <div v-for="city in savedCities" :key="city.id">
+        <CityCard :city-data="city" />
+      </div>
     </div>
   </Suspense>
 </template>

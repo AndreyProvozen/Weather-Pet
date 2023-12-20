@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <Button variant="filled" @click="toggleCreateModal"> Open add City modal </Button>
+  <div class="container">
+    <div>
+      <Button variant="filled" @click="toggleCreateModal"> Open add City modal </Button>
+    </div>
+    <HomeViewContainer />
+    <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="toggleCreateModal">
+      <AddCityModal
+        :search-cities-list="searchCitiesList"
+        :search-cities-error="searchCitiesError"
+        :search-cities-query="searchQuery"
+        :on-input-value-change="onInputValueChange"
+      />
+    </ModalWrapper>
   </div>
-  <HomeViewContainer />
-  <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="toggleCreateModal">
-    <AddCityModal
-      :search-cities-list="searchCitiesList"
-      :search-cities-error="searchCitiesError"
-      :search-cities-query="searchQuery"
-      :on-input-value-change="onInputValueChange"
-    />
-  </ModalWrapper>
 </template>
 
 <script lang="ts" setup>

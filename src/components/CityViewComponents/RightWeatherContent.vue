@@ -19,7 +19,7 @@
           </p>
           <img
             style="width: 50px; height: 50px"
-            :src="`https://openweathermap.org/img/wn/${hourWeather.weather[0].icon}@2x.png`"
+            :src="`/src/assets/weatherIcon/colorful/${hourWeather.weather[0].icon}.png`"
           />
         </div>
       </div>
@@ -32,17 +32,17 @@
       <div class="content-list-wrapper">
         <div v-for="(dailyWeather, i) in weatherData.daily" :key="dailyWeather.dt" class="content-list-item">
           <p class="m-0">
-            {{ i === 0 ? 'Today' : dayjs(dailyWeather.dt * 1000).format('ddd') }}
+            {{ i === 0 ? 'Today' : dayjs.unix(dailyWeather.dt).format('ddd') }}
           </p>
           <p style="margin: 10px 0">
-            {{ dayjs(dailyWeather.dt * 1000).format('DD/MM') }}
+            {{ dayjs.unix(dailyWeather.dt).format('DD/MM') }}
           </p>
           <p class="temperature">
             {{ `${Math.round(dailyWeather.temp.day)}&deg;` }}
           </p>
           <img
             style="width: 50px; height: 50px"
-            :src="`https://openweathermap.org/img/wn/${dailyWeather.weather[0].icon}@2x.png`"
+            :src="`/src/assets/weatherIcon/colorful/${dailyWeather.weather[0].icon}.png`"
           />
         </div>
       </div>
