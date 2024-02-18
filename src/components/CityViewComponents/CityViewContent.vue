@@ -52,6 +52,5 @@ console.log(weatherData);
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  align-items: flex-start;
 }
 </style>

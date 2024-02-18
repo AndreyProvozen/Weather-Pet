@@ -115,8 +115,6 @@ const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
   flex-direction: column;
   justify-content: space-between;
   top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
   background-color: rgba($color: #000, $alpha: 40%);
   border-radius: 10px;

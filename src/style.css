@@ -10,3 +10,9 @@ body {
   margin: 0;
   background-color: #393e46;
 }
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}

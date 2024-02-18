@@ -2,7 +2,7 @@
   <div class="navigation">
     <h1 class="logo">Weather-Pet</h1>
     <div class="right-navigation">
-      <Link href="#">Main</Link>
+      <RouterLink to="/">Main</RouterLink>
       <Link href="#">Test</Link>
     </div>
   </div>

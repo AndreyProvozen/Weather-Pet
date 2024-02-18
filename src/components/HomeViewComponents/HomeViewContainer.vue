@@ -13,9 +13,9 @@
 import { Ref, ref } from 'vue';
 
 import CityCard from './CityCard.vue';
-import { CityListItemData } from '@/interface';
+import { CityListDataWithWeather } from '@/interface';
 
-const savedCities: Ref<CityListItemData[]> = ref([]);
+const savedCities: Ref<CityListDataWithWeather[]> = ref([]);
 
 const getCities = async () => {
   try {

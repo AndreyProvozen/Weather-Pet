@@ -69,5 +69,8 @@ export interface CityListItemData {
   state: string;
   city: string;
   coordinates: CoordinatesProps;
-  weather?: WeatherData;
+}
+
+export interface CityListDataWithWeather extends CityListItemData {
+  weather: WeatherData;
 }

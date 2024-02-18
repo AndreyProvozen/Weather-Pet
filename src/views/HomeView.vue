@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <div>
-      <Button variant="filled" @click="toggleCreateModal"> Open add City modal </Button>
-    </div>
+    <Button variant="filled" @click="toggleCreateModal"> Open add City modal </Button>
     <HomeViewContainer />
     <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="toggleCreateModal">
       <AddCityModal
