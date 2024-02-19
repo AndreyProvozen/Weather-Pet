@@ -53,5 +53,3 @@ const cardBackgroundColor = isDayTime ? '#f2b107' : '#000066';
 
 console.log(props.cityData.weather?.weather[0].main);
 </script>
-
-<style scoped></style>

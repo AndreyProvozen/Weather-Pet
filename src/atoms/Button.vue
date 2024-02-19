@@ -4,10 +4,10 @@
 
 <script lang="ts" setup>
 interface Props {
-  variant: 'outlined' | 'filled';
+  variant?: 'outlined' | 'filled';
 }
 
-defineProps<Props>();
+withDefaults(defineProps<Props>(), { variant: 'outlined' });
 </script>
 
 <style lang="scss" scoped>

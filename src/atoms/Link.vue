@@ -1,8 +1,15 @@
 <template>
-  <a v-bind="$attrs"><slot /></a>
+  <RouterLink v-bind="$attrs" :to="to"><slot /></RouterLink>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { RouterLink } from 'vue-router';
+interface Props {
+  to: string;
+}
+
+defineProps<Props>();
+</script>
 
 <style lang="scss" scoped>
 a {

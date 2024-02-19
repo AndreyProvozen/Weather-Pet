@@ -1,7 +1,7 @@
 <template>
   <Suspense>
     <template #default>
-      <CityViewContent />
+      <CityViewContainer />
     </template>
     <template #fallback>
       <Loader />
@@ -10,6 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import CityViewContent from '@/components/CityViewComponents.vue';
+import CityViewContainer from '@/containers/CityViewContainer.vue';
 import Loader from '@/atoms/Loader.vue';
 </script>

@@ -4,8 +4,6 @@
   </div>
 </template>
 
-<script></script>
-
 <style lang="scss" scoped>
 .white-overlay {
   display: flex;
@@ -17,7 +15,7 @@
   width: 100%;
   height: 100%;
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: $white-overlay;
 }
 
 .spinner {

@@ -54,7 +54,7 @@
       </div>
       <div style="margin-top: 5px">
         <p class="m-0" style="font-size: 30px">{{ weatherData.daily[0].uvi.toFixed(1) }}</p>
-        <h4 style="margin: 5px 0 10px 0; font-weight: 400">{{ uvIndexData.label }}</h4>
+        <h4 style="margin: 5px 0 10px; font-weight: 400">{{ uvIndexData.label }}</h4>
         <div class="block" />
         <p class="subtitle">{{ uvIndexData.recommendations }}</p>
       </div>
@@ -84,6 +84,7 @@ const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
   align-items: center;
   overflow-x: scroll;
 }
+
 .block {
   border-radius: 30px;
   height: 8px;

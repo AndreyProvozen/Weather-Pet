@@ -2,8 +2,8 @@
   <div class="navigation">
     <h1 class="logo">Weather-Pet</h1>
     <div class="right-navigation">
-      <RouterLink to="/">Main</RouterLink>
-      <Link href="#">Test</Link>
+      <Link to="/">Main</Link>
+      <Link to="#">Test</Link>
     </div>
   </div>
 </template>

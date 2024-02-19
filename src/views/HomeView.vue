@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
 import ModalWrapper from '@/atoms/ModalWrapper.vue';
-import HomeViewContainer from '@/components/HomeViewComponents';
+import HomeViewContainer from '@/containers/HomeViewContainer.vue';
 import AddCityModal from '@/components/modals/AddCityModal.vue';
 import { Ref, ref } from 'vue';
 import { CityData } from '@/interface';
@@ -70,7 +70,6 @@ const searchCitiesAutoComplete = async () => {
   color: black;
   margin: 8px 0 0;
   border-radius: 4px;
-  box-sizing: border-box;
   box-shadow: 0 4px 8px rgba($color: #000, $alpha: 10%);
 }
 </style>

@@ -109,7 +109,6 @@ const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
 
 .image-overlay {
   position: absolute;
-  box-sizing: border-box;
   padding: 60px 20px;
   display: flex;
   flex-direction: column;

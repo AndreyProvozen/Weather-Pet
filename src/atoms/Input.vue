@@ -1,8 +1,8 @@
 <template>
-  <div :class="`input-container ${variant} ${containerClass}`">
+  <div :class="['input-container', variant, containerClass]">
     <component :is="startInputIcon" v-if="startInputIcon" class="start-input-icon" />
     <input
-      :class="`${startInputIcon ? 'has-start-icon' : ''}`"
+      :class="{ 'has-start-icon': startInputIcon }"
       :value="value"
       v-bind="$attrs"
       @input="$emit('onChange', ($event.target as HTMLInputElement).value)"
@@ -12,13 +12,18 @@
 
 <script lang="ts" setup>
 interface Props {
-  variant: 'filled' | 'outlined' | 'standard';
   value: string;
+  variant?: 'filled' | 'outlined' | 'standard';
   containerClass?: string;
   startInputIcon?: any;
 }
 
-defineProps<Props>();
+withDefaults(defineProps<Props>(), {
+  variant: 'standard',
+  containerClass: '',
+  startInputIcon: undefined,
+});
+
 defineEmits(['onChange']);
 </script>
 
@@ -28,7 +33,7 @@ defineEmits(['onChange']);
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: darken($color: $pale-gray, $amount: 10%);
+    border-color: darken($pale-gray, 10%);
   }
 
   &:focus-within {
@@ -54,10 +59,9 @@ defineEmits(['onChange']);
 input {
   font-size: 16px;
   padding: 8px 16px;
-  box-sizing: border-box;
   width: 100%;
   border: none;
-  outline: 0;
+  outline: none;
 
   &.has-start-icon {
     padding-left: 32px;
