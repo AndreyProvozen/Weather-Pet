@@ -3,9 +3,10 @@ $light-charcoal: #393e46;
 $pale-gray: #d3d3d3;
 $white-overlay: rgb(255 255 255 / 50%);
 $light-gray: #eee;
-$semi-transparent-black: rgba($color: #000,
-    $alpha: 50%,
-  );
+$semi-transparent-black: rgba(
+  $color: #000,
+  $alpha: 50%,
+);
 
 // Primary
 $button-color: #535bf2;

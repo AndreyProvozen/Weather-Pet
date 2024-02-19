@@ -1,16 +1,16 @@
 <template>
   <Teleport to="body">
     <Transition name="modal-outer">
-      <div v-show="isModalOpen" class="modal-wrapper" @mousedown="handleClickOutside">
+      <div v-show="isModalOpen" class="modal-wrapper" @click="handleClickOutside">
         <Transition name="modal-inner">
-          <div v-if="isModalOpen" class="modal-content">
-            <CloseIcon class="close-icon" @click="$emit('close-modal')" />
+          <form v-if="isModalOpen" action="" class="modal-content" @submit="submitForm" @click.stop>
+            <CloseIcon class="close-icon" @click="closeModal" />
             <slot />
             <div class="btn-wrapper">
-              <Button variant="outlined" @click="$emit('close-modal')"> Close </Button>
-              <Button variant="filled" @click="$emit('submit-modal')"> Submit </Button>
+              <Button type="button" @click="closeModal"> Close </Button>
+              <Button variant="filled" type="submit"> Submit </Button>
             </div>
-          </div>
+          </form>
         </Transition>
       </div>
     </Transition>
@@ -20,20 +20,35 @@
 <script setup lang="ts">
 import CloseIcon from '@/assets/icons/close.svg';
 import Button from './Button.vue';
+import { onMounted, onUnmounted } from 'vue';
 
 interface Props {
   isModalOpen: boolean;
 }
 
 const emit = defineEmits(['close-modal', 'submit-modal']);
-
 const props = defineProps<Props>();
+
+onMounted(() => {
+  window.addEventListener('keydown', handleEscapeKey);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleEscapeKey);
+});
 
 const handleClickOutside = (event: MouseEvent) => {
   if (props.isModalOpen && !(event.target as HTMLElement).closest('.modal-content')) {
     emit('close-modal');
   }
 };
+
+const handleEscapeKey = (event: KeyboardEvent) => {
+  if (event.key === 'Escape' && props.isModalOpen) closeModal();
+};
+
+const submitForm = () => emit('submit-modal');
+const closeModal = () => emit('close-modal');
 </script>
 
 <style lang="scss" scoped>
@@ -47,7 +62,7 @@ const handleClickOutside = (event: MouseEvent) => {
 }
 
 .modal-wrapper {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +78,7 @@ const handleClickOutside = (event: MouseEvent) => {
   display: flex;
   gap: 10px;
   margin-top: 16px;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .modal-content {
@@ -74,7 +89,7 @@ const handleClickOutside = (event: MouseEvent) => {
   padding: 32px;
   border-radius: 16px;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 // Transition

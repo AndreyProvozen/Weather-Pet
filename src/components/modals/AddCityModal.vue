@@ -4,8 +4,8 @@
   <Input
     type="text"
     placeholder="Search for a city or state"
-    variant="outlined"
     :value="searchCitiesQuery"
+    required
     @on-change="onInputValueChange"
   />
   <ul v-if="searchCitiesList" class="autocomplete-input">

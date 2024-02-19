@@ -19,7 +19,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  variant: 'standard',
+  variant: 'outlined',
   containerClass: '',
   startInputIcon: undefined,
 });

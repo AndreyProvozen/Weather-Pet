@@ -1,7 +1,5 @@
 <template>
-  <div class="white-overlay">
-    <div class="spinner"></div>
-  </div>
+  <div class="white-overlay"><div class="spinner" /></div>
 </template>
 
 <style lang="scss" scoped>

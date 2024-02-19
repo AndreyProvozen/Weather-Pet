@@ -4,6 +4,7 @@
 
 <script lang="ts" setup>
 import { RouterLink } from 'vue-router';
+
 interface Props {
   to: string;
 }

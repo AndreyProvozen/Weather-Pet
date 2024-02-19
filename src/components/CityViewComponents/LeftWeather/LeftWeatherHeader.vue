@@ -2,7 +2,6 @@
   <div style="display: flex; margin-bottom: 20px; gap: 10px">
     <Input
       container-class="search-input-container"
-      variant="outlined"
       :start-input-icon="LocationIcon"
       :value="`${route.params.state}, ${route.params.city}`"
     />

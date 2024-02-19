@@ -1,4 +1,17 @@
-const uvIndexData = {
+interface UVIndexCategory {
+  label: string;
+  recommendations: string;
+}
+
+interface UVIndexData {
+  low: UVIndexCategory;
+  moderate: UVIndexCategory;
+  high: UVIndexCategory;
+  veryHigh: UVIndexCategory;
+  extreme: UVIndexCategory;
+}
+
+const uvIndexData: UVIndexData = {
   low: {
     label: 'Low',
     recommendations:
@@ -26,20 +39,13 @@ const uvIndexData = {
   },
 };
 
-const getUVIndexCategory = (uvIndex: number) => {
-  if (uvIndex < 3) {
-    return uvIndexData['low'];
-  }
-  if (uvIndex < 6) {
-    return uvIndexData['moderate'];
-  }
-  if (uvIndex < 8) {
-    return uvIndexData['high'];
-  }
-  if (uvIndex < 11) {
-    return uvIndexData['veryHigh'];
-  }
-  return uvIndexData['extreme'];
+const getUVIndexCategory = (uvIndex: number): UVIndexCategory => {
+  if (uvIndex < 3) return uvIndexData.low;
+  if (uvIndex < 6) return uvIndexData.moderate;
+  if (uvIndex < 8) return uvIndexData.high;
+  if (uvIndex < 11) return uvIndexData.veryHigh;
+
+  return uvIndexData.extreme;
 };
 
 export default getUVIndexCategory;
