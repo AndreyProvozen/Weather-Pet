@@ -17,8 +17,13 @@ import LeftWeatherHeader from './LeftWeatherHeader.vue';
 defineProps<LeftWeatherProps>();
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .wrapper {
   width: 50%;
+
+  @media (max-width: $breakpoint-lg) {
+    width: auto;
+    min-height: calc(100vh - 90px);
+  }
 }
 </style>

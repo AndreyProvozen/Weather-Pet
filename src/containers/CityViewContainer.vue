@@ -20,10 +20,16 @@ interface Props {
 defineProps<Props>();
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .temperature-container {
   display: flex;
   justify-content: space-between;
   gap: 30px;
+  min-height: calc(100vh - 90px);
+
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: column;
+    min-height: auto;
+  }
 }
 </style>

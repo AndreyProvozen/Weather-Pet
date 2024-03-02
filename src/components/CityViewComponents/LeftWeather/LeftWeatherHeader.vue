@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; margin-bottom: 20px; gap: 10px">
+  <div class="wrapper">
     <Input
       container-class="search-input-container"
       :start-input-icon="LocationIcon"
@@ -45,8 +45,18 @@ const addCityToLocalStorage = () => {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .search-input-container {
   width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+
+  @media (max-width: $breakpoint-lg) {
+    display: none;
+  }
 }
 </style>

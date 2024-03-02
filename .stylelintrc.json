@@ -9,6 +9,9 @@
     ],
     "scss/no-global-function-names": null,
     "media-feature-range-notation": null,
-    "scss/dollar-variable-pattern": null
-  }
+    "scss/dollar-variable-pattern": null,
+    "selector-max-id": 0,
+    "unit-allowed-list": ["px", "vh", "deg", "s", "ms", "%", "fr"]
+  },
+  "defaultSeverity": "warning"
 }
