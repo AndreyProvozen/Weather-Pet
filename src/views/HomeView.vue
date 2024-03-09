@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <Button variant="filled" @click="toggleCreateModal"> Open add City modal </Button>
+    <Button variant="filled" @click="setIsAddCityModalOpen(true)"> Open add City modal </Button>
     <HomeViewContainer />
-    <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="toggleCreateModal">
+    <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
       <AddCityModal
         :search-cities-list="searchCitiesList"
         :search-cities-error="searchCitiesError"
@@ -20,16 +20,13 @@ import AddCityModal from '@/components/modals/AddCityModal.vue';
 import { Ref, ref } from 'vue';
 import { CityData } from '@/interface';
 import Button from '@/atoms/Button.vue';
+import { useDebounceFn, useToggle } from '@vueuse/core';
 
-const isAddCityModalOpen = ref(false);
+const [isAddCityModalOpen, setIsAddCityModalOpen] = useToggle(false);
 const searchQuery = ref('');
-const searchQueryTimeout: Ref<string | number | NodeJS.Timeout> = ref('');
+
 const searchCitiesList: Ref<CityData[] | undefined> = ref(undefined);
 const searchCitiesError = ref(false);
-
-const toggleCreateModal = () => {
-  isAddCityModalOpen.value = !isAddCityModalOpen.value;
-};
 
 const onInputValueChange = async (value: string) => {
   searchQuery.value = value;
@@ -39,26 +36,22 @@ const onInputValueChange = async (value: string) => {
   searchCitiesList.value = undefined;
 };
 
-const searchCitiesAutoComplete = async () => {
-  clearTimeout(searchQueryTimeout.value);
+const searchCitiesAutoComplete = useDebounceFn(async () => {
+  try {
+    const response = await fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchQuery.value}.json?access_token=${
+        import.meta.env.VITE_APP_MAPBOX_API_KEY
+      }&types=place`
+    );
 
-  searchQueryTimeout.value = setTimeout(async () => {
-    try {
-      const response = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchQuery.value}.json?access_token=${
-          import.meta.env.VITE_APP_MAPBOX_API_KEY
-        }&types=place`
-      );
+    const data = await response.json();
 
-      const data = await response.json();
-
-      searchCitiesList.value = data.features;
-      searchCitiesError.value = false;
-    } catch (error) {
-      searchCitiesError.value = true;
-    }
-  }, 500);
-};
+    searchCitiesList.value = data.features;
+    searchCitiesError.value = false;
+  } catch (error) {
+    searchCitiesError.value = true;
+  }
+}, 500);
 </script>
 
 <style lang="scss">

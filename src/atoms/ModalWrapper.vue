@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import CloseIcon from '@/assets/icons/close.svg';
 import Button from './Button.vue';
-import { onMounted, onUnmounted } from 'vue';
+import { useEventListener } from '@vueuse/core';
 
 interface Props {
   isModalOpen: boolean;
@@ -29,13 +29,9 @@ interface Props {
 const emit = defineEmits(['close-modal', 'submit-modal']);
 const props = defineProps<Props>();
 
-onMounted(() => {
-  window.addEventListener('keydown', handleEscapeKey);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleEscapeKey);
-});
+const handleEscapeKey = (event: KeyboardEvent) => {
+  if (event.key === 'Escape' && props.isModalOpen) closeModal();
+};
 
 const handleClickOutside = (event: MouseEvent) => {
   if (props.isModalOpen && !(event.target as HTMLElement).closest('.modal-content')) {
@@ -43,12 +39,10 @@ const handleClickOutside = (event: MouseEvent) => {
   }
 };
 
-const handleEscapeKey = (event: KeyboardEvent) => {
-  if (event.key === 'Escape' && props.isModalOpen) closeModal();
-};
-
 const submitForm = () => emit('submit-modal');
 const closeModal = () => emit('close-modal');
+
+useEventListener('keydown', handleEscapeKey);
 </script>
 
 <style lang="scss" scoped>

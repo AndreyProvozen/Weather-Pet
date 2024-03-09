@@ -13,6 +13,8 @@
     "lint": "npm run lint:eslint && npm run lint:prettier && npm run lint:stylelint"
   },
   "dependencies": {
+    "@splidejs/vue-splide": "^0.6.12",
+    "@vueuse/core": "^10.9.0",
     "dayjs": "^1.11.10",
     "dayjs-plugin-utc": "^0.1.2",
     "vue": "^3.3.4",
