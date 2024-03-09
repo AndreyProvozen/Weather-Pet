@@ -1,29 +1,3 @@
-<template>
-  <img class="modal-image" alt="Add new city modal image" :src="getImageUrl()" />
-  <h4 class="modal-title">Add new city</h4>
-  <Input
-    type="text"
-    placeholder="Search for a city or state"
-    :value="searchCitiesQuery"
-    required
-    @on-change="onInputValueChange"
-  />
-  <ul v-if="searchCitiesList" class="autocomplete-input">
-    <p v-if="searchCitiesError" class="m-0">Something went wrong, please try again later</p>
-    <p v-if="searchCitiesList.length === 0" class="m-0">No results found</p>
-    <template v-else>
-      <li
-        v-for="cityData in searchCitiesList"
-        :key="cityData.id"
-        style="padding: 8px 0; cursor: pointer"
-        @click="redirectToCityView(cityData)"
-      >
-        {{ cityData.place_name }}
-      </li>
-    </template>
-  </ul>
-</template>
-
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import { CityData } from '@/interface';
@@ -59,6 +33,32 @@ const redirectToCityView = (cityData: CityData) => {
   });
 };
 </script>
+
+<template>
+  <img class="modal-image" alt="Add new city modal image" :src="getImageUrl()" />
+  <h4 class="modal-title">Add new city</h4>
+  <Input
+    type="text"
+    placeholder="Search for a city or state"
+    :value="searchCitiesQuery"
+    required
+    @on-change="onInputValueChange"
+  />
+  <ul v-if="searchCitiesList" class="autocomplete-input">
+    <p v-if="searchCitiesError" class="m-0">Something went wrong, please try again later</p>
+    <p v-if="searchCitiesList.length === 0" class="m-0">No results found</p>
+    <template v-else>
+      <li
+        v-for="cityData in searchCitiesList"
+        :key="cityData.id"
+        style="padding: 8px 0; cursor: pointer"
+        @click="redirectToCityView(cityData)"
+      >
+        {{ cityData.place_name }}
+      </li>
+    </template>
+  </ul>
+</template>
 
 <style lang="scss" scoped>
 .modal {

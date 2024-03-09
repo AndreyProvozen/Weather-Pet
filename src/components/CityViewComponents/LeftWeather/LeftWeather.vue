@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import { LeftWeatherProps } from '.';
+import LeftWeatherContent from './LeftWeatherContent.vue';
+import LeftWeatherHeader from './LeftWeatherHeader.vue';
+
+defineProps<LeftWeatherProps>();
+</script>
+
 <template>
   <div class="wrapper">
     <LeftWeatherHeader />
@@ -8,14 +16,6 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import { LeftWeatherProps } from '.';
-import LeftWeatherContent from './LeftWeatherContent.vue';
-import LeftWeatherHeader from './LeftWeatherHeader.vue';
-
-defineProps<LeftWeatherProps>();
-</script>
 
 <style scoped lang="scss">
 .wrapper {

@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+import Link from '@/atoms/Link.vue';
+</script>
+
 <template>
   <div class="navigation">
     <h1 class="logo">Weather-Pet</h1>
@@ -7,10 +11,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import Link from '@/atoms/Link.vue';
-</script>
 
 <style lang="scss" scoped>
 .navigation {

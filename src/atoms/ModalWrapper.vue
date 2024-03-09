@@ -1,22 +1,3 @@
-<template>
-  <Teleport to="body">
-    <Transition name="modal-outer">
-      <div v-show="isModalOpen" class="modal-wrapper" @click="handleClickOutside">
-        <Transition name="modal-inner">
-          <form v-if="isModalOpen" action="" class="modal-content" @submit="submitForm" @click.stop>
-            <CloseIcon class="close-icon" @click="closeModal" />
-            <slot />
-            <div class="btn-wrapper">
-              <Button type="button" @click="closeModal"> Close </Button>
-              <Button variant="filled" type="submit"> Submit </Button>
-            </div>
-          </form>
-        </Transition>
-      </div>
-    </Transition>
-  </Teleport>
-</template>
-
 <script setup lang="ts">
 import CloseIcon from '@/assets/icons/close.svg';
 import Button from './Button.vue';
@@ -44,6 +25,25 @@ const closeModal = () => emit('close-modal');
 
 useEventListener('keydown', handleEscapeKey);
 </script>
+
+<template>
+  <Teleport to="body">
+    <Transition name="modal-outer">
+      <div v-show="isModalOpen" class="modal-wrapper" @click="handleClickOutside">
+        <Transition name="modal-inner">
+          <form v-if="isModalOpen" action="" class="modal-content" @submit="submitForm" @click.stop>
+            <CloseIcon class="close-icon" @click="closeModal" />
+            <slot />
+            <div class="btn-wrapper">
+              <Button type="button" @click="closeModal"> Close </Button>
+              <Button variant="filled" type="submit"> Submit </Button>
+            </div>
+          </form>
+        </Transition>
+      </div>
+    </Transition>
+  </Teleport>
+</template>
 
 <style lang="scss" scoped>
 .close-icon {

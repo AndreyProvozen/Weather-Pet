@@ -1,8 +1,3 @@
-<template>
-  <CityViewContainer v-if="weatherData" :weather-data="weatherData" />
-  <Loader v-else />
-</template>
-
 <script setup lang="ts">
 import CityViewContainer from '@/containers/CityViewContainer.vue';
 import Loader from '@/atoms/Loader.vue';
@@ -44,3 +39,8 @@ onMounted(async () => {
   await getWeatherData();
 });
 </script>
+
+<template>
+  <CityViewContainer v-if="weatherData" :weather-data="weatherData" />
+  <Loader v-else />
+</template>

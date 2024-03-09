@@ -1,30 +1,3 @@
-<template>
-  <div class="image-overlay" :style="{ backgroundImage: `url(${getImageUrl()})` }">
-    <div style="text-align: center; z-index: 1">
-      <p class="m-0" style="font-size: 90px; line-height: 120px">{{ Math.round(currentTemperature) }}&deg;</p>
-      <p class="m-0 capitalize-first-letter" style="font-size: 30px; line-height: 40px">
-        {{ weatherToday.weather[0].description }}
-      </p>
-      <p class="m-0 capitalize-first-letter" style="text-wrap: balance">
-        The forecast for today anticipates
-        {{ weatherToday.weather[0].description }}, with temperatures expected to vary between a low of
-        {{ Math.round(weatherToday.temp.min) }}&deg;C and a high of {{ Math.round(weatherToday.temp.max) }}&deg;C.
-      </p>
-    </div>
-    <div class="card-wrapper">
-      <div v-for="card in weatherDetails" :key="card.title" class="card">
-        <component :is="card.icon" />
-        <div class="mx-auto">
-          <h5 class="m-0">{{ card.title }}</h5>
-          <p class="m-0 value">
-            {{ card.value }}
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import getCurrentSeason from '@/utils/getCurrentSeason';
 import SunriseIcon from '@/assets/icons/sunrise.svg';
@@ -65,6 +38,33 @@ const season = getCurrentSeason();
 
 const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
 </script>
+
+<template>
+  <div class="image-overlay" :style="{ backgroundImage: `url(${getImageUrl()})` }">
+    <div style="text-align: center; z-index: 1">
+      <p class="m-0" style="font-size: 90px; line-height: 120px">{{ Math.round(currentTemperature) }}&deg;</p>
+      <p class="m-0 capitalize-first-letter" style="font-size: 30px; line-height: 40px">
+        {{ weatherToday.weather[0].description }}
+      </p>
+      <p class="m-0 capitalize-first-letter" style="text-wrap: balance">
+        The forecast for today anticipates
+        {{ weatherToday.weather[0].description }}, with temperatures expected to vary between a low of
+        {{ Math.round(weatherToday.temp.min) }}&deg;C and a high of {{ Math.round(weatherToday.temp.max) }}&deg;C.
+      </p>
+    </div>
+    <div class="card-wrapper">
+      <div v-for="card in weatherDetails" :key="card.title" class="card">
+        <component :is="card.icon" />
+        <div class="mx-auto">
+          <h5 class="m-0">{{ card.title }}</h5>
+          <p class="m-0 value">
+            {{ card.value }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .season-image {

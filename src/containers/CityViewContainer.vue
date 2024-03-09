@@ -1,14 +1,3 @@
-<template>
-  <div class="container temperature-container">
-    <LeftWeather
-      :weather-today="weatherData.daily[0]"
-      :current-temperature="weatherData.current.temp"
-      :current-visibility="weatherData.current.visibility"
-    />
-    <RightWeatherContent :weather-data="weatherData" />
-  </div>
-</template>
-
 <script setup lang="ts">
 import LeftWeather from '@/components/CityViewComponents/LeftWeather';
 import RightWeatherContent from '@/components/CityViewComponents/RightWeatherContent.vue';
@@ -19,6 +8,17 @@ interface Props {
 
 defineProps<Props>();
 </script>
+
+<template>
+  <div class="container temperature-container">
+    <LeftWeather
+      :weather-today="weatherData.daily[0]"
+      :current-temperature="weatherData.current.temp"
+      :current-visibility="weatherData.current.visibility"
+    />
+    <RightWeatherContent :weather-data="weatherData" />
+  </div>
+</template>
 
 <style scoped lang="scss">
 .temperature-container {

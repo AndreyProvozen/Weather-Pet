@@ -1,14 +1,3 @@
-<template>
-  <Suspense>
-    <template #fallback><p>Loading</p></template>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 20px">
-      <div v-for="city in savedCities" :key="city.id">
-        <CityCard :city-data="city" />
-      </div>
-    </div>
-  </Suspense>
-</template>
-
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
 
@@ -45,6 +34,17 @@ const getCities = async () => {
 
 getCities();
 </script>
+
+<template>
+  <Suspense>
+    <template #fallback><p>Loading</p></template>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 20px">
+      <div v-for="city in savedCities" :key="city.id">
+        <CityCard :city-data="city" />
+      </div>
+    </div>
+  </Suspense>
+</template>
 
 <style lang="scss" scoped>
 .wrapper {

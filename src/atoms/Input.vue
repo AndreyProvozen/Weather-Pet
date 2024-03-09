@@ -1,15 +1,3 @@
-<template>
-  <div :class="['input-container', variant, containerClass]">
-    <component :is="startInputIcon" v-if="startInputIcon" class="start-input-icon" />
-    <input
-      :class="{ 'has-start-icon': startInputIcon }"
-      :value="value"
-      v-bind="$attrs"
-      @input="$emit('onChange', ($event.target as HTMLInputElement).value)"
-    />
-  </div>
-</template>
-
 <script lang="ts" setup>
 interface Props {
   value: string;
@@ -26,6 +14,18 @@ withDefaults(defineProps<Props>(), {
 
 defineEmits(['onChange']);
 </script>
+
+<template>
+  <div :class="['input-container', variant, containerClass]">
+    <component :is="startInputIcon" v-if="startInputIcon" class="start-input-icon" />
+    <input
+      :class="{ 'has-start-icon': startInputIcon }"
+      :value="value"
+      v-bind="$attrs"
+      @input="$emit('onChange', ($event.target as HTMLInputElement).value)"
+    />
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .input-container {

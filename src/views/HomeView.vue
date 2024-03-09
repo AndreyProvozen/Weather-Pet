@@ -1,18 +1,3 @@
-<template>
-  <div class="container">
-    <Button variant="filled" @click="setIsAddCityModalOpen(true)"> Open add City modal </Button>
-    <HomeViewContainer />
-    <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
-      <AddCityModal
-        :search-cities-list="searchCitiesList"
-        :search-cities-error="searchCitiesError"
-        :search-cities-query="searchQuery"
-        :on-input-value-change="onInputValueChange"
-      />
-    </ModalWrapper>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import ModalWrapper from '@/atoms/ModalWrapper.vue';
 import HomeViewContainer from '@/containers/HomeViewContainer.vue';
@@ -53,6 +38,21 @@ const searchCitiesAutoComplete = useDebounceFn(async () => {
   }
 }, 500);
 </script>
+
+<template>
+  <div class="container">
+    <Button variant="filled" @click="setIsAddCityModalOpen(true)"> Open add City modal </Button>
+    <HomeViewContainer />
+    <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
+      <AddCityModal
+        :search-cities-list="searchCitiesList"
+        :search-cities-error="searchCitiesError"
+        :search-cities-query="searchQuery"
+        :on-input-value-change="onInputValueChange"
+      />
+    </ModalWrapper>
+  </div>
+</template>
 
 <style lang="scss">
 .autocomplete-input {
