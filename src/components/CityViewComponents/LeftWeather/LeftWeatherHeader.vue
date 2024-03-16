@@ -33,7 +33,7 @@ const addCityToLocalStorage = () => {
 </script>
 
 <template>
-  <div class="wrapper">
+  <div class="content-wrapper">
     <Input
       container-class="search-input-container"
       :start-input-icon="LocationIcon"
@@ -50,7 +50,7 @@ const addCityToLocalStorage = () => {
   width: 100%;
 }
 
-.wrapper {
+.content-wrapper {
   display: flex;
   margin-bottom: 20px;
   gap: 10px;

@@ -12,3 +12,10 @@ export interface CityData {
     coordinates: number[];
   };
 }
+
+export interface CitiesAutoCompleteResponse {
+  features: CityData[];
+  query: string[];
+  attribution: string;
+  type: string;
+}

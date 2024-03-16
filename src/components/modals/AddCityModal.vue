@@ -77,4 +77,15 @@ const redirectToCityView = (cityData: CityData) => {
     width: 100%;
   }
 }
+
+.autocomplete-input {
+  width: 100%;
+  list-style-type: none;
+  padding: 8px 16px;
+  border: 2px solid $pale-gray;
+  color: black;
+  margin: 8px 0 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba($color: #000, $alpha: 10%);
+}
 </style>

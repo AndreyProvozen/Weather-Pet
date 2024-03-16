@@ -25,3 +25,8 @@ export const CITY_PAGE_VIEW_SEASON_IMAGE = {
 };
 export type SEASON_KEY = keyof typeof MODAL_SEASON_IMAGE;
 export const SEASONS: SEASON_KEY[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+
+// endpoints
+
+export const MAPBOX_BASE_URL = 'https://api.mapbox.com/geocoding/v5/';
+export const OPENWEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/';
