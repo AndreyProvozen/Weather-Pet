@@ -1,43 +1,35 @@
 <script setup lang="ts">
 import CityViewContainer from '@/containers/CityViewContainer.vue';
 import Loader from '@/atoms/Loader.vue';
-import { useRoute } from 'vue-router';
+import { type LocationQueryValue, useRoute } from 'vue-router';
 import { onMounted, ref } from 'vue';
+import { getFullWeatherData } from '@/api';
+import { set } from '@vueuse/core';
+import dayjs from 'dayjs';
+import { OneCallWeatherData } from '@/interface';
 
 const route = useRoute();
 
-const weatherData = ref(null);
+const weatherData = ref<OneCallWeatherData | null>(null);
 
 const getWeatherData = async () => {
-  try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lon}&appid=${
-        import.meta.env.VITE_APP_WEATHER_API_KEY
-      }&units=metric&exclude=minutely`
-    );
+  const weatherResponse = await getFullWeatherData({
+    lat: route.query.lat as LocationQueryValue,
+    lon: route.query.lon as LocationQueryValue,
+  });
 
-    const weatherResponse = await response.json();
+  const currentTimeUTC = dayjs.unix(weatherResponse.current?.dt).utc();
+  weatherResponse.currentTime = currentTimeUTC.add(weatherResponse.timezone_offset, 'second');
 
-    const localOffset = new Date().getTimezoneOffset() * 60000;
+  weatherResponse.hourly.forEach((hour: any) => {
+    const hourUTC = dayjs.unix(hour.dt).utc();
+    hour.currentTime = hourUTC.add(weatherResponse.timezone_offset, 'second');
+  });
 
-    const utc = weatherResponse.current?.dt * 1000 + localOffset;
-
-    weatherResponse.currentTime = utc + 1000 * weatherResponse.timezone_offset;
-
-    weatherResponse.hourly.forEach((hour: any) => {
-      const utc = hour.dt * 1000 + localOffset;
-      hour.currentTime = utc + 1000 * weatherResponse.timezone_offset;
-    });
-
-    weatherData.value = weatherResponse;
-  } catch (error) {
-    console.error(error);
-  }
+  set(weatherData, weatherResponse);
 };
 
-onMounted(async () => {
-  await getWeatherData();
-});
+onMounted(getWeatherData);
 </script>
 
 <template>

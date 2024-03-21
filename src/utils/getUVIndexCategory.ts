@@ -40,12 +40,14 @@ const uvIndexData: UVIndexData = {
 };
 
 const getUVIndexCategory = (uvIndex: number): UVIndexCategory => {
-  if (uvIndex < 3) return uvIndexData.low;
-  if (uvIndex < 6) return uvIndexData.moderate;
-  if (uvIndex < 8) return uvIndexData.high;
-  if (uvIndex < 11) return uvIndexData.veryHigh;
+  const { low, moderate, high, veryHigh, extreme } = uvIndexData;
 
-  return uvIndexData.extreme;
+  if (uvIndex < 3) return low;
+  if (uvIndex < 6) return moderate;
+  if (uvIndex < 8) return high;
+  if (uvIndex < 11) return veryHigh;
+
+  return extreme;
 };
 
 export default getUVIndexCategory;

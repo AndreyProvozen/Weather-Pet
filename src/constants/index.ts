@@ -23,6 +23,7 @@ export const CITY_PAGE_VIEW_SEASON_IMAGE = {
   Summer: summerCityPageViewImage,
   Autumn: autumnCityPageViewImage,
 };
+
 export type SEASON_KEY = keyof typeof MODAL_SEASON_IMAGE;
 export const SEASONS: SEASON_KEY[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
 

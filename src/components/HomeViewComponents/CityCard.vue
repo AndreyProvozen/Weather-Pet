@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { CityListDataWithWeather } from '@/interface';
 import dayjs from 'dayjs';
-import utcPlugin from 'dayjs/plugin/utc';
-
-dayjs.extend(utcPlugin);
 
 interface Props {
   cityData: CityListDataWithWeather;

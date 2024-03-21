@@ -1,13 +1,8 @@
+import { WeatherProps } from '.';
+
 interface CoordinatesProps {
   lon: number;
   lat: number;
-}
-
-interface WeatherProps {
-  id: number;
-  main: string;
-  description: string;
-  icon: string;
 }
 
 interface MainProps {
