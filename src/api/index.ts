@@ -1,7 +1,7 @@
 import { MAPBOX_BASE_URL, OPENWEATHER_BASE_URL } from '@/constants';
-import { CitiesAutoCompleteResponse, OneCallWeatherData } from '@/interface';
+import type { CitiesAutoCompleteResponse, OneCallWeatherData } from '@/interface';
 import customFetch from '@/utils/customFetch';
-import { type LocationQueryValue } from 'vue-router';
+import type { LocationQueryValue } from 'vue-router';
 
 export const fetchCitiesAutoComplete = async (searchQuery: string): Promise<CitiesAutoCompleteResponse> =>
   await customFetch(

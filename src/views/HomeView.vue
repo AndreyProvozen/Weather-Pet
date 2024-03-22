@@ -3,7 +3,7 @@ import ModalWrapper from '@/atoms/ModalWrapper.vue';
 import HomeViewContainer from '@/containers/HomeViewContainer.vue';
 import AddCityModal from '@/components/modals/AddCityModal.vue';
 import { Ref, ref } from 'vue';
-import { CityData } from '@/interface';
+import type { CityData } from '@/interface';
 import Button from '@/atoms/Button.vue';
 import { get, set, useDebounceFn, useToggle } from '@vueuse/core';
 import { fetchCitiesAutoComplete } from '@/api';

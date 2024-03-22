@@ -2,7 +2,7 @@
 import { Ref, ref } from 'vue';
 
 import CityCard from '@/components/HomeViewComponents/CityCard.vue';
-import { CityListDataWithWeather } from '@/interface';
+import type { CityListDataWithWeather } from '@/interface';
 
 const savedCities: Ref<CityListDataWithWeather[]> = ref([]);
 

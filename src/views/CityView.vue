@@ -6,7 +6,7 @@ import { onMounted, ref } from 'vue';
 import { getFullWeatherData } from '@/api';
 import { set } from '@vueuse/core';
 import dayjs from 'dayjs';
-import { OneCallWeatherData } from '@/interface';
+import type { OneCallWeatherData } from '@/interface';
 
 const route = useRoute();
 

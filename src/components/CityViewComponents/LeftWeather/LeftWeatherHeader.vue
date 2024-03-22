@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router';
 import Button from '@/atoms/Button.vue';
 import { Ref, ref } from 'vue';
 import Input from '@/atoms/Input.vue';
-import { CityListItemData } from '@/interface';
+import type { CityListItemData } from '@/interface';
 
 const route = useRoute();
 

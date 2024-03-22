@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LeftWeather from '@/components/CityViewComponents/LeftWeather';
 import RightWeatherContent from '@/components/CityViewComponents/RightWeatherContent.vue';
-import { OneCallWeatherData } from '@/interface';
+import type { OneCallWeatherData } from '@/interface';
 
 interface Props {
   weatherData: OneCallWeatherData;

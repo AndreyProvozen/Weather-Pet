@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CityListDataWithWeather } from '@/interface';
+import type { CityListDataWithWeather } from '@/interface';
 import dayjs from 'dayjs';
 
 interface Props {
