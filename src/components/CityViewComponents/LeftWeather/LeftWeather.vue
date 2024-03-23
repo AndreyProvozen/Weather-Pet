@@ -7,7 +7,7 @@ defineProps<LeftWeatherProps>();
 </script>
 
 <template>
-  <div class="wrapper">
+  <div class="left-weather-container">
     <LeftWeatherHeader />
     <LeftWeatherContent
       :current-temperature="currentTemperature"
@@ -18,7 +18,7 @@ defineProps<LeftWeatherProps>();
 </template>
 
 <style scoped lang="scss">
-.wrapper {
+.left-weather-container {
   width: 50%;
 
   @media (max-width: $breakpoint-lg) {

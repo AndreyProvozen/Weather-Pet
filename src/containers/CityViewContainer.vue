@@ -11,7 +11,7 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div class="container temperature-container">
+  <div class="container city-view-container">
     <LeftWeather
       :weather-today="weatherData.daily[0]"
       :current-temperature="weatherData.current.temp"
@@ -22,7 +22,7 @@ defineProps<Props>();
 </template>
 
 <style scoped lang="scss">
-.temperature-container {
+.city-view-container {
   display: flex;
   justify-content: space-between;
   gap: 30px;

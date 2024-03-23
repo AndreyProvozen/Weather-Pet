@@ -43,6 +43,7 @@ export interface HourlyWeatherProps extends CommonWeatherProps {
   temp: number;
   pop: number;
   visibility: number;
+  currentTime?: any;
 }
 
 export interface OneCallWeatherData {

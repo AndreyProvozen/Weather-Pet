@@ -1,45 +1,25 @@
 <script lang="ts" setup>
-import ModalWrapper from '@/atoms/ModalWrapper.vue';
 import HomeViewContainer from '@/containers/HomeViewContainer.vue';
-import AddCityModal from '@/components/modals/AddCityModal.vue';
-import { Ref, ref } from 'vue';
-import type { CityData } from '@/interface';
-import Button from '@/atoms/Button.vue';
-import { get, set, useDebounceFn, useToggle } from '@vueuse/core';
-import { fetchCitiesAutoComplete } from '@/api';
+import { Ref, onMounted, ref } from 'vue';
+import type { CityListDataWithWeather } from '@/interface';
+import { get, set } from '@vueuse/core';
+import { getShortWeatherData } from '@/api';
 
-const [isAddCityModalOpen, setIsAddCityModalOpen] = useToggle(false);
-const searchQuery = ref('');
-const searchCitiesList: Ref<CityData[] | undefined> = ref(undefined);
-const searchCitiesError = ref(false);
+const savedCities: Ref<CityListDataWithWeather[]> = ref([]);
 
-const searchCitiesAutoComplete = useDebounceFn(async () => {
-  const { features } = await fetchCitiesAutoComplete(get(searchQuery));
+const loadSavedCities = async () => {
+  const citiesList = localStorage.getItem('saved_cities_list') || '[]';
+  if (citiesList.length) set(savedCities, JSON.parse(citiesList));
 
-  set(searchCitiesList, features);
-  set(searchCitiesError, false);
-}, 500);
+  const weatherRequests = get(savedCities).map(async ({ coordinates }) => await getShortWeatherData(coordinates));
+  const weatherData = await Promise.all(weatherRequests);
 
-const onInputValueChange = async (value: string) => {
-  set(searchQuery, value);
-
-  if (get(searchQuery).length > 2) return await searchCitiesAutoComplete();
-
-  set(searchCitiesList, undefined);
+  weatherData.forEach((weather, index) => (get(savedCities)[index].weather = weather));
 };
+
+onMounted(loadSavedCities);
 </script>
 
 <template>
-  <div class="container">
-    <Button variant="filled" @click="setIsAddCityModalOpen(true)"> Open add City modal </Button>
-    <HomeViewContainer />
-    <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
-      <AddCityModal
-        :search-cities-list="searchCitiesList"
-        :search-cities-error="searchCitiesError"
-        :search-cities-query="searchQuery"
-        :on-input-value-change="onInputValueChange"
-      />
-    </ModalWrapper>
-  </div>
+  <HomeViewContainer :saved-cities-list="savedCities" />
 </template>

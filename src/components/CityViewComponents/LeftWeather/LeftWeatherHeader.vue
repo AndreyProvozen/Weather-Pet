@@ -6,39 +6,35 @@ import Button from '@/atoms/Button.vue';
 import { Ref, ref } from 'vue';
 import Input from '@/atoms/Input.vue';
 import type { CityListItemData } from '@/interface';
+import { get, set } from '@vueuse/core';
 
-const route = useRoute();
-
+const { params, query } = useRoute();
 const savedCitiesList: Ref<CityListItemData[]> = ref([]);
 
 const addCityToLocalStorage = () => {
   const citiesList = localStorage.getItem('saved_cities_list') || '[]';
 
-  if (citiesList) savedCitiesList.value = JSON.parse(citiesList);
+  if (citiesList.length) set(savedCitiesList, JSON.parse(citiesList));
 
   const locationObj = {
-    id: `${route.params.state}&${route.params.city}`,
-    state: route.params.state as string,
-    city: route.params.city as string,
+    id: `${params.state}&${params.city}`,
+    state: params.state as string,
+    city: params.city as string,
     coordinates: {
-      lat: Number(route.query.lat),
-      lon: Number(route.query.lon),
+      lat: Number(query.lat),
+      lon: Number(query.lon),
     },
   };
 
-  savedCitiesList.value.push(locationObj);
+  get(savedCitiesList).push(locationObj);
 
-  localStorage.setItem('saved_cities_list', JSON.stringify(savedCitiesList.value));
+  localStorage.setItem('saved_cities_list', JSON.stringify(get(savedCitiesList)));
 };
 </script>
 
 <template>
-  <div class="content-wrapper">
-    <Input
-      container-class="search-input-container"
-      :start-input-icon="LocationIcon"
-      :value="`${route.params.state}, ${route.params.city}`"
-    />
+  <div class="left-weather-wrapper">
+    <Input container-class="search-input" :start-input-icon="LocationIcon" :value="`${params.state}, ${params.city}`" />
     <Button variant="filled" style="padding: 4px 8px" @click="addCityToLocalStorage">
       <BookmarkPlusIcon />
     </Button>
@@ -46,11 +42,11 @@ const addCityToLocalStorage = () => {
 </template>
 
 <style scoped lang="scss">
-.search-input-container {
+.search-input {
   width: 100%;
 }
 
-.content-wrapper {
+.left-weather-wrapper {
   display: flex;
   margin-bottom: 20px;
   gap: 10px;

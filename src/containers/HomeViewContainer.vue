@@ -1,55 +1,62 @@
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
-
 import CityCard from '@/components/HomeViewComponents/CityCard.vue';
-import type { CityListDataWithWeather } from '@/interface';
+import type { CityData, CityListDataWithWeather } from '@/interface';
+import { get, set, useDebounceFn, useToggle } from '@vueuse/core';
+import { fetchCitiesAutoComplete } from '@/api';
+import Button from '@/atoms/Button.vue';
+import ModalWrapper from '@/atoms/ModalWrapper.vue';
+import AddCityModal from '@/components/modals/AddCityModal.vue';
 
-const savedCities: Ref<CityListDataWithWeather[]> = ref([]);
+interface Props {
+  savedCitiesList: CityListDataWithWeather[];
+}
 
-const getCities = async () => {
-  try {
-    const citiesList = localStorage.getItem('saved_cities_list') || '[]';
+defineProps<Props>();
 
-    if (citiesList) savedCities.value = JSON.parse(citiesList);
+const [isAddCityModalOpen, setIsAddCityModalOpen] = useToggle(false);
+const searchQuery = ref('');
+const searchCitiesList: Ref<CityData[] | undefined> = ref();
 
-    const weatherRequests = savedCities.value.map(async ({ coordinates }) => {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${
-          import.meta.env.VITE_APP_WEATHER_API_KEY
-        }&units=metric`
-      );
+const searchCitiesAutoComplete = useDebounceFn(async () => {
+  const { features } = await fetchCitiesAutoComplete(get(searchQuery));
 
-      return await response.json();
-    });
+  set(searchCitiesList, features);
+}, 500);
 
-    const weatherData = await Promise.all(weatherRequests);
+const onInputValueChange = async (value: string) => {
+  set(searchQuery, value);
 
-    weatherData.forEach((weather, index) => {
-      savedCities.value[index].weather = weather;
-    });
-  } catch (error) {
-    console.error('Error fetching cities:', error);
-  }
+  if (get(searchQuery).length > 2) return await searchCitiesAutoComplete();
+
+  set(searchCitiesList, undefined);
 };
-
-getCities();
 </script>
 
 <template>
-  <Suspense>
-    <template #fallback><p>Loading</p></template>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 20px">
-      <div v-for="city in savedCities" :key="city.id">
+  <div class="container">
+    <Button variant="filled" @click="setIsAddCityModalOpen(true)"> Open add City modal </Button>
+    <div class="city-card-container">
+      <div v-for="city in savedCitiesList" :key="city.id">
         <CityCard :city-data="city" />
       </div>
     </div>
-  </Suspense>
+  </div>
+  <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
+    <AddCityModal
+      :search-cities-list="searchCitiesList"
+      :search-cities-query="searchQuery"
+      :on-input-value-change="onInputValueChange"
+    />
+  </ModalWrapper>
 </template>
 
-<style lang="scss" scoped>
-.wrapper {
-  display: flex;
-  flex-direction: column;
+<style scoped lang="scss">
+.city-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
+  grid-auto-flow: dense;
+  justify-content: space-evenly;
   gap: 20px;
 }
 </style>

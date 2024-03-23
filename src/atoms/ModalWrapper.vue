@@ -65,7 +65,7 @@ useEventListener('keydown', handleEscapeKey);
   width: 100%;
   height: 100%;
   background-color: $semi-transparent-black;
-  z-index: $z-50;
+  z-index: $z-40;
 }
 
 .btn-wrapper {

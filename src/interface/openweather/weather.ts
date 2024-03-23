@@ -1,6 +1,6 @@
 import { WeatherProps } from '.';
 
-interface CoordinatesProps {
+export interface CoordinatesProps {
   lon: number;
   lat: number;
 }
@@ -22,7 +22,7 @@ interface WindProps {
   gust: number;
 }
 
-export default interface WeatherData {
+export interface getShortWeatherDataProps {
   coord: CoordinatesProps;
   weather: WeatherProps[];
   base: string;
@@ -52,5 +52,5 @@ export interface CityListItemData {
 }
 
 export interface CityListDataWithWeather extends CityListItemData {
-  weather: WeatherData;
+  weather: getShortWeatherDataProps;
 }

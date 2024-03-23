@@ -9,38 +9,37 @@ import { LeftWeatherProps } from '.';
 import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
 import dayjs from 'dayjs';
 
-const props = defineProps<LeftWeatherProps>();
+const season = getCurrentSeason();
+const { currentVisibility, weatherToday } = defineProps<LeftWeatherProps>();
 
 const weatherDetails = [
   {
     icon: EyeIcon,
     title: 'Visibility',
-    value: metersToKilometers(props.currentVisibility),
+    value: metersToKilometers(currentVisibility),
   },
   {
     icon: HumidityIcon,
     title: 'Humidity',
-    value: `${props.weatherToday.humidity}%`,
+    value: `${weatherToday.humidity}%`,
   },
   {
     icon: SunriseIcon,
     title: 'Sunrise',
-    value: dayjs.unix(props.weatherToday.sunrise).format('HH:mm'),
+    value: dayjs.unix(weatherToday.sunrise).format('HH:mm'),
   },
   {
     icon: SunsetIcon,
     title: 'Sunset',
-    value: dayjs.unix(props.weatherToday.sunset).format('HH:mm'),
+    value: dayjs.unix(weatherToday.sunset).format('HH:mm'),
   },
 ];
 
-const season = getCurrentSeason();
-
-const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
+const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
 </script>
 
 <template>
-  <div class="image-overlay" :style="{ backgroundImage: `url(${getImageUrl()})` }">
+  <div class="image-overlay" :style="{ backgroundImage: `url(${getImageUrl})` }">
     <div style="text-align: center; z-index: 1">
       <p class="m-0" style="font-size: 90px; line-height: 120px">{{ Math.round(currentTemperature) }}&deg;</p>
       <p class="m-0 capitalize-first-letter" style="font-size: 30px; line-height: 40px">
@@ -109,7 +108,6 @@ const getImageUrl = () => CITY_PAGE_VIEW_SEASON_IMAGE[season];
   height: calc(100% - 60px);
   background-position: center;
   background-size: cover;
-  background-color: rgba($color: #000, $alpha: 40%);
   border-radius: 10px;
 
   &::before {

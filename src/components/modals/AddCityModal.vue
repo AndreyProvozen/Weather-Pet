@@ -7,7 +7,6 @@ import { MODAL_SEASON_IMAGE } from '@/constants';
 
 interface Props {
   searchCitiesList?: CityData[];
-  searchCitiesError: boolean;
   searchCitiesQuery: string;
   onInputValueChange: (value: string) => void;
 }
@@ -45,7 +44,6 @@ const redirectToCityView = (cityData: CityData) => {
     @on-change="onInputValueChange"
   />
   <ul v-if="searchCitiesList" class="autocomplete-input">
-    <p v-if="searchCitiesError" class="m-0">Something went wrong, please try again later</p>
     <p v-if="searchCitiesList.length === 0" class="m-0">No results found</p>
     <template v-else>
       <li
