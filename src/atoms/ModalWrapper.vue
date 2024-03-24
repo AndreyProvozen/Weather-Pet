@@ -47,43 +47,43 @@ useEventListener('keydown', handleEscapeKey);
 
 <style lang="scss" scoped>
 .close-icon {
-  position: absolute;
-  border-radius: 50%;
   background-color: $pale-gray;
-  top: 12px;
-  right: 12px;
+  border-radius: 50%;
   cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 12px;
 }
 
 .modal-wrapper {
-  position: fixed;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-color: $semi-transparent-black;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: $z-40;
 }
 
 .btn-wrapper {
   display: flex;
   gap: 10px;
-  margin-top: 16px;
   justify-content: flex-end;
+  margin-top: 16px;
 }
 
 .modal-content {
+  background-color: white;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  background-color: white;
-  padding: 32px;
-  border-radius: 16px;
-  width: 100%;
   max-width: 600px;
+  padding: 32px;
+  position: relative;
+  width: 100%;
 }
 
 // Transition

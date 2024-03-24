@@ -33,7 +33,7 @@ const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
             {{ `${Math.round(hourWeather.temp)}&deg;` }}
           </p>
           <img
-            style="width: 50px; height: 50px"
+            style="height: 50px; width: 50px"
             :src="`/src/assets/weatherIcon/colorful/${hourWeather.weather[0].icon}.png`"
           />
         </div>
@@ -56,7 +56,7 @@ const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
             {{ `${Math.round(dailyWeather.temp.day)}&deg;` }}
           </p>
           <img
-            style="width: 50px; height: 50px"
+            style="height: 50px; width: 50px"
             :src="`/src/assets/weatherIcon/colorful/${dailyWeather.weather[0].icon}.png`"
           />
         </div>
@@ -69,7 +69,7 @@ const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
       </div>
       <div style="margin-top: 5px">
         <p class="m-0" style="font-size: 30px">{{ weatherData.daily[0].uvi.toFixed(1) }}</p>
-        <h4 style="margin: 5px 0 10px; font-weight: 400">{{ uvIndexData.label }}</h4>
+        <h4 style="font-weight: 400; margin: 5px 0 10px">{{ uvIndexData.label }}</h4>
         <div class="block" />
         <p class="subtitle">{{ uvIndexData.recommendations }}</p>
       </div>
@@ -79,21 +79,21 @@ const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
 
 <style scoped lang="scss">
 .content-list-wrapper {
+  align-items: center;
   display: flex;
   gap: 10px;
-  align-items: center;
   overflow-x: scroll;
 }
 
 .block {
+  background: linear-gradient(to right, #3ea72d 0%, #fff300 33%, #f18b00 50%, #e53210 67%, #b567a4 100%);
   border-radius: 30px;
   height: 8px;
-  background: linear-gradient(to right, #3ea72d 0%, #fff300 33%, #f18b00 50%, #e53210 67%, #b567a4 100%);
 }
 
 .content-list-item {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: column;
   padding: 10px;
 }
@@ -105,16 +105,16 @@ const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
 
 .hourly-forecast {
   background: rgba($color: $deep-blue, $alpha: 40%);
-  padding: 16px;
   border-radius: 10px;
+  padding: 16px;
 }
 
 .title-wrapper {
+  align-items: center;
+  border-bottom: 2px solid;
   display: flex;
   gap: 5px;
-  align-items: center;
-  padding-bottom: 10px;
   margin-bottom: 10px;
-  border-bottom: 2px solid;
+  padding-bottom: 10px;
 }
 </style>

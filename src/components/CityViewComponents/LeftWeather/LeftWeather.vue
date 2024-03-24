@@ -22,8 +22,8 @@ defineProps<LeftWeatherProps>();
   width: 50%;
 
   @media (max-width: $breakpoint-lg) {
-    width: auto;
     min-height: calc(100vh - 90px);
+    width: auto;
   }
 }
 </style>

@@ -41,27 +41,27 @@ defineEmits(['onChange']);
   }
 
   &-icon {
+    color: $pale-gray;
     position: absolute;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    right: 12px;
-    color: $pale-gray;
   }
 }
 
 .start-input-icon {
+  margin-left: 5px;
   position: absolute;
   top: 50%;
-  margin-left: 5px;
   transform: translateY(-50%);
 }
 
 input {
+  border: none;
   font-size: 16px;
+  outline: none;
   padding: 8px 16px;
   width: 100%;
-  border: none;
-  outline: none;
 
   &.has-start-icon {
     padding-left: 32px;
@@ -78,8 +78,8 @@ input {
 }
 
 .filled {
+  background: rgba($color: #fff, $alpha: 20%);
   border-bottom: 2px solid $pale-gray;
   border-radius: 4px;
-  background: rgba($color: #fff, $alpha: 20%);
 }
 </style>

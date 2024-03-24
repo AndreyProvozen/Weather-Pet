@@ -1,5 +1,6 @@
 {
   "extends": ["stylelint-config-standard-scss", "stylelint-config-recommended-vue/scss"],
+  "plugins": ["stylelint-order"],
   "rules": {
     "at-rule-no-unknown": [
       true,
@@ -11,7 +12,9 @@
     "media-feature-range-notation": null,
     "scss/dollar-variable-pattern": null,
     "selector-max-id": 0,
-    "unit-allowed-list": ["px", "vh", "deg", "s", "ms", "%", "fr"]
+    "unit-allowed-list": ["px", "vh", "deg", "s", "ms", "%", "fr"],
+    "order/order": ["custom-properties", "dollar-variables", "declarations", "rules", "at-rules"],
+    "order/properties-alphabetical-order": true
   },
   "defaultSeverity": "warning"
 }

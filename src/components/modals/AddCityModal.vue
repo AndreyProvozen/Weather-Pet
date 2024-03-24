@@ -49,7 +49,7 @@ const redirectToCityView = (cityData: CityData) => {
       <li
         v-for="cityData in searchCitiesList"
         :key="cityData.id"
-        style="padding: 8px 0; cursor: pointer"
+        style="cursor: pointer; padding: 8px 0"
         @click="redirectToCityView(cityData)"
       >
         {{ cityData.place_name }}
@@ -77,13 +77,13 @@ const redirectToCityView = (cityData: CityData) => {
 }
 
 .autocomplete-input {
-  width: 100%;
-  list-style-type: none;
-  padding: 8px 16px;
   border: 2px solid $pale-gray;
-  color: black;
-  margin: 8px 0 0;
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba($color: #000, $alpha: 10%);
+  color: black;
+  list-style-type: none;
+  margin: 8px 0 0;
+  padding: 8px 16px;
+  width: 100%;
 }
 </style>

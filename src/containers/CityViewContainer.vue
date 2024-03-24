@@ -24,8 +24,8 @@ defineProps<Props>();
 <style scoped lang="scss">
 .city-view-container {
   display: flex;
-  justify-content: space-between;
   gap: 30px;
+  justify-content: space-between;
   min-height: calc(100vh - 90px);
 
   @media (max-width: $breakpoint-lg) {

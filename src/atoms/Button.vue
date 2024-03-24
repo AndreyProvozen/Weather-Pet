@@ -12,16 +12,16 @@ withDefaults(defineProps<Props>(), { variant: 'outlined' });
 
 <style lang="scss" scoped>
 button {
-  font-weight: 500;
-  font-size: 16px;
-  padding: 8px 16px;
   border-radius: 4px;
-  transition: all 0.3s ease;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
 
   &.outlined {
-    border: 2px solid $button-color;
     background: transparent;
+    border: 2px solid $button-color;
     color: $button-color;
 
     &:hover {
@@ -39,8 +39,8 @@ button {
 
   &.filled {
     background: $button-color;
-    color: white;
     border: none;
+    color: white;
 
     &:hover {
       background: $button-color-hover;

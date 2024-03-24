@@ -67,58 +67,58 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
 
 <style lang="scss" scoped>
 .season-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba($color: #000, $alpha: 20%);
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .card-wrapper {
   display: flex;
-  z-index: 1;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 20px;
+  justify-content: space-between;
+  z-index: 1;
 }
 
 .card {
-  padding: 15px;
+  align-items: center;
+  background: rgba($color: $deep-blue, $alpha: 80%);
   border-radius: 10px;
   display: flex;
-  gap: 10px;
   flex: 1;
-  align-items: center;
+  gap: 10px;
+  padding: 15px;
   text-align: center;
-  background: rgba($color: $deep-blue, $alpha: 80%);
 
   .value {
     font-size: 28px;
-    margin-top: 5px;
     margin-left: auto;
+    margin-top: 5px;
   }
 }
 
 .image-overlay {
-  position: relative;
-  padding: 60px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: calc(100% - 60px);
   background-position: center;
   background-size: cover;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 60px);
+  justify-content: space-between;
+  padding: 60px 20px;
+  position: relative;
 
   &::before {
+    background-color: rgba($color: #000, $alpha: 60%);
+    border-radius: 10px;
     content: '';
+    height: 100%;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background-color: rgba($color: #000, $alpha: 60%);
   }
 }
 </style>

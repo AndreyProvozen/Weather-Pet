@@ -7,6 +7,9 @@ import { fetchCitiesAutoComplete } from '@/api';
 import Button from '@/atoms/Button.vue';
 import ModalWrapper from '@/atoms/ModalWrapper.vue';
 import AddCityModal from '@/components/modals/AddCityModal.vue';
+import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
+import getCurrentSeason from '@/utils/getCurrentSeason';
+import Input from '@/atoms/Input.vue';
 
 interface Props {
   savedCitiesList: CityListDataWithWeather[];
@@ -31,9 +34,24 @@ const onInputValueChange = async (value: string) => {
 
   set(searchCitiesList, undefined);
 };
+const season = getCurrentSeason();
+const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
 </script>
 
 <template>
+  <div
+    class="black-image-overlay"
+    :style="{
+      backgroundImage: `url(${getImageUrl})`,
+    }"
+  >
+    <div style="margin: 50px 50px 0; max-width: 700px; z-index: 1">
+      <h1>Discover the Latest Weather Forecast Updates</h1>
+      <div style="background: #fff; border-radius: 8px; box-shadow: 0 1px 5px 0 rgb(0 0 0 / 21%); padding: 15px">
+        <Input placeholder="Enter the location you're searching for..." value="" />
+      </div>
+    </div>
+  </div>
   <div class="container">
     <Button variant="filled" @click="setIsAddCityModalOpen(true)"> Open add City modal </Button>
     <div class="city-card-container">
@@ -54,9 +72,32 @@ const onInputValueChange = async (value: string) => {
 <style scoped lang="scss">
 .city-card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 350px);
-  grid-auto-flow: dense;
-  justify-content: space-evenly;
   gap: 20px;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, 350px);
+  justify-content: space-evenly;
+}
+
+.black-image-overlay {
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+  display: flex;
+  flex-direction: column;
+  height: calc(60vh);
+  position: relative;
+  text-align: center;
+
+  &::before {
+    background-color: rgba($color: $deep-blue, $alpha: 40%);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }
 </style>

@@ -14,12 +14,12 @@ import Link from '@/atoms/Link.vue';
 
 <style lang="scss" scoped>
 .navigation {
-  display: flex;
   align-items: center;
-  padding: 10px 15px;
-  margin-bottom: $HEADER_MARGIN_BOTTOM;
   background-color: $deep-blue;
+  display: flex;
   justify-content: space-between;
+  margin-bottom: $HEADER_MARGIN_BOTTOM;
+  padding: 10px 15px;
 }
 
 .logo {
@@ -27,9 +27,9 @@ import Link from '@/atoms/Link.vue';
 }
 
 .right-navigation {
-  display: flex;
   align-items: center;
   column-gap: 15px;
+  display: flex;
   justify-content: flex-end;
 }
 </style>

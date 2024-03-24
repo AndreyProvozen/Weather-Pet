@@ -4,25 +4,25 @@
 
 <style lang="scss" scoped>
 .white-overlay {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   backdrop-filter: blur(10px);
   background-color: $white-overlay;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .spinner {
+  animation: spin 1s linear infinite;
   border: 10px solid $pale-gray;
   border-left-color: $button-color;
   border-radius: 50%;
-  width: 100px;
   height: 100px;
-  animation: spin 1s linear infinite;
+  width: 100px;
 }
 
 @keyframes spin {

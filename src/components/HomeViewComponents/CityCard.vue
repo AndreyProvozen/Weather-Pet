@@ -23,7 +23,7 @@ console.log(props.cityData.weather?.weather[0].main);
       border-radius: 15px;`"
   >
     <div>
-      <div style="color: white; display: flex; align-items: center; gap: 5px">
+      <div style="align-items: center; color: white; display: flex; gap: 5px">
         <img :src="`/src/assets/weatherIcon/monochromatic/${cityData.weather?.weather[0].icon}.svg`" alt="" />
         {{ cityData.weather?.weather[0].main }}
       </div>

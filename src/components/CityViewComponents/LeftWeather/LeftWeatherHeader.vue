@@ -48,8 +48,8 @@ const addCityToLocalStorage = () => {
 
 .left-weather-wrapper {
   display: flex;
-  margin-bottom: 20px;
   gap: 10px;
+  margin-bottom: 20px;
 
   @media (max-width: $breakpoint-lg) {
     display: none;
