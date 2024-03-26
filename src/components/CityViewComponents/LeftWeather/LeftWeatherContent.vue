@@ -68,7 +68,7 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
 <style lang="scss" scoped>
 .season-image {
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba($color: #000, $alpha: 20%);
+  box-shadow: 0 0 10px rgba($color: $black, $alpha: 20%);
   height: 100%;
   object-fit: cover;
   width: 100%;
@@ -84,7 +84,7 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
 
 .card {
   align-items: center;
-  background: rgba($color: $deep-blue, $alpha: 80%);
+  background: rgba($color: $dark-blue, $alpha: 80%);
   border-radius: 10px;
   display: flex;
   flex: 1;
@@ -111,7 +111,7 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
   position: relative;
 
   &::before {
-    background-color: rgba($color: #000, $alpha: 60%);
+    background-color: rgba($color: $black, $alpha: 60%);
     border-radius: 10px;
     content: '';
     height: 100%;

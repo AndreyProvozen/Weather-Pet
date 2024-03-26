@@ -104,7 +104,7 @@ const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
 }
 
 .hourly-forecast {
-  background: rgba($color: $deep-blue, $alpha: 40%);
+  background: rgba($color: $dark-blue, $alpha: 40%);
   border-radius: 10px;
   padding: 16px;
 }

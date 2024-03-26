@@ -6,7 +6,7 @@
 .white-overlay {
   align-items: center;
   backdrop-filter: blur(10px);
-  background-color: $white-overlay;
+  background-color: $light-overlay;
   display: flex;
   height: 100%;
   justify-content: center;
@@ -18,8 +18,8 @@
 
 .spinner {
   animation: spin 1s linear infinite;
-  border: 10px solid $pale-gray;
-  border-left-color: $button-color;
+  border: 10px solid $gray;
+  border-left-color: $purple;
   border-radius: 50%;
   height: 100px;
   width: 100px;

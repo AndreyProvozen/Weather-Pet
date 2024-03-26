@@ -26,6 +26,7 @@ defineProps<Props>();
   display: flex;
   gap: 30px;
   justify-content: space-between;
+  margin-top: 20px;
   min-height: calc(100vh - 90px);
 
   @media (max-width: $breakpoint-lg) {

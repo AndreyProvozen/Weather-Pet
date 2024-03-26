@@ -15,7 +15,7 @@ import Link from '@/atoms/Link.vue';
 <style lang="scss" scoped>
 .navigation {
   align-items: center;
-  background-color: $deep-blue;
+  background-color: $black;
   display: flex;
   justify-content: space-between;
   margin-bottom: $HEADER_MARGIN_BOTTOM;

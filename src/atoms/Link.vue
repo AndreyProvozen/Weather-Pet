@@ -14,14 +14,14 @@ defineProps<Props>();
 
 <style lang="scss" scoped>
 a {
-  color: $link-color;
+  color: $turquoise;
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
 
   &:hover {
-    color: $button-color-active;
+    color: $purple-light;
   }
 }
 </style>

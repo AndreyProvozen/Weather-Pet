@@ -47,7 +47,7 @@ useEventListener('keydown', handleEscapeKey);
 
 <style lang="scss" scoped>
 .close-icon {
-  background-color: $pale-gray;
+  background-color: $gray;
   border-radius: 50%;
   cursor: pointer;
   position: absolute;
@@ -57,7 +57,7 @@ useEventListener('keydown', handleEscapeKey);
 
 .modal-wrapper {
   align-items: center;
-  background-color: $semi-transparent-black;
+  background-color: $dark-overlay;
   display: flex;
   height: 100%;
   justify-content: center;

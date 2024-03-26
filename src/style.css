@@ -1,14 +1,14 @@
 :root {
+  color: #fff;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  color: #eeeeee;
 }
 
 body {
+  background-color: #dceeff;
   margin: 0;
-  background-color: #393e46;
 }
 
 *,

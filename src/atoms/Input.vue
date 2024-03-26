@@ -33,15 +33,15 @@ defineEmits(['onChange']);
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: darken($pale-gray, 10%);
+    border-color: darken($gray, 10%);
   }
 
   &:focus-within {
-    border-color: $button-color;
+    border-color: $purple;
   }
 
   &-icon {
-    color: $pale-gray;
+    color: $gray;
     position: absolute;
     right: 12px;
     top: 50%;
@@ -69,17 +69,17 @@ input {
 }
 
 .outlined {
-  border: 2px solid $pale-gray;
+  border: 2px solid $gray;
   border-radius: 4px;
 }
 
 .standard {
-  border-bottom: 2px solid $pale-gray;
+  border-bottom: 2px solid $gray;
 }
 
 .filled {
-  background: rgba($color: #fff, $alpha: 20%);
-  border-bottom: 2px solid $pale-gray;
+  background: rgba($color: $white, $alpha: 20%);
+  border-bottom: 2px solid $gray;
   border-radius: 4px;
 }
 </style>

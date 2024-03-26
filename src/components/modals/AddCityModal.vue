@@ -67,7 +67,7 @@ const redirectToCityView = (cityData: CityData) => {
   }
 
   &-title {
-    color: $deep-blue;
+    color: $black;
     margin: 16px 0;
   }
 
@@ -77,9 +77,9 @@ const redirectToCityView = (cityData: CityData) => {
 }
 
 .autocomplete-input {
-  border: 2px solid $pale-gray;
+  border: 2px solid $gray;
   border-radius: 4px;
-  box-shadow: 0 4px 8px rgba($color: #000, $alpha: 10%);
+  box-shadow: 0 4px 8px rgba($color: $black, $alpha: 10%);
   color: black;
   list-style-type: none;
   margin: 8px 0 0;

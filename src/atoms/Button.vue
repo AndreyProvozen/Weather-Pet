@@ -21,33 +21,33 @@ button {
 
   &.outlined {
     background: transparent;
-    border: 2px solid $button-color;
-    color: $button-color;
+    border: 2px solid $purple;
+    color: $purple;
 
     &:hover {
-      background: $button-color-hover;
-      border-color: $button-color-hover;
+      background: $purple-dark;
+      border-color: $purple-dark;
       color: white;
     }
 
     &:active {
-      background: $button-color-active;
-      border-color: $button-color-active;
+      background: $purple-light;
+      border-color: $purple-light;
       color: white;
     }
   }
 
   &.filled {
-    background: $button-color;
+    background: $purple;
     border: none;
     color: white;
 
     &:hover {
-      background: $button-color-hover;
+      background: $purple-dark;
     }
 
     &:active {
-      background: $button-color-active;
+      background: $purple-light;
     }
   }
 }

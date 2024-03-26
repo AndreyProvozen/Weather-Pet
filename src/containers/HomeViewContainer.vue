@@ -45,14 +45,28 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
       backgroundImage: `url(${getImageUrl})`,
     }"
   >
-    <div style="margin: 50px 50px 0; max-width: 700px; z-index: 1">
-      <h1>Discover the Latest Weather Forecast Updates</h1>
-      <div style="background: #fff; border-radius: 8px; box-shadow: 0 1px 5px 0 rgb(0 0 0 / 21%); padding: 15px">
-        <Input placeholder="Enter the location you're searching for..." value="" />
+    <div style="margin: 30px 50px 0; max-width: 700px; width: 100%; z-index: 1">
+      <h1 style="margin: 20px auto; max-width: 645px; text-shadow: #000 1px 0 10px">
+        Discover the Latest Weather Forecast Updates
+      </h1>
+      <div
+        style="
+          background: #fff;
+          border-radius: 8px;
+          box-shadow: 0 1px 5px 0 #000;
+          display: flex;
+          gap: 10px;
+          padding: 15px;
+        "
+      >
+        <Input style="flex: 1" placeholder="Enter the location you're searching for" value="" />
+        <Button variant="filled"> Search </Button>
+        <Button variant="outlined"> Favorites </Button>
       </div>
     </div>
   </div>
   <div class="container">
+    <h3 style="color: #000; text-align: center">Saved Cities</h3>
     <Button variant="filled" @click="setIsAddCityModalOpen(true)"> Open add City modal </Button>
     <div class="city-card-container">
       <div v-for="city in savedCitiesList" :key="city.id">
@@ -91,7 +105,7 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
   text-align: center;
 
   &::before {
-    background-color: rgba($color: $deep-blue, $alpha: 40%);
+    background-color: rgba($color: $dark-blue, $alpha: 40%);
     content: '';
     height: 100%;
     left: 0;
