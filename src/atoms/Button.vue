@@ -1,21 +1,26 @@
 <script lang="ts" setup>
 interface Props {
   variant?: 'outlined' | 'filled';
+  startButtonIcon?: any;
 }
 
-withDefaults(defineProps<Props>(), { variant: 'outlined' });
+withDefaults(defineProps<Props>(), { variant: 'outlined', startButtonIcon: undefined });
 </script>
 
 <template>
-  <button v-bind="$attrs" :class="variant"><slot /></button>
+  <button v-bind="$attrs" :class="variant"><component :is="startButtonIcon" v-if="startButtonIcon" /><slot /></button>
 </template>
 
 <style lang="scss" scoped>
 button {
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
+  min-height: 40px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
   padding: 8px 16px;
   transition: all 0.3s ease;
 

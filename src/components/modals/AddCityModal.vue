@@ -11,7 +11,6 @@ interface Props {
   onInputValueChange: (value: string) => void;
 }
 
-defineEmits(['inputChange']);
 defineProps<Props>();
 
 const router = useRouter();
