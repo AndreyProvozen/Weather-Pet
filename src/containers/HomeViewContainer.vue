@@ -2,6 +2,7 @@
 import { Ref, ref } from 'vue';
 import HeroBlock from '@/components/HomeViewComponents/HeroBlock.vue';
 import SavedCities from '@/components/HomeViewComponents/SavedCities.vue';
+import TrustedBy from '@/components/HomeViewComponents/TrustedBy.vue';
 import type { CityData, CityListDataWithWeather } from '@/interface';
 import { get, set, useDebounceFn, useToggle } from '@vueuse/core';
 import { fetchCitiesAutoComplete } from '@/api';
@@ -36,6 +37,7 @@ const onInputValueChange = async (value: string) => {
 <template>
   <HeroBlock />
   <SavedCities :saved-cities-list="savedCitiesList" @open-modal="setIsAddCityModalOpen(true)" />
+  <TrustedBy />
   <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
     <AddCityModal
       :search-cities-list="searchCitiesList"
