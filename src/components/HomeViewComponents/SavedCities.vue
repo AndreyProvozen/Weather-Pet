@@ -19,17 +19,8 @@ const openAddToSavedCitiesModal = () => emit('open-modal');
 
 <template>
   <div class="container">
-    <h3 style="color: #000; text-align: center; margin-bottom: 5px">Saved Cities</h3>
-    <div
-      style="
-        margin-bottom: 10px;
-        display: flex;
-        gap: 40px;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      "
-    >
+    <h3 class="section-title">Saved Cities</h3>
+    <div style="align-items: center; display: flex; gap: 40px; justify-content: space-between; margin-bottom: 20px">
       <div style="display: flex; gap: 10px">
         <Button variant="filled" :start-button-icon="PlusIcon" @click="openAddToSavedCitiesModal">
           Add new city
@@ -37,7 +28,7 @@ const openAddToSavedCitiesModal = () => emit('open-modal');
         <Button variant="filled" :start-button-icon="TrashIcon"> Remove city </Button>
         <Button :start-button-icon="MoveIcon" variant="filled"> Reorder city list </Button>
       </div>
-      <Input style="max-width: 350px; flex: 1" placeholder="Enter the location you're searching for" value="" />
+      <Input style="flex: 1; max-width: 350px" placeholder="Enter the location you're searching for" value="" />
     </div>
 
     <div class="city-card-container">
@@ -57,6 +48,7 @@ const openAddToSavedCitiesModal = () => emit('open-modal');
   @media (max-width: $breakpoint-lg) {
     grid-template-columns: repeat(2, 1fr);
   }
+
   @media (max-width: $breakpoint-sm) {
     grid-template-columns: repeat(1, 1fr);
   }

@@ -13,14 +13,14 @@ withDefaults(defineProps<Props>(), { variant: 'outlined', startButtonIcon: undef
 
 <style lang="scss" scoped>
 button {
+  align-items: center;
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
   font-size: 18px;
   font-weight: 500;
-  min-height: 40px;
-  display: flex;
   gap: 5px;
-  align-items: center;
+  min-height: 40px;
   padding: 8px 16px;
   transition: all 0.3s ease;
 

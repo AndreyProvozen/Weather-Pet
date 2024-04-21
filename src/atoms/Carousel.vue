@@ -18,5 +18,3 @@ withDefaults(defineProps<Props>(), {
     <slot />
   </Splide>
 </template>
-
-<style scoped></style>

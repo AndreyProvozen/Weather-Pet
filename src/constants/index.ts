@@ -15,6 +15,8 @@ import TrustedByPurpleOuijaLogo from '../assets/trustedByLogos/purple-ouija.svg'
 import TrustedBySandBucketLogo from '../assets/trustedByLogos/sand-bucket.svg';
 import TrustedByStrawBasketLogo from '../assets/trustedByLogos/straw-basket.svg';
 import TrustedByGreenPipeLogo from '../assets/trustedByLogos/green-pipe.svg';
+import TrustedByCauldronLogo from '../assets/trustedByLogos/cauldron.svg';
+import TrustedByStylishBagLogo from '../assets/trustedByLogos/stylish-bag.svg';
 
 // temporary solution
 
@@ -43,6 +45,8 @@ export const TRUSTED_BY_LIST = [
   { name: 'Sand Bucket', Component: TrustedBySandBucketLogo },
   { name: 'Straw Basket', Component: TrustedByStrawBasketLogo },
   { name: 'Green Pipe', Component: TrustedByGreenPipeLogo },
+  { name: 'Stylish Bag', Component: TrustedByStylishBagLogo },
+  { name: 'Cauldron', Component: TrustedByCauldronLogo },
 ];
 
 // endpoints

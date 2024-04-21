@@ -37,7 +37,9 @@ const onInputValueChange = async (value: string) => {
 <template>
   <HeroBlock />
   <SavedCities :saved-cities-list="savedCitiesList" @open-modal="setIsAddCityModalOpen(true)" />
+  <h3 class="section-title">Trusted By</h3>
   <TrustedBy />
+  <TrustedBy :is-direction-right="true" />
   <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
     <AddCityModal
       :search-cities-list="searchCitiesList"
@@ -46,3 +48,11 @@ const onInputValueChange = async (value: string) => {
     />
   </ModalWrapper>
 </template>
+
+<style lang="scss">
+.section-title {
+  color: $black;
+  text-align: center;
+  margin-bottom: 5px;
+}
+</style>

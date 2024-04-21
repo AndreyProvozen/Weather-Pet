@@ -4,6 +4,12 @@ import { Options, SplideSlide } from '@splidejs/vue-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import { TRUSTED_BY_LIST } from '@/constants';
 
+interface Props {
+  isDirectionRight?: boolean;
+}
+
+const { isDirectionRight } = defineProps<Props>();
+
 const splideOptions: Options = {
   pauseOnHover: true,
   arrows: false,
@@ -13,19 +19,33 @@ const splideOptions: Options = {
   autoWidth: true,
   drag: 'free',
   autoScroll: {
-    speed: 1,
+    speed: isDirectionRight ? -1 : 1,
   },
 };
+
 const extensions = { AutoScroll };
 </script>
 
 <template>
-  <h3 style="color: #000; text-align: center; margin-bottom: 5px">Trusted By</h3>
-  <Carousel :options="splideOptions" :extensions="extensions">
-    <SplideSlide v-for="{ Component, name } in TRUSTED_BY_LIST" :key="name">
-      <component :is="Component" style="height: 200px; width: 200px" />
-    </SplideSlide>
-  </Carousel>
+  <div class="container">
+    <Carousel :options="splideOptions" :extensions="extensions">
+      <SplideSlide v-for="{ Component, name } in TRUSTED_BY_LIST" :key="name">
+        <component :is="Component" class="logo-styles" />
+        <h5 class="logo-text">{{ name }}</h5>
+      </SplideSlide>
+    </Carousel>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.logo-styles {
+  height: 140px;
+  width: 140px;
+}
+.logo-text {
+  color: $black;
+  padding: 0 10px;
+  margin-top: 5px;
+  text-align: center;
+}
+</style>
