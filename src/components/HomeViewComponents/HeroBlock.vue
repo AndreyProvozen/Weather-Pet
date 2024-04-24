@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
-import getCurrentSeason from '@/utils/getCurrentSeason';
+import { getCurrentSeason } from '@/utils';
 import Button from '@/atoms/Button.vue';
 import Input from '@/atoms/Input.vue';
 

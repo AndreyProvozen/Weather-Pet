@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import dayjs from 'dayjs';
 import ClockIcon from '@/assets/icons/clock.svg';
-import getUVIndexCategory from '@/utils/getUVIndexCategory';
+import { getUVIndexCategory } from '@/utils';
 import CalendarIcon from '@/assets/icons/calendar.svg';
 import UVIndexIcon from '@/assets/icons/uv-index.svg';
 

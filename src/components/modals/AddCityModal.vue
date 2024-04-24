@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import type { CityData } from '@/interface';
-import getCurrentSeason from '@/utils/getCurrentSeason';
+import { getCurrentSeason } from '@/utils';
 import Input from '@/atoms/Input.vue';
 import { MODAL_SEASON_IMAGE } from '@/constants';
 

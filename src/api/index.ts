@@ -6,7 +6,7 @@ import type {
   getShortWeatherDataProps,
 } from '@/interface';
 
-import customFetch from '@/utils/customFetch';
+import { customFetch } from '@/utils';
 import type { LocationQueryValue } from 'vue-router';
 
 const MAPBOX_API_KEY = import.meta.env.VITE_APP_MAPBOX_API_KEY;
