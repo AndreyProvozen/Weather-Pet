@@ -42,10 +42,11 @@ const extensions = { AutoScroll };
   height: 140px;
   width: 140px;
 }
+
 .logo-text {
   color: $black;
-  padding: 0 10px;
   margin-top: 5px;
+  padding: 0 10px;
   text-align: center;
 }
 </style>

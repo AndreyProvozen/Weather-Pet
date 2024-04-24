@@ -52,7 +52,7 @@ const onInputValueChange = async (value: string) => {
 <style lang="scss">
 .section-title {
   color: $black;
-  text-align: center;
   margin-bottom: 5px;
+  text-align: center;
 }
 </style>
