@@ -29,24 +29,28 @@ const extensions = { AutoScroll };
 <template>
   <div class="container">
     <Carousel :options="splideOptions" :extensions="extensions">
-      <SplideSlide v-for="{ Component, name } in TRUSTED_BY_LIST" :key="name">
-        <component :is="Component" class="logo-styles" />
-        <h5 class="logo-text">{{ name }}</h5>
+      <SplideSlide v-for="{ Component, name } in TRUSTED_BY_LIST" :key="name" class="trusted-by--slide">
+        <component :is="Component" class="trusted-by--logo" />
+        <h5 class="trusted-by--text">{{ name }}</h5>
       </SplideSlide>
     </Carousel>
   </div>
 </template>
 
 <style scoped lang="scss">
-.logo-styles {
-  height: 140px;
-  width: 140px;
-}
-
-.logo-text {
-  color: $black;
-  margin-top: 5px;
-  padding: 0 10px;
-  text-align: center;
+.trusted-by {
+  &--slide {
+    text-align: center;
+  }
+  &--logo {
+    height: 70px;
+    width: 70px;
+  }
+  &--text {
+    color: $black;
+    margin: 5px 0 0 0;
+    padding: 0 10px;
+    text-align: center;
+  }
 }
 </style>

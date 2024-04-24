@@ -46,7 +46,7 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
   clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
   display: flex;
   flex-direction: column;
-  height: calc(60vh);
+  height: calc(55vh);
   position: relative;
   text-align: center;
 

@@ -37,6 +37,45 @@ export const CITY_PAGE_VIEW_SEASON_IMAGE = {
 export type SEASON_KEY = keyof typeof MODAL_SEASON_IMAGE;
 export const SEASONS: SEASON_KEY[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
 
+export const QUALITY_SECTION_DATA = [
+  {
+    title: 'Accuracy',
+    description:
+      'Our accuracy is achieved through a meticulous process that leverages the latest data and advanced algorithms, ensuring precision in every detail.',
+    animatedNumber: {
+      from: 0,
+      to: 95,
+    },
+  },
+  {
+    title: 'Coverage',
+    description:
+      'Our coverage spans the globe, providing comprehensive updates from every corner of the world, keeping you well-informed and up-to-date with the latest developments.',
+    animatedNumber: {
+      from: 0,
+      to: 100,
+    },
+  },
+  {
+    title: 'Timeliness',
+    description:
+      'We pride ourselves on delivering prompt updates, keeping you ahead of the curve and ensuring you have the information you need when you need it most.',
+    animatedNumber: {
+      from: 0,
+      to: 100,
+    },
+  },
+  {
+    title: 'Reliability',
+    description:
+      'Our reliability is unmatched, providing consistent forecasts that you can trust to make informed decisions with confidence.',
+    animatedNumber: {
+      from: 0,
+      to: 98,
+    },
+  },
+];
+
 export const TRUSTED_BY_LIST = [
   { name: 'Necklace', Component: TrustedByNecklaceLogo },
   { name: 'Cardboard', Component: TrustedBCardboardLogo },

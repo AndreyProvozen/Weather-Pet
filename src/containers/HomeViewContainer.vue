@@ -2,12 +2,14 @@
 import { Ref, ref } from 'vue';
 import HeroBlock from '@/components/HomeViewComponents/HeroBlock.vue';
 import SavedCities from '@/components/HomeViewComponents/SavedCities.vue';
+import QualityCard from '@/components/HomeViewComponents/QualityCard.vue';
 import TrustedBy from '@/components/HomeViewComponents/TrustedBy.vue';
 import type { CityData, CityListDataWithWeather } from '@/interface';
 import { get, set, useDebounceFn, useToggle } from '@vueuse/core';
 import { fetchCitiesAutoComplete } from '@/api';
 import ModalWrapper from '@/atoms/ModalWrapper.vue';
 import AddCityModal from '@/components/modals/AddCityModal.vue';
+import { QUALITY_SECTION_DATA } from '@/constants';
 
 interface Props {
   savedCitiesList: CityListDataWithWeather[];
@@ -36,10 +38,20 @@ const onInputValueChange = async (value: string) => {
 
 <template>
   <HeroBlock />
-  <SavedCities :saved-cities-list="savedCitiesList" @open-modal="setIsAddCityModalOpen(true)" />
-  <h3 class="section-title">Trusted By</h3>
+  <h2 class="section-title">Trusted By</h2>
   <TrustedBy />
   <TrustedBy :is-direction-right="true" />
+  <h2 class="section-title">Our Quality</h2>
+  <div class="container" style="display: flex; gap: 30px">
+    <QualityCard
+      v-for="qualityData in QUALITY_SECTION_DATA"
+      :key="qualityData.title"
+      :title="qualityData.title"
+      :description="qualityData.description"
+      :animated-number="qualityData.animatedNumber"
+    />
+  </div>
+  <SavedCities :saved-cities-list="savedCitiesList" @open-modal="setIsAddCityModalOpen(true)" />
   <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
     <AddCityModal
       :search-cities-list="searchCitiesList"
@@ -52,7 +64,7 @@ const onInputValueChange = async (value: string) => {
 <style lang="scss">
 .section-title {
   color: $black;
-  margin-bottom: 5px;
+  margin: 30px 0 15px 0;
   text-align: center;
 }
 </style>

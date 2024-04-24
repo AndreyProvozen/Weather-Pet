@@ -19,7 +19,7 @@ const openAddToSavedCitiesModal = () => emit('open-modal');
 
 <template>
   <div class="container">
-    <h3 class="section-title">Saved Cities</h3>
+    <h2 class="section-title">Saved Cities</h2>
     <div style="align-items: center; display: flex; gap: 40px; justify-content: space-between; margin-bottom: 20px">
       <div style="display: flex; gap: 10px">
         <Button variant="filled" :start-button-icon="PlusIcon" @click="openAddToSavedCitiesModal">

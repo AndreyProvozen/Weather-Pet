@@ -2,6 +2,7 @@ $dark-blue: #222831;
 $black: #000;
 $white: #fff;
 $gray: #d3d3d3;
+$deep-dark-blue :#000066;
 
 // Primary
 $purple: #535bf2;
@@ -14,15 +15,12 @@ $turquoise-dark: darken($turquoise, 10%);
 $turquoise-light: lighten($turquoise, 10%);
 
 // Overlays
-$light-overlay: rgba(
-  $color: $white,
-  $alpha: 50%,
-);
-$dark-overlay: rgba(
-  $color: $black,
-  $alpha: 50%,
-);
-$dark-blue-overlay: rgba(
-  $color: $dark-blue,
-  $alpha: 50%,
-);
+$light-overlay: rgba($color: $white,
+    $alpha: 50%,
+  );
+$dark-overlay: rgba($color: $black,
+    $alpha: 50%,
+  );
+$dark-blue-overlay: rgba($color: $dark-blue,
+    $alpha: 50%,
+  );
