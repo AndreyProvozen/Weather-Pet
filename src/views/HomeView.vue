@@ -1,3 +1,7 @@
+<template>
+  <HomeViewContainer :saved-cities-list="savedCities" />
+</template>
+
 <script lang="ts" setup>
 import HomeViewContainer from '@/containers/HomeViewContainer.vue';
 import { Ref, onMounted, ref } from 'vue';
@@ -19,7 +23,3 @@ const loadSavedCities = async () => {
 
 onMounted(loadSavedCities);
 </script>
-
-<template>
-  <HomeViewContainer :saved-cities-list="savedCities" />
-</template>

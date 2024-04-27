@@ -1,3 +1,12 @@
+<template>
+  <div class="left-weather-wrapper">
+    <Input container-class="search-input" :start-input-icon="LocationIcon" :value="`${params.state}, ${params.city}`" />
+    <Button variant="filled" style="padding: 4px 8px" @click="addCityToLocalStorage">
+      <BookmarkPlusIcon />
+    </Button>
+  </div>
+</template>
+
 <script setup lang="ts">
 import BookmarkPlusIcon from '@/assets/icons/bookmark-plus.svg';
 import LocationIcon from '@/assets/icons/location.svg';
@@ -31,15 +40,6 @@ const addCityToLocalStorage = () => {
   localStorage.setItem('saved_cities_list', JSON.stringify(get(savedCitiesList)));
 };
 </script>
-
-<template>
-  <div class="left-weather-wrapper">
-    <Input container-class="search-input" :start-input-icon="LocationIcon" :value="`${params.state}, ${params.city}`" />
-    <Button variant="filled" style="padding: 4px 8px" @click="addCityToLocalStorage">
-      <BookmarkPlusIcon />
-    </Button>
-  </div>
-</template>
 
 <style scoped lang="scss">
 .search-input {

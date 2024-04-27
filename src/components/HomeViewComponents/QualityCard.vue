@@ -1,17 +1,3 @@
-<script setup lang="ts">
-import NumberAnimation from 'vue-number-animation';
-
-interface Props {
-  title: string;
-  description: string;
-  animatedNumber: { from: number; to: number };
-}
-
-defineProps<Props>();
-
-const formatNumber = (value: number) => `${value.toFixed(0)}%`;
-</script>
-
 <template>
   <div class="quality-card--wrapper">
     <h3 class="m-0 quality-card--title">{{ title }}</h3>
@@ -26,14 +12,28 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
   </div>
 </template>
 
+<script setup lang="ts">
+import NumberAnimation from 'vue-number-animation';
+
+interface Props {
+  title: string;
+  description: string;
+  animatedNumber: { from: number; to: number };
+}
+
+defineProps<Props>();
+
+const formatNumber = (value: number) => `${value.toFixed(0)}%`;
+</script>
+
 <style scoped lang="scss">
 .quality-card {
   &--wrapper {
     color: $black;
     display: flex;
+    flex: 1;
     flex-direction: column;
     text-align: center;
-    flex: 1;
   }
 
   &--title {
@@ -41,11 +41,11 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
   }
 
   &--animated-number {
+    color: $turquoise;
     font-size: 45px;
+    font-weight: 600;
     line-height: 1;
     margin: 10px 0;
-    font-weight: 600;
-    color: $turquoise;
   }
 }
 </style>

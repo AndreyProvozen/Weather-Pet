@@ -1,13 +1,3 @@
-<script setup lang="ts">
-import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
-import { getCurrentSeason } from '@/utils';
-import Button from '@/atoms/Button.vue';
-import Input from '@/atoms/Input.vue';
-
-const season = getCurrentSeason();
-const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
-</script>
-
 <template>
   <div
     class="black-image-overlay"
@@ -36,6 +26,16 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
+import { getCurrentSeason } from '@/utils';
+import Button from '@/atoms/Button.vue';
+import Input from '@/atoms/Input.vue';
+
+const season = getCurrentSeason();
+const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
+</script>
 
 <style scoped lang="scss">
 .black-image-overlay {

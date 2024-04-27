@@ -1,3 +1,7 @@
+<template>
+  <button v-bind="$attrs" :class="variant"><component :is="startButtonIcon" v-if="startButtonIcon" /><slot /></button>
+</template>
+
 <script lang="ts" setup>
 interface Props {
   variant?: 'outlined' | 'filled';
@@ -6,10 +10,6 @@ interface Props {
 
 withDefaults(defineProps<Props>(), { variant: 'outlined', startButtonIcon: undefined });
 </script>
-
-<template>
-  <button v-bind="$attrs" :class="variant"><component :is="startButtonIcon" v-if="startButtonIcon" /><slot /></button>
-</template>
 
 <style lang="scss" scoped>
 button {

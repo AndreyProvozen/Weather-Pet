@@ -1,19 +1,3 @@
-<script setup lang="ts">
-import type { CityListDataWithWeather } from '@/interface';
-import dayjs from 'dayjs';
-
-interface Props {
-  cityData: CityListDataWithWeather;
-}
-
-const props = defineProps<Props>();
-
-const isDayTime = props.cityData.weather?.weather[0].main.includes('d');
-const cardBackgroundColor = isDayTime ? '#f2b107' : '#000066';
-
-console.log(props.cityData.weather?.weather[0].main);
-</script>
-
 <template>
   <div
     :style="`display: flex;
@@ -50,3 +34,19 @@ console.log(props.cityData.weather?.weather[0].main);
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import type { CityListDataWithWeather } from '@/interface';
+import dayjs from 'dayjs';
+
+interface Props {
+  cityData: CityListDataWithWeather;
+}
+
+const props = defineProps<Props>();
+
+const isDayTime = props.cityData.weather?.weather[0].main.includes('d');
+const cardBackgroundColor = isDayTime ? '#f2b107' : '#000066';
+
+console.log(props.cityData.weather?.weather[0].main);
+</script>

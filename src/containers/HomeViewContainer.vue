@@ -1,3 +1,28 @@
+<template>
+  <HeroBlock />
+  <h2 class="section-title">Trusted By</h2>
+  <TrustedBy />
+  <TrustedBy :is-direction-right="true" />
+  <h2 class="section-title">Our Quality</h2>
+  <div class="container" style="display: flex; gap: 30px">
+    <QualityCard
+      v-for="qualityData in QUALITY_SECTION_DATA"
+      :key="qualityData.title"
+      :title="qualityData.title"
+      :description="qualityData.description"
+      :animated-number="qualityData.animatedNumber"
+    />
+  </div>
+  <SavedCities :saved-cities-list="savedCitiesList" @open-modal="setIsAddCityModalOpen(true)" />
+  <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
+    <AddCityModal
+      :search-cities-list="searchCitiesList"
+      :search-cities-query="searchQuery"
+      :on-input-value-change="onInputValueChange"
+    />
+  </ModalWrapper>
+</template>
+
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
 import HeroBlock from '@/components/HomeViewComponents/HeroBlock.vue';
@@ -36,35 +61,10 @@ const onInputValueChange = async (value: string) => {
 };
 </script>
 
-<template>
-  <HeroBlock />
-  <h2 class="section-title">Trusted By</h2>
-  <TrustedBy />
-  <TrustedBy :is-direction-right="true" />
-  <h2 class="section-title">Our Quality</h2>
-  <div class="container" style="display: flex; gap: 30px">
-    <QualityCard
-      v-for="qualityData in QUALITY_SECTION_DATA"
-      :key="qualityData.title"
-      :title="qualityData.title"
-      :description="qualityData.description"
-      :animated-number="qualityData.animatedNumber"
-    />
-  </div>
-  <SavedCities :saved-cities-list="savedCitiesList" @open-modal="setIsAddCityModalOpen(true)" />
-  <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
-    <AddCityModal
-      :search-cities-list="searchCitiesList"
-      :search-cities-query="searchQuery"
-      :on-input-value-change="onInputValueChange"
-    />
-  </ModalWrapper>
-</template>
-
 <style lang="scss">
 .section-title {
   color: $black;
-  margin: 30px 0 15px 0;
+  margin: 30px 0 15px;
   text-align: center;
 }
 </style>

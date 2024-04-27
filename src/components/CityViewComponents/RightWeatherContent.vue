@@ -1,18 +1,3 @@
-<script setup lang="ts">
-import dayjs from 'dayjs';
-import ClockIcon from '@/assets/icons/clock.svg';
-import { getUVIndexCategory } from '@/utils';
-import CalendarIcon from '@/assets/icons/calendar.svg';
-import UVIndexIcon from '@/assets/icons/uv-index.svg';
-
-interface Props {
-  weatherData: any;
-}
-
-const props = defineProps<Props>();
-const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
-</script>
-
 <template>
   <div style="display: flex; flex-direction: column; gap: 20px; width: 50%">
     <div class="hourly-forecast">
@@ -76,6 +61,21 @@ const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import dayjs from 'dayjs';
+import ClockIcon from '@/assets/icons/clock.svg';
+import { getUVIndexCategory } from '@/utils';
+import CalendarIcon from '@/assets/icons/calendar.svg';
+import UVIndexIcon from '@/assets/icons/uv-index.svg';
+
+interface Props {
+  weatherData: any;
+}
+
+const props = defineProps<Props>();
+const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
+</script>
 
 <style scoped lang="scss">
 .content-list-wrapper {

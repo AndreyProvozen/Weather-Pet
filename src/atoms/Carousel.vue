@@ -1,3 +1,9 @@
+<template>
+  <Splide :options="options" :extensions="extensions">
+    <slot />
+  </Splide>
+</template>
+
 <script setup lang="ts">
 import { ComponentConstructor } from '@splidejs/splide';
 import { Splide, Options } from '@splidejs/vue-splide';
@@ -12,9 +18,3 @@ withDefaults(defineProps<Props>(), {
   extensions: undefined,
 });
 </script>
-
-<template>
-  <Splide :options="options" :extensions="extensions">
-    <slot />
-  </Splide>
-</template>

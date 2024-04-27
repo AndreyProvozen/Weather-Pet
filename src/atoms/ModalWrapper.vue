@@ -1,3 +1,22 @@
+<template>
+  <Teleport to="body">
+    <Transition name="modal-outer">
+      <div v-show="isModalOpen" class="modal-wrapper" @click="handleClickOutside">
+        <Transition name="modal-inner">
+          <form v-if="isModalOpen" action="" class="modal-wrapper--modal-content" @submit="submitForm" @click.stop>
+            <CloseIcon class="modal-wrapper--close-icon" @click="closeModal" />
+            <slot />
+            <div class="modal-wrapper--btn-wrapper">
+              <Button type="button" @click="closeModal"> Close </Button>
+              <Button variant="filled" type="submit"> Submit </Button>
+            </div>
+          </form>
+        </Transition>
+      </div>
+    </Transition>
+  </Teleport>
+</template>
+
 <script setup lang="ts">
 import CloseIcon from '@/assets/icons/close.svg';
 import Button from './Button.vue';
@@ -26,35 +45,7 @@ const closeModal = () => emit('close-modal');
 useEventListener('keydown', handleEscapeKey);
 </script>
 
-<template>
-  <Teleport to="body">
-    <Transition name="modal-outer">
-      <div v-show="isModalOpen" class="modal-wrapper" @click="handleClickOutside">
-        <Transition name="modal-inner">
-          <form v-if="isModalOpen" action="" class="modal-content" @submit="submitForm" @click.stop>
-            <CloseIcon class="close-icon" @click="closeModal" />
-            <slot />
-            <div class="btn-wrapper">
-              <Button type="button" @click="closeModal"> Close </Button>
-              <Button variant="filled" type="submit"> Submit </Button>
-            </div>
-          </form>
-        </Transition>
-      </div>
-    </Transition>
-  </Teleport>
-</template>
-
 <style lang="scss" scoped>
-.close-icon {
-  background-color: $gray;
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-  right: 12px;
-  top: 12px;
-}
-
 .modal-wrapper {
   align-items: center;
   background-color: $dark-overlay;
@@ -66,24 +57,33 @@ useEventListener('keydown', handleEscapeKey);
   top: 0;
   width: 100%;
   z-index: $z-40;
-}
 
-.btn-wrapper {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-top: 16px;
-}
+  &--close-icon {
+    background-color: $gray;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+  }
 
-.modal-content {
-  background-color: white;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  padding: 32px;
-  position: relative;
-  width: 100%;
+  &--btn-wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+
+  &--modal-content {
+    background-color: white;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    padding: 32px;
+    position: relative;
+    width: 100%;
+  }
 }
 
 // Transition
