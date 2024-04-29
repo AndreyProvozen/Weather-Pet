@@ -8,16 +8,6 @@ import winterCityPageViewImage from '../assets/images/CityPageView/winter-image.
 import springCityPageViewImage from '../assets/images/CityPageView/spring-image.jpg';
 import summerCityPageViewImage from '../assets/images/CityPageView/summer-image.jpg';
 
-import TrustedByNecklaceLogo from '../assets/trustedByLogos/necklace.svg';
-import TrustedBCardboardLogo from '../assets/trustedByLogos/cardboard.svg';
-import TrustedByHoneyJarLogo from '../assets/trustedByLogos/honey-jar.svg';
-import TrustedByPurpleOuijaLogo from '../assets/trustedByLogos/purple-ouija.svg';
-import TrustedBySandBucketLogo from '../assets/trustedByLogos/sand-bucket.svg';
-import TrustedByStrawBasketLogo from '../assets/trustedByLogos/straw-basket.svg';
-import TrustedByGreenPipeLogo from '../assets/trustedByLogos/green-pipe.svg';
-import TrustedByCauldronLogo from '../assets/trustedByLogos/cauldron.svg';
-import TrustedByStylishBagLogo from '../assets/trustedByLogos/stylish-bag.svg';
-
 // temporary solution
 
 export const MODAL_SEASON_IMAGE = {
@@ -77,15 +67,15 @@ export const QUALITY_SECTION_DATA = [
 ];
 
 export const TRUSTED_BY_LIST = [
-  { name: 'Necklace', Component: TrustedByNecklaceLogo },
-  { name: 'Cardboard', Component: TrustedBCardboardLogo },
-  { name: 'Honey Jar', Component: TrustedByHoneyJarLogo },
-  { name: 'Purple Ouija', Component: TrustedByPurpleOuijaLogo },
-  { name: 'Sand Bucket', Component: TrustedBySandBucketLogo },
-  { name: 'Straw Basket', Component: TrustedByStrawBasketLogo },
-  { name: 'Green Pipe', Component: TrustedByGreenPipeLogo },
-  { name: 'Stylish Bag', Component: TrustedByStylishBagLogo },
-  { name: 'Cauldron', Component: TrustedByCauldronLogo },
+  { name: 'Necklace', icon: 'necklace' },
+  { name: 'Cardboard', icon: 'cardboard' },
+  { name: 'Honey Jar', icon: 'honey-jar' },
+  { name: 'Purple Ouija', icon: 'purple-ouija' },
+  { name: 'Sand Bucket', icon: 'sand-bucket' },
+  { name: 'Straw Basket', icon: 'straw-basket' },
+  { name: 'Green Pipe', icon: 'green-pipe' },
+  { name: 'Stylish Bag', icon: 'stylish-bag' },
+  { name: 'Cauldron', icon: 'cauldron' },
 ];
 
 export interface UVIndexCategory {
