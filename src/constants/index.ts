@@ -119,6 +119,41 @@ export const UV_INDEX_DATA: UVIndexData = {
   },
 };
 
+export const FOOTER_COLUMN_LINKS = [
+  {
+    name: 'GETTING STARTED',
+    links: [
+      { title: 'Get in touch', href: '#' },
+      { title: 'Help Centre', href: '#' },
+      { title: 'Blog', href: '#' },
+      { title: 'Help Centre', href: '#' },
+    ],
+  },
+  {
+    name: 'Legal',
+    links: [
+      { title: 'Cookie Policy', href: '#' },
+      { title: 'Privacy Policy', href: '#' },
+      { title: 'Terms & Conditions', href: '#' },
+      { title: 'Cookie Settings', type: 'cookie' },
+    ],
+  },
+  {
+    name: 'CONTACTS',
+    links: [
+      { title: '+1-825-888-0431', type: 'phone' },
+      { title: 'test@gmail.com', type: 'email' },
+    ],
+  },
+];
+
+export const FOOTER_SOCIAL_LINKS = [
+  { href: 'https://twitter.com', type: 'twitter' },
+  { href: 'https://www.facebook.com', type: 'facebook' },
+  { href: 'https://www.instagram.com', type: 'instagram' },
+  { href: 'https://www.linkedin.com', type: 'linkedIn' },
+];
+
 // endpoints
 
 export const MAPBOX_BASE_URL = 'https://api.mapbox.com/geocoding/v5/';

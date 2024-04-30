@@ -1,11 +1,11 @@
 <template>
-  <div class="header">
+  <header class="header">
     <h1 class="header--logo">Weather-Pet</h1>
     <div class="header--navigation">
       <Link to="/">Main</Link>
       <Link to="#">Test</Link>
     </div>
-  </div>
+  </header>
 </template>
 
 <script lang="ts" setup>
