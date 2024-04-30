@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import Link from '@/atoms/Link.vue';
+import { Link } from '@/atoms';
 </script>
 
 <style lang="scss" scoped>

@@ -10,11 +10,10 @@
 </template>
 
 <script setup lang="ts">
-import Carousel from '@/atoms/Carousel.vue';
+import { Carousel, Icon } from '@/atoms';
 import { Options, SplideSlide } from '@splidejs/vue-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import { TRUSTED_BY_LIST } from '@/constants';
-import Icon from '@/atoms/Icon.vue';
 
 interface Props {
   isDirectionRight?: boolean;

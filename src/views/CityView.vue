@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import CityViewContainer from '@/containers/CityViewContainer.vue';
-import Loader from '@/atoms/Loader.vue';
+import { Loader } from '@/atoms';
 import { type LocationQueryValue, useRoute } from 'vue-router';
 import { onMounted, ref } from 'vue';
 import { getFullWeatherData } from '@/api';

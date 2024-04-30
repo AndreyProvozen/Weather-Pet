@@ -20,8 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import Button from '@/atoms/Button.vue';
-import Input from '@/atoms/Input.vue';
+import { Button, Input } from '@/atoms';
 import { CityListDataWithWeather } from '@/interface';
 import CityCard from './CityCard.vue';
 import MoveIcon from '@/assets/icons/move.svg';

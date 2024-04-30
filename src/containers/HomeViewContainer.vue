@@ -32,7 +32,7 @@ import TrustedBy from '@/components/HomeViewComponents/TrustedBy.vue';
 import type { CityData, CityListDataWithWeather } from '@/interface';
 import { get, set, useDebounceFn, useToggle } from '@vueuse/core';
 import { fetchCitiesAutoComplete } from '@/api';
-import ModalWrapper from '@/atoms/ModalWrapper.vue';
+import { ModalWrapper } from '@/atoms';
 import AddCityModal from '@/components/modals/AddCityModal.vue';
 import { QUALITY_SECTION_DATA } from '@/constants';
 

@@ -11,9 +11,8 @@
 import BookmarkPlusIcon from '@/assets/icons/bookmark-plus.svg';
 import LocationIcon from '@/assets/icons/location.svg';
 import { useRoute } from 'vue-router';
-import Button from '@/atoms/Button.vue';
+import { Button, Input } from '@/atoms';
 import { Ref, ref } from 'vue';
-import Input from '@/atoms/Input.vue';
 import type { CityListItemData } from '@/interface';
 import { get, set } from '@vueuse/core';
 

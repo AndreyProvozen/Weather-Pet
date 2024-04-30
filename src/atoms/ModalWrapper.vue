@@ -18,9 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import Button from './Button.vue';
+import { Button, Icon } from '.';
 import { useEventListener } from '@vueuse/core';
-import Icon from './Icon.vue';
 
 interface Props {
   isModalOpen: boolean;

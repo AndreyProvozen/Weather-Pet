@@ -27,7 +27,7 @@
 import { useRouter } from 'vue-router';
 import type { CityData } from '@/interface';
 import { getCurrentSeason } from '@/utils';
-import Input from '@/atoms/Input.vue';
+import { Input } from '@/atoms';
 import { MODAL_SEASON_IMAGE } from '@/constants';
 
 interface Props {
