@@ -19,7 +19,12 @@
           padding: 15px;
         "
       >
-        <Input style="flex: 1" placeholder="Enter the location you're searching for" value="" />
+        <Input
+          style="flex: 1"
+          :end-input-icon="SearchIcon"
+          placeholder="Enter the location you're searching for"
+          value=""
+        />
         <Button variant="filled"> Search </Button>
         <Button variant="outlined"> Favorites </Button>
       </div>
@@ -31,6 +36,7 @@
 import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
 import { getCurrentSeason } from '@/utils';
 import { Button, Input } from '@/atoms';
+import SearchIcon from '@/assets/icons/search.svg';
 
 const season = getCurrentSeason();
 const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();

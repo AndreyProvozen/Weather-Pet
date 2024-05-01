@@ -9,7 +9,12 @@
         <Button variant="filled" :start-button-icon="TrashIcon"> Remove city </Button>
         <Button :start-button-icon="MoveIcon" variant="filled"> Reorder city list </Button>
       </div>
-      <Input style="flex: 1; max-width: 350px" placeholder="Enter the location you're searching for" value="" />
+      <Input
+        style="flex: 1; max-width: 350px"
+        :end-input-icon="SearchIcon"
+        placeholder="Enter the location you're searching for"
+        value=""
+      />
     </div>
     <div class="saved-cities--city-cards-wrapper">
       <div v-for="city in savedCitiesList" :key="city.id">
@@ -26,6 +31,7 @@ import CityCard from './CityCard.vue';
 import MoveIcon from '@/assets/icons/move.svg';
 import TrashIcon from '@/assets/icons/trash.svg';
 import PlusIcon from '@/assets/icons/plus.svg';
+import SearchIcon from '@/assets/icons/search.svg';
 
 interface Props {
   savedCitiesList: CityListDataWithWeather[];

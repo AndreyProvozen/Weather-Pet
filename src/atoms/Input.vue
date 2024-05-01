@@ -1,12 +1,13 @@
 <template>
   <div :class="['input-container', variant, containerClass]">
-    <component :is="startInputIcon" v-if="startInputIcon" class="start-input-icon" />
+    <component :is="startInputIcon" v-if="startInputIcon" class="input-icon start" />
     <input
-      :class="{ 'has-start-icon': startInputIcon }"
+      :class="{ 'has-start-icon': startInputIcon, 'has-end-icon': endInputIcon }"
       :value="value"
       v-bind="$attrs"
       @input="$emit('onChange', ($event.target as HTMLInputElement).value)"
     />
+    <component :is="endInputIcon" v-if="endInputIcon" class="input-icon end" />
   </div>
 </template>
 
@@ -16,12 +17,14 @@ interface Props {
   variant?: 'filled' | 'outlined' | 'standard';
   containerClass?: string;
   startInputIcon?: any;
+  endInputIcon?: any;
 }
 
 withDefaults(defineProps<Props>(), {
   variant: 'outlined',
   containerClass: '',
   startInputIcon: undefined,
+  endInputIcon: undefined,
 });
 
 defineEmits(['onChange']);
@@ -49,11 +52,18 @@ defineEmits(['onChange']);
   }
 }
 
-.start-input-icon {
-  margin-left: 5px;
+.input-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
+  &.start {
+    margin-left: 5px;
+  }
+  &.end {
+    margin-right: 5px;
+    right: 0;
+  }
 }
 
 input {
@@ -65,6 +75,10 @@ input {
 
   &.has-start-icon {
     padding-left: 32px;
+  }
+
+  &.has-end-icon {
+    padding-right: 32px;
   }
 }
 
