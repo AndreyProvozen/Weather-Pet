@@ -25,10 +25,10 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: $breakpoint-xl;
 
-  @media (max-width: 1280px) {
-    margin: 0 16px;
+  @media (max-width: $breakpoint-xl) {
+    margin: 0 $SIDE_SPACING;
   }
 }
 

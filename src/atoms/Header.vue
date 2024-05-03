@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h1 class="header--logo">Weather-Pet</h1>
+    <h1 class="m-0">Weather-Pet</h1>
     <div class="header--navigation">
       <Link to="/">Main</Link>
       <Link to="#">Test</Link>
@@ -18,15 +18,10 @@ import { Link } from '@/atoms';
   background-color: $black;
   display: flex;
   justify-content: space-between;
-  margin-bottom: $HEADER_MARGIN_BOTTOM;
-  padding: 10px 15px;
+  padding: 10px $SIDE_SPACING;
   position: sticky;
   top: 0;
   z-index: $z-30;
-
-  &--logo {
-    margin: 0;
-  }
 
   &--navigation {
     align-items: center;
