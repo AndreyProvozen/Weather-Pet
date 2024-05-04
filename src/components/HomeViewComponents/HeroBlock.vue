@@ -148,7 +148,8 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
     flex-direction: column;
     position: absolute;
     right: 50%;
-    transform: translateX(50%);
+    animation: bounce 2s infinite 3s;
+    translate: 50%;
   }
 
   @media (max-width: $breakpoint-md) {
