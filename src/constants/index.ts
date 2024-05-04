@@ -64,6 +64,15 @@ export const QUALITY_SECTION_DATA = [
       to: 98,
     },
   },
+  {
+    title: 'Efficiency',
+    description:
+      'We prioritize efficiency in every aspect of our operations, streamlining processes to deliver optimal performance and value to our users.',
+    animatedNumber: {
+      from: 0,
+      to: 100,
+    },
+  },
 ];
 
 export const TRUSTED_BY_LIST = [

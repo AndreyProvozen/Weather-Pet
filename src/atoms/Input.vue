@@ -60,6 +60,7 @@ defineEmits(['onChange']);
   &.start {
     margin-left: 5px;
   }
+
   &.end {
     margin-right: 5px;
     right: 0;

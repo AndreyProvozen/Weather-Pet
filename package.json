@@ -10,7 +10,7 @@
     "lint:eslint": "eslint . --ext .js,.vue,.ts",
     "lint:prettier": "prettier --write \"**/*.{json,scss,vue,html,ts}\"",
     "lint:stylelint": "stylelint --fix \"**/*.{vue,scss}\"",
-    "lint": "npm run lint:eslint && npm run lint:prettier && npm run lint:stylelint"
+    "lint": "npm run lint:prettier && npm run lint:stylelint && npm run lint:eslint"
   },
   "dependencies": {
     "@splidejs/splide": "^4.1.4",

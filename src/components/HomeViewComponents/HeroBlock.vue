@@ -91,19 +91,10 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
   max-width: 700px;
   z-index: $z-10;
 
-  @media (max-width: $breakpoint-md) {
-    margin-left: $SIDE_SPACING;
-    margin-right: $SIDE_SPACING;
-  }
-
-  @media (max-width: $breakpoint-xs) {
-    margin-top: 0;
-  }
-
   &--title {
-    text-wrap: balance;
     margin: 20px 10px;
     text-shadow: $black 1px 0 10px;
+    text-wrap: balance;
 
     @media (max-width: $breakpoint-xs) {
       font-size: 30px;
@@ -137,10 +128,10 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
   }
 
   &--autocomplete-wrapper {
+    background: $white;
     border-radius: 8px;
     box-shadow: 0 1px 5px 0 $black;
     color: $black;
-    background: $white;
     list-style-type: none;
     margin: 8px 0 0;
     padding: 8px 16px;
@@ -152,12 +143,21 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
   }
 
   &--scroll-icon-wrapper {
-    position: absolute;
     bottom: 10px;
-    right: 50%;
-    transform: translateX(50%);
     display: flex;
     flex-direction: column;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    margin-left: $SIDE_SPACING;
+    margin-right: $SIDE_SPACING;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    margin-top: 0;
   }
 }
 </style>

@@ -24,10 +24,4 @@
   height: 100px;
   width: 100px;
 }
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 </style>

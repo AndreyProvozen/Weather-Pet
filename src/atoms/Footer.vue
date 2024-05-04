@@ -2,13 +2,13 @@
   <footer class="footer">
     <div class="container footer--content">
       <div class="footer--socials-wrapper">
-        <h2 style="margin: 0 0 10px 0">Weather-Pet</h2>
+        <h2 style="margin: 0 0 10px">Weather-Pet</h2>
         <div style="display: flex; gap: 13px">
           <Icon v-for="social in socialsList" :key="social" classes="footer--social-icon" :name="social" />
         </div>
       </div>
       <div v-for="{ name, links } in FOOTER_COLUMN_LINKS" :key="name">
-        <h4 style="margin: 0 0 20px 0">{{ name }}</h4>
+        <h4 style="margin: 0 0 20px">{{ name }}</h4>
         <div v-for="{ href = '', title } in links" :key="title">
           <Link :to="href">{{ title }}</Link>
         </div>
@@ -30,10 +30,10 @@ const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
   margin-top: 30px;
 
   &--content {
-    padding: 60px 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 70px;
+    padding: 60px 20px;
 
     @media (max-width: $breakpoint-lg) {
       & > div {
@@ -59,8 +59,8 @@ const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
 
   &--social-icon {
     background: $white;
-    padding: 8px;
     border-radius: 10%;
+    padding: 8px;
   }
 }
 </style>
