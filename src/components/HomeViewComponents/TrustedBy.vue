@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="trusted-by container">
     <Carousel :options="splideOptions" :extensions="extensions">
       <SplideSlide v-for="{ icon, name } in TRUSTED_BY_LIST" :key="name" class="trusted-by--slide">
         <Icon :name="icon" classes="trusted-by--logo" />
@@ -39,6 +39,29 @@ const extensions = { AutoScroll };
 
 <style scoped lang="scss">
 .trusted-by {
+  position: relative;
+
+  &::before {
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: $z-10;
+    background: linear-gradient(90deg, #dceeff 10%, rgba(255, 255, 255, 0) 100%);
+    width: 200px;
+  }
+
+  &::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: $z-10;
+    background: linear-gradient(270deg, #dceeff 10%, rgba(255, 255, 255, 0) 100%);
+    width: 200px;
+  }
+
   &--slide {
     text-align: center;
   }

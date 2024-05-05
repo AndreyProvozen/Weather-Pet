@@ -1,10 +1,7 @@
 <template>
   <HeroBlock />
-  <h2 class="section-title">Trusted By</h2>
-  <TrustedBy />
-  <TrustedBy :is-direction-right="true" />
   <h2 class="section-title">Our Quality</h2>
-  <div class="container" style="display: flex; gap: 30px">
+  <div class="container" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center">
     <QualityCard
       v-for="qualityData in QUALITY_SECTION_DATA"
       :key="qualityData.title"
@@ -13,6 +10,9 @@
       :animated-number="qualityData.animatedNumber"
     />
   </div>
+  <h2 class="section-title">Trusted By</h2>
+  <TrustedBy />
+  <TrustedBy :is-direction-right="true" />
   <SavedCities :saved-cities-list="savedCitiesList" @open-modal="setIsAddCityModalOpen(true)" />
   <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
     <AddCityModal
