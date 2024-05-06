@@ -16,8 +16,17 @@
         </div>
       </div>
       <ul v-if="searchCitiesList" class="hero-block--autocomplete-wrapper">
-        <p v-if="searchCitiesList.length === 0" class="m-0">No results found</p>
-        <li v-for="{ id, place_name } in searchCitiesList" v-else :key="id" class="hero-block--autocomplete-item">
+        <div v-if="searchCitiesList.length === 0" style="margin: 40px auto; max-width: 400px">
+          <b style="font-size: 24px">We’re sorry we couldn’t find a place with that name 🤷</b>
+          <p class="mb-0">Please double check the spelling and try again</p>
+        </div>
+        <li
+          v-for="{ id, place_name, geometry } in searchCitiesList"
+          v-else
+          :key="id"
+          class="hero-block--autocomplete-item"
+          @click="redirectToCityView(place_name, geometry)"
+        >
           {{ place_name }}
         </li>
       </ul>
@@ -40,9 +49,15 @@ import { type Ref, ref, watch } from 'vue';
 import { get, set, useDebounceFn } from '@vueuse/core';
 import type { CityData } from '@/interface';
 import { fetchCitiesAutoComplete } from '@/api';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const searchValue: Ref<string> = ref('');
 const searchCitiesList: Ref<CityData[] | undefined> = ref();
+
+const season = getCurrentSeason();
+const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
 
 const searchCitiesAutoComplete = useDebounceFn(async () => {
   const { features } = await fetchCitiesAutoComplete(get(searchValue));
@@ -58,8 +73,18 @@ watch(searchValue, async () => {
   set(searchCitiesList, undefined);
 });
 
-const season = getCurrentSeason();
-const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
+const redirectToCityView = (place_name: string, geometry: CityData['geometry']) => {
+  const [city, state] = place_name.split(',');
+
+  router.push({
+    name: 'cityView',
+    params: { city, state: state.replaceAll(' ', '') },
+    query: {
+      lon: geometry.coordinates[0],
+      lat: geometry.coordinates[1],
+    },
+  });
+};
 </script>
 
 <style scoped lang="scss">
@@ -134,12 +159,17 @@ const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
     color: $black;
     list-style-type: none;
     margin: 8px 0 0;
-    padding: 8px 16px;
+    padding: 16px;
   }
 
   &--autocomplete-item {
     cursor: pointer;
     padding: 8px 0;
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba($color: $purple, $alpha: 30%);
+    }
   }
 
   &--scroll-icon-wrapper {
