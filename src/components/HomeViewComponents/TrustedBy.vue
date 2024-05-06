@@ -42,24 +42,24 @@ const extensions = { AutoScroll };
   position: relative;
 
   &::before {
+    background: linear-gradient(90deg, #dceeff 10%, rgb(255 255 255 / 0%) 100%);
     content: '';
     height: 100%;
     position: absolute;
     top: 0;
-    z-index: $z-10;
-    background: linear-gradient(90deg, #dceeff 10%, rgba(255, 255, 255, 0) 100%);
     width: 200px;
+    z-index: $z-10;
   }
 
   &::after {
+    background: linear-gradient(270deg, #dceeff 10%, rgb(255 255 255 / 0%) 100%);
     content: '';
     height: 100%;
     position: absolute;
     right: 0;
     top: 0;
-    z-index: $z-10;
-    background: linear-gradient(270deg, #dceeff 10%, rgba(255, 255, 255, 0) 100%);
     width: 200px;
+    z-index: $z-10;
   }
 
   &--slide {

@@ -40,10 +40,6 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
   overflow: hidden;
   position: relative;
 
-  @media (max-width: $breakpoint-lg) {
-    flex-basis: calc(50% - 20px);
-  }
-
   &::before {
     animation: spin 6s linear infinite;
     background-image: conic-gradient(transparent, transparent, transparent, $purple);
@@ -88,6 +84,10 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
     font-weight: 600;
     line-height: 1;
     margin: 10px 0;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    flex-basis: calc(50% - 20px);
   }
 }
 </style>

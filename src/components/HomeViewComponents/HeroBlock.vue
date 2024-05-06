@@ -163,9 +163,9 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
   }
 
   &--autocomplete-item {
+    border-radius: 4px;
     cursor: pointer;
     padding: 8px 0;
-    border-radius: 4px;
 
     &:hover {
       background: rgba($color: $purple, $alpha: 30%);
@@ -173,12 +173,12 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
   }
 
   &--scroll-icon-wrapper {
+    animation: bounce 2s infinite;
     bottom: 10px;
     display: flex;
     flex-direction: column;
     position: absolute;
     right: 50%;
-    animation: bounce 2s infinite;
     translate: 50%;
   }
 
