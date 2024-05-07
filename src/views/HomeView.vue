@@ -13,6 +13,7 @@ const savedCities: Ref<CityListDataWithWeather[]> = ref([]);
 
 const loadSavedCities = async () => {
   const citiesList = localStorage.getItem('saved_cities_list') || '[]';
+
   if (citiesList.length) set(savedCities, JSON.parse(citiesList));
 
   const weatherRequests = get(savedCities).map(async ({ coordinates }) => await getShortWeatherData(coordinates));
