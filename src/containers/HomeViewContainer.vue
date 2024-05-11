@@ -2,7 +2,7 @@
   <HeroSection />
   <QualitySection />
   <TrustedBySection />
-  <SavedCitiesSection :saved-cities-list="savedCitiesList" @open-modal="setIsAddCityModalOpen(true)" />
+  <SavedCitiesSection @open-modal="setIsAddCityModalOpen(true)" />
   <ModalWrapper :is-modal-open="isAddCityModalOpen" @close-modal="setIsAddCityModalOpen(false)">
     <AddCityModal
       :search-cities-list="searchCitiesList"
@@ -15,17 +15,11 @@
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
 import { QualitySection, HeroSection, TrustedBySection, SavedCitiesSection } from '@/sections';
-import type { CityData, CityListDataWithWeather } from '@/interface';
+import type { CityData } from '@/interface';
 import { get, set, useDebounceFn, useToggle } from '@vueuse/core';
 import { fetchCitiesAutoComplete } from '@/api';
 import { ModalWrapper } from '@/atoms';
 import AddCityModal from '@/components/modals/AddCityModal.vue';
-
-interface Props {
-  savedCitiesList: CityListDataWithWeather[];
-}
-
-defineProps<Props>();
 
 const [isAddCityModalOpen, setIsAddCityModalOpen] = useToggle(false);
 const searchQuery = ref('');

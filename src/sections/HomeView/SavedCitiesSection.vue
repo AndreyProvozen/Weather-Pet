@@ -17,7 +17,7 @@
       />
     </div>
     <div class="saved-cities--city-cards-wrapper">
-      <div v-for="city in savedCitiesList" :key="city.id">
+      <div v-for="city in state.global.savedCitiesList" :key="city.id">
         <CityCard :city-data="city" />
       </div>
     </div>
@@ -26,18 +26,14 @@
 
 <script setup lang="ts">
 import { Button, Input } from '@/atoms';
-import { CityListDataWithWeather } from '@/interface';
 import CityCard from '@/components/HomeView/CityCard.vue';
 import MoveIcon from '@/assets/icons/move.svg';
 import TrashIcon from '@/assets/icons/trash.svg';
 import PlusIcon from '@/assets/icons/plus.svg';
 import SearchIcon from '@/assets/icons/search.svg';
+import { useStore } from '@/store';
 
-interface Props {
-  savedCitiesList: CityListDataWithWeather[];
-}
-
-defineProps<Props>();
+const { state } = useStore();
 const emit = defineEmits(['open-modal']);
 
 const openAddToSavedCitiesModal = () => emit('open-modal');

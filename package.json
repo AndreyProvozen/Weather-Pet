@@ -21,7 +21,8 @@
     "dayjs-plugin-utc": "^0.1.2",
     "vue": "^3.4.26",
     "vue-number-animation": "^2.0.2",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@types/node": "^20.8.10",
