@@ -1,13 +1,18 @@
 <template>
-  <HomeViewContainer />
+  <HeroSection />
+  <QualitySection />
+  <TrustedBySection />
+  <SavedCitiesSection />
+  <FavoriteModal />
 </template>
 
 <script lang="ts" setup>
-import HomeViewContainer from '@/containers/HomeViewContainer.vue';
+import { QualitySection, HeroSection, TrustedBySection, SavedCitiesSection } from '@/sections';
+import FavoriteModal from '@/components/modals/FavoriteModal.vue';
 import { onMounted } from 'vue';
 import { useStore } from '@/store';
 
-const store = useStore();
+const { dispatch } = useStore();
 
-onMounted(async () => await store.dispatch('loadSavedCities'));
+onMounted(async () => await dispatch('loadSavedCities'));
 </script>

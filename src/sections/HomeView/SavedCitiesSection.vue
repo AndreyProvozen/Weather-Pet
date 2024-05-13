@@ -3,7 +3,7 @@
     <h2 class="section-title">Saved Cities</h2>
     <div class="saved-cities--toolbar">
       <div style="display: flex; gap: 10px">
-        <Button variant="filled" :start-button-icon="PlusIcon" @click="openAddToSavedCitiesModal">
+        <Button variant="filled" :start-button-icon="PlusIcon" @click="commit('setIsFavoriteModalOpen', true)">
           Add new city
         </Button>
         <Button variant="filled" :start-button-icon="TrashIcon"> Remove city </Button>
@@ -33,10 +33,7 @@ import PlusIcon from '@/assets/icons/plus.svg';
 import SearchIcon from '@/assets/icons/search.svg';
 import { useStore } from '@/store';
 
-const { state } = useStore();
-const emit = defineEmits(['open-modal']);
-
-const openAddToSavedCitiesModal = () => emit('open-modal');
+const { state, commit } = useStore();
 </script>
 
 <style scoped lang="scss">
