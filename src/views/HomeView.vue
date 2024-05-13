@@ -16,3 +16,11 @@ const { dispatch } = useStore();
 
 onMounted(async () => await dispatch('loadSavedCities'));
 </script>
+
+<style lang="scss">
+.section-title {
+  color: $black;
+  margin: 30px 0 15px;
+  text-align: center;
+}
+</style>

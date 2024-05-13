@@ -1,9 +1,9 @@
 <template>
   <div class="quality-card">
-    <div class="quality-card--wrapper">
-      <h3 class="m-0 quality-card--title">{{ title }}</h3>
-      <NumberAnimation
-        class="quality-card--animated-number"
+    <div class="quality-card__wrapper">
+      <h3 class="m-0 quality-card__title">{{ title }}</h3>
+      <number-animation
+        class="quality-card__animated-number"
         :format="formatNumber"
         :from="animatedNumber.from"
         :to="animatedNumber.to"
@@ -40,26 +40,25 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
   overflow: hidden;
   position: relative;
 
-  &::before {
+  &::before,
+  &::after {
     animation: spin 6s linear infinite;
-    background-image: conic-gradient(transparent, transparent, transparent, $purple);
     content: '';
     height: 600px;
     position: absolute;
     width: 600px;
+  }
+
+  &::before {
+    background-image: conic-gradient(transparent, transparent, transparent, $purple);
   }
 
   &::after {
-    animation: spin 6s linear infinite;
     animation-delay: -3s;
     background-image: conic-gradient(transparent, transparent, transparent, $turquoise);
-    content: '';
-    height: 600px;
-    position: absolute;
-    width: 600px;
   }
 
-  &--wrapper {
+  &__wrapper {
     align-items: center;
     background-color: $white;
     border-radius: 16px;
@@ -74,11 +73,11 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
     z-index: $z-10;
   }
 
-  &--title {
+  &__title {
     font-weight: 600;
   }
 
-  &--animated-number {
+  &__animated-number {
     color: $turquoise;
     font-size: 45px;
     font-weight: 600;

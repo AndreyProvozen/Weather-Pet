@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { Link } from '@/atoms';
-import MenuIcon from '@/assets/icons/menu.svg';
+import { MenuIcon } from '@/assets/icons';
 </script>
 
 <style lang="scss" scoped>

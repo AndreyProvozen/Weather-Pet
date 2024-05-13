@@ -27,10 +27,7 @@
 
 <script setup lang="ts">
 import { getCurrentSeason, metersToKilometers } from '@/utils';
-import SunriseIcon from '@/assets/icons/sunrise.svg';
-import SunsetIcon from '@/assets/icons/sunset.svg';
-import HumidityIcon from '@/assets/icons/humidity.svg';
-import EyeIcon from '@/assets/icons/eye.svg';
+import { SunriseIcon, SunsetIcon, HumidityIcon, EyeIcon } from '@/assets/icons';
 import { LeftWeatherProps } from '.';
 import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
 import dayjs from 'dayjs';

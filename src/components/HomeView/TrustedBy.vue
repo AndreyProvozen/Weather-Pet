@@ -1,9 +1,9 @@
 <template>
   <div class="trusted-by">
     <Splide :options="splideOptions" :extensions="extensions">
-      <SplideSlide v-for="{ icon, name } in TRUSTED_BY_LIST" :key="name" class="trusted-by--slide">
-        <Icon :name="icon" classes="trusted-by--logo" />
-        <h5 class="trusted-by--text">{{ name }}</h5>
+      <SplideSlide v-for="{ icon, name } in TRUSTED_BY_LIST" :key="name" class="trusted-by__slide">
+        <Icon :name="icon" classes="trusted-by__logo" />
+        <h5 class="trusted-by__text">{{ name }}</h5>
       </SplideSlide>
     </Splide>
   </div>
@@ -29,9 +29,7 @@ const splideOptions: Options = {
   type: 'loop',
   autoWidth: true,
   drag: 'free',
-  autoScroll: {
-    speed: isDirectionRight ? -1 : 1,
-  },
+  autoScroll: { speed: isDirectionRight ? -1 : 1 },
 };
 
 const extensions = { AutoScroll };
@@ -39,16 +37,16 @@ const extensions = { AutoScroll };
 
 <style scoped lang="scss">
 .trusted-by {
-  &--slide {
+  &__slide {
     text-align: center;
   }
 
-  &--logo {
+  &__logo {
     height: 70px;
     width: 70px;
   }
 
-  &--text {
+  &__text {
     color: $black;
     margin: 5px 0 0;
     padding: 0 10px;

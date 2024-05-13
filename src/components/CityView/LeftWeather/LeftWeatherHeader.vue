@@ -8,8 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import BookmarkPlusIcon from '@/assets/icons/bookmark-plus.svg';
-import LocationIcon from '@/assets/icons/location.svg';
+import { BookmarkPlusIcon, LocationIcon } from '@/assets/icons';
 import { useRoute } from 'vue-router';
 import { Button, Input } from '@/atoms';
 import { Ref, ref } from 'vue';

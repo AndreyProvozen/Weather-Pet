@@ -42,9 +42,7 @@
 import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
 import { getCurrentSeason } from '@/utils';
 import { Button, Input } from '@/atoms';
-import SearchIcon from '@/assets/icons/search.svg';
-import MouseIcon from '@/assets/icons/mouse.svg';
-import ArrowIcon from '@/assets/icons/arrow.svg';
+import { ArrowIcon, MouseIcon, SearchIcon } from '@/assets/icons';
 import { type Ref, ref, watch } from 'vue';
 import { get, set, useDebounceFn } from '@vueuse/core';
 import type { CityData } from '@/interface';

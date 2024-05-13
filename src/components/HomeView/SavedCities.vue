@@ -28,10 +28,7 @@
 import { Button, Input } from '@/atoms';
 import { CityListDataWithWeather } from '@/interface';
 import CityCard from './CityCard.vue';
-import MoveIcon from '@/assets/icons/move.svg';
-import TrashIcon from '@/assets/icons/trash.svg';
-import PlusIcon from '@/assets/icons/plus.svg';
-import SearchIcon from '@/assets/icons/search.svg';
+import { MoveIcon, TrashIcon, PlusIcon, SearchIcon } from '@/assets/icons';
 
 interface Props {
   savedCitiesList: CityListDataWithWeather[];

@@ -27,10 +27,7 @@
 <script setup lang="ts">
 import { Button, Input } from '@/atoms';
 import CityCard from '@/components/HomeView/CityCard.vue';
-import MoveIcon from '@/assets/icons/move.svg';
-import TrashIcon from '@/assets/icons/trash.svg';
-import PlusIcon from '@/assets/icons/plus.svg';
-import SearchIcon from '@/assets/icons/search.svg';
+import { MoveIcon, TrashIcon, PlusIcon, SearchIcon } from '@/assets/icons';
 import { useStore } from '@/store';
 
 const { state, commit } = useStore();
