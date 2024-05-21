@@ -1,8 +1,8 @@
 <template>
-  <div class="black-image-overlay" :style="{ backgroundImage: `url(${getImageUrl})` }">
+  <div class="black-image-overlay" :style="{ backgroundImage: `url(${CITY_PAGE_VIEW_SEASON_IMAGE[season]})` }">
     <div class="hero-block">
-      <h1 class="hero-block--title">Discover the Latest Weather Forecast Updates</h1>
-      <div class="hero-block--search-wrapper">
+      <h1 class="hero-block__title">Discover the Latest Weather Forecast Updates</h1>
+      <div class="hero-block__search-wrapper">
         <Input
           style="flex: 1"
           :end-input-icon="SearchIcon"
@@ -10,12 +10,12 @@
           :value="searchValue"
           @on-change="onSearchValueChange"
         />
-        <div class="hero-block--buttons-container">
+        <div class="hero-block__buttons-container">
           <Button variant="filled"> Search </Button>
           <Button variant="outlined"> Favorites </Button>
         </div>
       </div>
-      <ul v-if="searchCitiesList" class="hero-block--autocomplete-wrapper">
+      <ul v-if="searchCitiesList" class="hero-block__autocomplete-wrapper">
         <div v-if="searchCitiesList.length === 0" style="margin: 40px auto; max-width: 400px">
           <b style="font-size: 24px">We’re sorry we couldn’t find a place with that name 🤷</b>
           <p class="mb-0">Please double check the spelling and try again</p>
@@ -24,13 +24,13 @@
           v-for="{ id, place_name, geometry } in searchCitiesList"
           v-else
           :key="id"
-          class="hero-block--autocomplete-item"
+          class="hero-block__autocomplete-item"
           @click="redirectToCityView(place_name, geometry)"
         >
           {{ place_name }}
         </li>
       </ul>
-      <div class="hero-block--scroll-icon-wrapper">
+      <div class="hero-block__scroll-icon-wrapper">
         <MouseIcon />
         <ArrowIcon />
       </div>
@@ -55,7 +55,6 @@ const searchValue: Ref<string> = ref('');
 const searchCitiesList: Ref<CityData[] | undefined> = ref();
 
 const season = getCurrentSeason();
-const getImageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
 
 const searchCitiesAutoComplete = useDebounceFn(async () => {
   const { features } = await fetchCitiesAutoComplete(get(searchValue));
@@ -114,7 +113,7 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
   max-width: 700px;
   z-index: $z-10;
 
-  &--title {
+  &__title {
     margin: 20px 10px;
     text-shadow: $black 1px 0 10px;
     text-wrap: balance;
@@ -125,7 +124,7 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
     }
   }
 
-  &--search-wrapper {
+  &__search-wrapper {
     background: $white;
     border-radius: 8px;
     box-shadow: 0 1px 5px 0 $black;
@@ -138,7 +137,7 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
     }
   }
 
-  &--buttons-container {
+  &__buttons-container {
     display: flex;
     gap: 8px;
 
@@ -150,7 +149,7 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
     }
   }
 
-  &--autocomplete-wrapper {
+  &__autocomplete-wrapper {
     background: $white;
     border-radius: 8px;
     box-shadow: 0 1px 5px 0 $black;
@@ -160,7 +159,7 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
     padding: 16px;
   }
 
-  &--autocomplete-item {
+  &__autocomplete-item {
     border-radius: 4px;
     cursor: pointer;
     padding: 8px 0;
@@ -170,7 +169,7 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
     }
   }
 
-  &--scroll-icon-wrapper {
+  &__scroll-icon-wrapper {
     animation: bounce 2s infinite;
     bottom: 10px;
     display: flex;

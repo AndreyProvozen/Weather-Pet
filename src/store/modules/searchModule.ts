@@ -1,7 +1,7 @@
-import { Module } from 'vuex';
-import { State } from '..';
+import type { Module } from 'vuex';
+import type { State } from '..';
+import type { CityData } from '@/interface';
 import { fetchCitiesAutoComplete } from '@/api';
-import { CityData } from '@/interface';
 
 export interface SearchModuleState {
   searchQuery: string;

@@ -1,6 +1,6 @@
 <template>
   <h2 class="section-title">Our Quality</h2>
-  <div class="container quality-card-wrapper">
+  <div class="container quality-section">
     <QualityCard
       v-for="{ animatedNumber, description, title } in QUALITY_SECTION_DATA"
       :key="title"
@@ -17,7 +17,7 @@ import { QUALITY_SECTION_DATA } from '@/constants';
 </script>
 
 <style scoped lang="scss">
-.quality-card-wrapper {
+.quality-section {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;

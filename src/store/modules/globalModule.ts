@@ -1,7 +1,7 @@
 import { getShortWeatherData } from '@/api';
-import { CityListDataWithWeather } from '@/interface';
-import { Module } from 'vuex';
-import { State } from '..';
+import type { CityListDataWithWeather } from '@/interface';
+import type { Module } from 'vuex';
+import type { State } from '..';
 
 export interface GlobalModuleState {
   firstTimeVisit: boolean;

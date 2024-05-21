@@ -9,7 +9,7 @@
       required
       @on-change="onInputValueChange"
     />
-    <ul v-if="Boolean(search.searchCitiesList.length || search.searchQuery)" class="autocomplete-input">
+    <ul v-if="search.searchCitiesList" class="autocomplete-input">
       <p v-if="search.searchCitiesList.length === 0" class="m-0">No results found</p>
       <template v-else>
         <li
@@ -33,6 +33,7 @@ import { Input, ModalWrapper } from '@/atoms';
 import { MODAL_SEASON_IMAGE } from '@/constants';
 import { useStore } from '@/store';
 import { useDebounceFn } from '@vueuse/core';
+import { watch } from 'vue';
 
 const router = useRouter();
 const { commit, dispatch, state } = useStore();
@@ -55,13 +56,16 @@ const redirectToCityView = (cityData: CityData) => {
 
 const searchCitiesAutoComplete = useDebounceFn(async () => await dispatch('citiesAutoComplete'), 500);
 
-const onInputValueChange = async (value: string) => {
-  commit('setSearchQuery', value);
+const onInputValueChange = (value: string) => commit('setSearchQuery', value);
 
-  if (search.searchQuery.length > 2) return await searchCitiesAutoComplete();
+watch(
+  () => search.searchQuery,
+  async (newQuery: string) => {
+    if (newQuery.length > 2) return await searchCitiesAutoComplete();
 
-  commit('setSearchCitiesList', undefined);
-};
+    commit('setSearchCitiesList', undefined);
+  }
+);
 </script>
 
 <style lang="scss" scoped>
