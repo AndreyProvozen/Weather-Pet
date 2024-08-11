@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state.weather.weatherData" class="container city-view-container">
+  <div v-if="state.weather.weatherData" class="container city-view">
     <LeftWeather
       :weather-today="state.weather.weatherData.daily[0]"
       :current-temperature="state.weather.weatherData.current.temp"
@@ -7,7 +7,6 @@
     />
     <RightWeatherContent :weather-data="state.weather.weatherData" />
   </div>
-  <Loader v-else />
 </template>
 
 <script setup lang="ts">
@@ -16,7 +15,6 @@ import { onMounted } from 'vue';
 import { useStore } from '@/store';
 import LeftWeather from '@/components/CityView/LeftWeather';
 import RightWeatherContent from '@/components/CityView/RightWeatherContent.vue';
-import { Loader } from '@/atoms';
 
 const route = useRoute();
 const { dispatch, state } = useStore();
@@ -30,7 +28,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.city-view-container {
+.city-view {
   display: flex;
   gap: 30px;
   justify-content: space-between;

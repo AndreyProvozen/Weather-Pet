@@ -5,7 +5,7 @@
       :class="{ 'has-start-icon': startInputIcon, 'has-end-icon': endInputIcon }"
       :value="value"
       v-bind="$attrs"
-      @input="$emit('onChange', ($event.target as HTMLInputElement).value)"
+      @input="$emit('on-change', ($event.target as HTMLInputElement).value)"
     />
     <component :is="endInputIcon" v-if="endInputIcon" class="input-icon end" />
   </div>
@@ -27,7 +27,7 @@ withDefaults(defineProps<Props>(), {
   endInputIcon: undefined,
 });
 
-defineEmits(['onChange']);
+defineEmits(['on-change']);
 </script>
 
 <style lang="scss" scoped>

@@ -3,7 +3,7 @@
     <h2 class="section-title">Saved Cities</h2>
     <div class="saved-cities--toolbar">
       <div style="display: flex; gap: 10px">
-        <Button variant="filled" :start-button-icon="PlusIcon" @click="commit('setIsFavoriteModalOpen', true)">
+        <Button variant="filled" :start-button-icon="PlusIcon" @click="commit('setIsAddToSavedCitiesModalOpen', true)">
           Add new city
         </Button>
         <Button variant="filled" :start-button-icon="TrashIcon"> Remove city </Button>

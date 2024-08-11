@@ -3,12 +3,12 @@
   <QualitySection />
   <TrustedBySection />
   <SavedCitiesSection />
-  <FavoriteModal />
+  <AddToSavedCitiesModal />
 </template>
 
 <script lang="ts" setup>
 import { QualitySection, HeroSection, TrustedBySection, SavedCitiesSection } from '@/sections';
-import FavoriteModal from '@/components/modals/FavoriteModal.vue';
+import AddToSavedCitiesModal from '@/components/modals/AddToSavedCitiesModal.vue';
 import { onMounted } from 'vue';
 import { useStore } from '@/store';
 
