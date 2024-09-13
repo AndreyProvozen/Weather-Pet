@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 interface Props {
-  variant?: 'outlined' | 'filled';
+  variant?: 'outlined' | 'filled' | 'danger';
   startButtonIcon?: any;
 }
 
@@ -53,6 +53,20 @@ button {
 
     &:active {
       background: $purple-light;
+    }
+  }
+
+  &.danger {
+    background: $red;
+    border: none;
+    color: white;
+
+    &:hover {
+      background: $red-dark;
+    }
+
+    &:active {
+      background: $red-light;
     }
   }
 }

@@ -14,6 +14,11 @@ $turquoise: #00adb5;
 $turquoise-dark: darken($turquoise, 10%);
 $turquoise-light: lighten($turquoise, 10%);
 
+// Danger
+$red: #ff4c4c;
+$red-dark: darken($red, 10%);
+$red-light: lighten($red, 10%);
+
 // Overlays
 $light-overlay: rgba(
   $color: $white,

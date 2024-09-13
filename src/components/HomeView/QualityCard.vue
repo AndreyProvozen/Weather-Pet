@@ -88,5 +88,9 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
   @media (max-width: $breakpoint-lg) {
     flex-basis: calc(50% - 20px);
   }
+  @media (max-width: $breakpoint-sm) {
+    flex-basis: 100%;
+    max-width: 400px;
+  }
 }
 </style>

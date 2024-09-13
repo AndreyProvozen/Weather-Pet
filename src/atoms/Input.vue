@@ -69,9 +69,10 @@ defineEmits(['on-change']);
 
 input {
   border: none;
-  font-size: 16px;
   outline: none;
+  font-size: 16px;
   padding: 8px 16px;
+  height: 100%;
   width: 100%;
 
   &.has-start-icon {

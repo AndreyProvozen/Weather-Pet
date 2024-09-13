@@ -4,14 +4,14 @@
     <div class="saved-cities--toolbar">
       <div style="display: flex; gap: 10px">
         <Button variant="filled" :start-button-icon="PlusIcon" @click="commit('setIsAddToSavedCitiesModalOpen', true)">
-          Add new city
+          Add
         </Button>
-        <Button variant="filled" :start-button-icon="TrashIcon"> Remove city </Button>
-        <Button :start-button-icon="MoveIcon" variant="filled"> Reorder city list </Button>
+        <Button :start-button-icon="MoveIcon" variant="filled">Reorder</Button>
+        <Button variant="danger" :start-button-icon="TrashIcon">Remove</Button>
       </div>
       <Input
-        style="flex: 1; max-width: 350px"
         :end-input-icon="SearchIcon"
+        class="saved-cities--search-input"
         placeholder="Enter the location you're searching for"
         value=""
       />
@@ -41,6 +41,17 @@ const { state, commit } = useStore();
     gap: 40px;
     justify-content: space-between;
     margin-bottom: 20px;
+  }
+
+  &--search-input {
+    max-width: 500px;
+    flex: 1;
+    height: 40px;
+    width: 100%;
+
+    @media (max-width: $breakpoint-lg) {
+      max-width: 100%;
+    }
   }
 
   &--city-cards-wrapper {
