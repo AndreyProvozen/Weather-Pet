@@ -1,11 +1,11 @@
 <template>
   <header class="header">
     <h1 class="m-0">Weather-Pet</h1>
-    <div class="header--navigation">
+    <div class="header__navigation">
       <Link to="/">Main</Link>
       <Link to="#">Test</Link>
     </div>
-    <MenuIcon class="header--burger" />
+    <MenuIcon class="header__burger" />
   </header>
 </template>
 
@@ -25,7 +25,7 @@ import { MenuIcon } from '@/assets/icons';
   top: 0;
   z-index: $z-30;
 
-  &--navigation {
+  &__navigation {
     align-items: center;
     column-gap: 15px;
     display: flex;
@@ -36,7 +36,7 @@ import { MenuIcon } from '@/assets/icons';
     }
   }
 
-  &--burger {
+  &__burger {
     display: none;
 
     @media (max-width: $breakpoint-md) {

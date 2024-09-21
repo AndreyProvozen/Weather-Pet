@@ -96,11 +96,21 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
     font-weight: 600;
     line-height: 1;
     margin: 10px 0;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 30px;
+      margin: 6px 0;
+    }
   }
 
   @media (max-width: $breakpoint-lg) {
     flex-basis: calc(50% - 20px);
   }
+
+  @media (max-width: $breakpoint-md) {
+    height: 230px;
+  }
+
   @media (max-width: $breakpoint-sm) {
     flex-basis: 100%;
     max-width: 400px;

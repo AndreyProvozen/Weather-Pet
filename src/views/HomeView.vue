@@ -1,13 +1,13 @@
 <template>
   <HeroSection />
-  <QualitySection />
   <TrustedBySection />
-  <SavedCitiesSection />
+  <QualitySection />
+  <!-- <SavedCitiesSection /> -->
   <AddToSavedCitiesModal />
 </template>
 
 <script lang="ts" setup>
-import { QualitySection, HeroSection, TrustedBySection, SavedCitiesSection } from '@/sections';
+import { QualitySection, HeroSection, TrustedBySection } from '@/sections';
 import AddToSavedCitiesModal from '@/components/modals/AddToSavedCitiesModal.vue';
 import { onMounted } from 'vue';
 import { useStore } from '@/store';

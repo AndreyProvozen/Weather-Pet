@@ -49,7 +49,7 @@ import ScrollBottomIcon from '@/components/HomeView/ScrollBottomIcon.vue';
 
 const router = useRouter();
 
-const searchValue: Ref<string> = ref('');
+const searchValue = ref('');
 const searchCitiesList: Ref<CityData[] | undefined> = ref();
 
 const season = getCurrentSeason();

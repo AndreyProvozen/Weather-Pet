@@ -22,5 +22,9 @@ import { QUALITY_SECTION_DATA } from '@/constants';
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+
+  @media (max-width: $breakpoint-md) {
+    gap: 16px;
+  }
 }
 </style>

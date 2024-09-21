@@ -3,10 +3,10 @@
     <Transition name="modal-outer">
       <div v-show="isModalOpen" class="modal-wrapper" @click="handleClickOutside">
         <Transition name="modal-inner">
-          <form v-if="isModalOpen" action="" class="modal-wrapper--modal-content" @submit="submitForm" @click.stop>
-            <Icon name="close" class="modal-wrapper--close-icon" @click="closeModal" />
+          <form v-if="isModalOpen" action="" class="modal-wrapper__modal-content" @submit="submitForm" @click.stop>
+            <Icon name="close" class="modal-wrapper__close-icon" @click="closeModal" />
             <slot />
-            <div class="modal-wrapper--btn-wrapper">
+            <div class="modal-wrapper__btn-wrapper">
               <Button type="button" @click="closeModal"> Close </Button>
               <Button variant="filled" type="submit"> Submit </Button>
             </div>
@@ -57,7 +57,7 @@ useEventListener('keydown', handleEscapeKey);
   width: 100%;
   z-index: $z-40;
 
-  &--close-icon {
+  &__close-icon {
     background-color: $gray;
     border-radius: 50%;
     cursor: pointer;
@@ -66,14 +66,14 @@ useEventListener('keydown', handleEscapeKey);
     top: 12px;
   }
 
-  &--btn-wrapper {
+  &__btn-wrapper {
     display: flex;
     gap: 10px;
     justify-content: flex-end;
     margin-top: 16px;
   }
 
-  &--modal-content {
+  &__modal-content {
     background-color: white;
     border-radius: 16px;
     display: flex;
@@ -84,8 +84,6 @@ useEventListener('keydown', handleEscapeKey);
     width: 100%;
   }
 }
-
-// Transition
 
 .modal-outer-enter-active,
 .modal-outer-leave-active {

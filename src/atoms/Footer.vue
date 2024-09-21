@@ -1,14 +1,14 @@
 <template>
   <footer class="footer">
-    <div class="container footer--content">
-      <div class="footer--socials-wrapper">
+    <div class="container footer__content">
+      <div class="footer__socials-wrapper">
         <h2 style="margin: 0 0 10px">Weather-Pet</h2>
         <div style="display: flex; gap: 13px">
-          <Icon v-for="social in socialsList" :key="social" class="footer--social-icon" :name="social" />
+          <Icon v-for="social in socialsList" :key="social" class="footer__social-icon" :name="social" />
         </div>
       </div>
       <div v-for="{ name, links } in FOOTER_COLUMN_LINKS" :key="name">
-        <h4 style="margin: 0 0 20px">{{ name }}</h4>
+        <h4 class="footer__section-title">{{ name }}</h4>
         <div v-for="{ href = '', title } in links" :key="title">
           <Link :to="href">{{ title }}</Link>
         </div>
@@ -29,7 +29,7 @@ const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
   background-color: $black;
   margin-top: 30px;
 
-  &--content {
+  &__content {
     display: flex;
     flex-wrap: wrap;
     gap: 70px;
@@ -43,11 +43,19 @@ const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
     }
 
     @media (max-width: $breakpoint-sm) {
-      gap: 35px;
+      gap: 24px;
     }
   }
 
-  &--socials-wrapper {
+  &__section-title {
+    margin: 0 0 20px;
+
+    @media (max-width: $breakpoint-md) {
+      margin: 0 0 8px;
+    }
+  }
+
+  &__socials-wrapper {
     display: flex;
     flex-direction: column;
     margin-right: auto;
@@ -57,7 +65,7 @@ const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
     }
   }
 
-  &--social-icon {
+  &__social-icon {
     background: $white;
     border-radius: 10%;
     padding: 8px;
