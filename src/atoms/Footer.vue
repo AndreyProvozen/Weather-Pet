@@ -4,7 +4,7 @@
       <div class="footer--socials-wrapper">
         <h2 style="margin: 0 0 10px">Weather-Pet</h2>
         <div style="display: flex; gap: 13px">
-          <Icon v-for="social in socialsList" :key="social" classes="footer--social-icon" :name="social" />
+          <Icon v-for="social in socialsList" :key="social" class="footer--social-icon" :name="social" />
         </div>
       </div>
       <div v-for="{ name, links } in FOOTER_COLUMN_LINKS" :key="name">

@@ -4,7 +4,7 @@
       <div v-show="isModalOpen" class="modal-wrapper" @click="handleClickOutside">
         <Transition name="modal-inner">
           <form v-if="isModalOpen" action="" class="modal-wrapper--modal-content" @submit="submitForm" @click.stop>
-            <Icon name="close" classes="modal-wrapper--close-icon" @click="closeModal" />
+            <Icon name="close" class="modal-wrapper--close-icon" @click="closeModal" />
             <slot />
             <div class="modal-wrapper--btn-wrapper">
               <Button type="button" @click="closeModal"> Close </Button>

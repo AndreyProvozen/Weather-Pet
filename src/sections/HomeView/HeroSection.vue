@@ -30,10 +30,7 @@
           {{ place_name }}
         </li>
       </ul>
-      <div class="hero-block__scroll-icon-wrapper">
-        <MouseIcon />
-        <ArrowIcon />
-      </div>
+      <ScrollBottomIcon />
     </div>
   </div>
 </template>
@@ -42,12 +39,13 @@
 import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
 import { getCurrentSeason } from '@/utils';
 import { Button, Input } from '@/atoms';
-import { ArrowIcon, MouseIcon, SearchIcon } from '@/assets/icons';
+import { SearchIcon } from '@/assets/icons';
 import { type Ref, ref, watch } from 'vue';
 import { get, set, useDebounceFn } from '@vueuse/core';
 import type { CityData } from '@/interface';
 import { fetchCitiesAutoComplete } from '@/api';
 import { useRouter } from 'vue-router';
+import ScrollBottomIcon from '@/components/HomeView/ScrollBottomIcon.vue';
 
 const router = useRouter();
 
@@ -76,10 +74,7 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
   router.push({
     name: 'cityView',
     params: { city, state: state.replaceAll(' ', '') },
-    query: {
-      lon: geometry.coordinates[0],
-      lat: geometry.coordinates[1],
-    },
+    query: { lon: geometry.coordinates[0], lat: geometry.coordinates[1] },
   });
 };
 </script>
@@ -167,16 +162,6 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
     &:hover {
       background: rgba($color: $purple, $alpha: 30%);
     }
-  }
-
-  &__scroll-icon-wrapper {
-    animation: bounce 2s infinite;
-    bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 50%;
-    translate: 50%;
   }
 
   @media (max-width: $breakpoint-md) {

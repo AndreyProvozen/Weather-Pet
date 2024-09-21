@@ -1,20 +1,24 @@
 <template>
-  <div class="quality-card">
+  <div ref="qualityCardRef" class="quality-card">
     <div class="quality-card__wrapper">
       <h3 class="m-0 quality-card__title">{{ title }}</h3>
       <number-animation
+        v-if="startAnimation"
         class="quality-card__animated-number"
         :format="formatNumber"
         :from="animatedNumber.from"
         :to="animatedNumber.to"
         :duration="2"
       />
+      <div v-else class="quality-card__animated-number">0%</div>
       <p class="m-0">{{ description }}</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { get, set, useElementVisibility } from '@vueuse/core';
+import { ref, watch } from 'vue';
 import NumberAnimation from 'vue-number-animation';
 
 interface Props {
@@ -24,6 +28,15 @@ interface Props {
 }
 
 defineProps<Props>();
+
+const qualityCardRef = ref(null);
+const startAnimation = ref(false);
+
+const targetIsVisible = useElementVisibility(qualityCardRef, { threshold: 0.5 });
+
+watch(targetIsVisible, () => {
+  if (get(targetIsVisible)) set(startAnimation, true);
+});
 
 const formatNumber = (value: number) => `${value.toFixed(0)}%`;
 </script>

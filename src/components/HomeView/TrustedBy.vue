@@ -2,7 +2,7 @@
   <div class="trusted-by">
     <Splide :options="splideOptions" :extensions="extensions">
       <SplideSlide v-for="{ icon, name } in TRUSTED_BY_LIST" :key="name" class="trusted-by__slide">
-        <Icon :name="icon" classes="trusted-by__logo" />
+        <Icon :name="icon" class="trusted-by__logo" />
         <h5 class="trusted-by__text">{{ name }}</h5>
       </SplideSlide>
     </Splide>
