@@ -128,6 +128,48 @@ export const UV_INDEX_DATA: UVIndexData = {
   },
 };
 
+export const MOCKED_TESTIMONIALS = [
+  {
+    rating: 5,
+    name: 'David Tom',
+    review:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    specialty: 'CEO, Company',
+    image: '',
+  },
+  {
+    rating: 4,
+    name: 'Sarah Johnson',
+    review:
+      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    specialty: 'Marketing Director, BrandX',
+    image: '',
+  },
+  {
+    rating: 5,
+    name: 'Michael Lee',
+    review: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    specialty: 'CFO, Financial Corp',
+    image: '',
+  },
+  {
+    rating: 3,
+    name: 'Emily Clark',
+    review:
+      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    specialty: 'HR Manager, People First',
+    image: '',
+  },
+  {
+    rating: 4,
+    name: 'James Wilson',
+    review:
+      'Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+    specialty: 'CTO, Tech Innovators',
+    image: '',
+  },
+];
+
 export const FOOTER_COLUMN_LINKS = [
   {
     name: 'GETTING STARTED',
@@ -151,7 +193,7 @@ export const FOOTER_COLUMN_LINKS = [
     name: 'CONTACTS',
     links: [
       { title: '+1-825-888-0431', type: 'phone' },
-      { title: 'test@gmail.com', type: 'email' },
+      { title: 'anprovozens@gmail.com', type: 'email' },
     ],
   },
 ];

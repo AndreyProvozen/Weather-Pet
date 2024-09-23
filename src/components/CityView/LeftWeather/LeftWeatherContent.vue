@@ -14,7 +14,7 @@
     <div class="card-wrapper">
       <div v-for="card in weatherDetails" :key="card.title" class="card">
         <component :is="card.icon" />
-        <div class="mx-auto">
+        <div style="margin-inline: auto">
           <h5 class="m-0">{{ card.title }}</h5>
           <p class="m-0 value">
             {{ card.value }}

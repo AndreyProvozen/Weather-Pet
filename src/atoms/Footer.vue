@@ -27,7 +27,6 @@ const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
 <style scoped lang="scss">
 .footer {
   background-color: $black;
-  margin-top: 30px;
 
   &__content {
     display: flex;

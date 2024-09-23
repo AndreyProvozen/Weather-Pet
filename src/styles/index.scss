@@ -6,7 +6,7 @@
 @import 'keyframes';
 
 :root {
-  color: #fff;
+  color: $white;
   font-family: Poppins, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: #dceeff;
+  background-color: $light-blue;
   margin: 0;
 }
 
@@ -43,11 +43,6 @@ body {
 
 .mt-0 {
   margin-top: 0;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .capitalize-first-letter::first-letter {

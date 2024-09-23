@@ -29,3 +29,5 @@ export { default as SunsetIcon } from './sunset.svg';
 export { default as TrashIcon } from './trash.svg';
 export { default as TwitterIcon } from './twitter.svg';
 export { default as UVIndexIcon } from './uv-index.svg';
+export { default as StarFilledIcon } from './star-filled.svg';
+export { default as StarOutlinedIcon } from './star-outlined.svg';
