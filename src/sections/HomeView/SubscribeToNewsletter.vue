@@ -18,28 +18,28 @@ import Input from '@/atoms/Input.vue';
 
 <style scoped lang="scss">
 .subscribe-to-newsletter {
+  background: linear-gradient(45deg, $turquoise 0%, $deep-dark-blue 100%);
   margin-top: 32px;
   padding: 32px;
-  background: linear-gradient(45deg, $turquoise 0%, $deep-dark-blue 100%);
   text-align: center;
 
   &__subtitle {
+    margin-inline: auto;
     margin-top: 4px;
     max-width: 400px;
-    margin-inline: auto;
     text-wrap: balance;
   }
 
   &__form {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     gap: 10px;
+    justify-content: center;
     margin-top: 20px;
 
     @media (max-width: $breakpoint-xs) {
-      flex-direction: column;
       align-items: unset;
+      flex-direction: column;
 
       button {
         justify-content: center;

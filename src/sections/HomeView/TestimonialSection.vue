@@ -39,11 +39,11 @@ const splideOptions = {
 
   .splide__arrow {
     background-color: $purple-light;
-    opacity: 1;
     border: 2px solid $purple;
+    height: 40px;
+    opacity: 1;
     transform: translateY(calc(-50% + 20px));
     width: 40px;
-    height: 40px;
 
     &--prev {
       left: -20px;

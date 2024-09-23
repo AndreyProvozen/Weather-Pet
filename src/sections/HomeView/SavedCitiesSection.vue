@@ -44,9 +44,9 @@ const { state, commit } = useStore();
   }
 
   &__search-input {
-    max-width: 500px;
     flex: 1;
     height: 40px;
+    max-width: 500px;
     width: 100%;
 
     @media (max-width: $breakpoint-lg) {

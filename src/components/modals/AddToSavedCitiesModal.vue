@@ -79,6 +79,7 @@ watch(
     color: $black;
     margin: 16px 0;
   }
+
   &__autocomplete {
     border: 2px solid $gray;
     border-radius: 4px;

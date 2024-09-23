@@ -12,18 +12,18 @@ import TrustedBy from '@/components/HomeView/TrustedBy.vue';
 
 <style scoped lang="scss">
 .trusted-section {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  position: relative;
 
   &::before,
   &::after {
     content: '';
     height: 100%;
-    width: 200px;
-    top: 0;
     position: absolute;
+    top: 0;
+    width: 200px;
     z-index: $z-10;
   }
 

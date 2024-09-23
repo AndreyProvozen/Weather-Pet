@@ -30,30 +30,30 @@ defineProps<Props>();
 
 <style scoped lang="scss">
 .testimonial-card {
-  height: 100%;
-  border: 2px solid $purple;
-  background-color: $white;
-  border-radius: 12px;
-  padding: 55px 20px 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  display: flex;
   align-items: center;
+  background-color: $white;
+  border: 2px solid $purple;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+  display: flex;
   flex-direction: column;
+  height: 100%;
+  padding: 55px 20px 20px;
   position: relative;
 
   &__image {
+    background-color: #ccc;
     border: 10px solid $light-blue;
+    border-radius: 50%;
+    height: 100px;
     position: absolute;
     top: -50px;
     width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #ccc;
   }
 }
 
 .testimonial-rating {
-  margin: 6px 0 16px 0;
   color: orange;
+  margin: 6px 0 16px;
 }
 </style>

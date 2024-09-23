@@ -26,8 +26,8 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
   flex-direction: column;
   position: absolute;
   right: 50%;
-  translate: 50%;
   transition: opacity 0.5s ease;
+  translate: 50%;
 
   &.hidden {
     opacity: 0;

@@ -29,8 +29,8 @@ defineEmits(['on-click']);
 .autocomplete {
   &__empty-state {
     margin: 40px auto;
-    text-align: center;
     max-width: 400px;
+    text-align: center;
   }
 
   &__item {
