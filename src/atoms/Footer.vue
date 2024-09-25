@@ -73,6 +73,7 @@ const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
 
   &__social-icon {
     background: $white;
+    cursor: pointer;
     color: $turquoise;
     border-radius: 10%;
     padding: 8px;

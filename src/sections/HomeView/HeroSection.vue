@@ -12,7 +12,7 @@
         />
         <div class="hero-block__buttons-container">
           <Button variant="filled"> Search </Button>
-          <Button variant="outlined"> Favorites </Button>
+          <Button variant="outlined"> Saved </Button>
         </div>
       </div>
       <ul v-if="searchCitiesList" class="hero-block__autocomplete-wrapper">

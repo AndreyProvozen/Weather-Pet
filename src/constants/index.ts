@@ -8,6 +8,17 @@ import winterCityPageViewImage from '../assets/images/CityPageView/winter-image.
 import springCityPageViewImage from '../assets/images/CityPageView/spring-image.jpg';
 import summerCityPageViewImage from '../assets/images/CityPageView/summer-image.jpg';
 
+import AvatarPlaceholder1 from '../assets/images/UserAvatars/placeholder-1.jpeg';
+import AvatarPlaceholder2 from '../assets/images/UserAvatars/placeholder-2.jpeg';
+import AvatarPlaceholder3 from '../assets/images/UserAvatars/placeholder-3.jpeg';
+import AvatarPlaceholder4 from '../assets/images/UserAvatars/placeholder-4.jpeg';
+import AvatarPlaceholder5 from '../assets/images/UserAvatars/placeholder-5.jpeg';
+
+// endpoints
+
+export const MAPBOX_BASE_URL = 'https://api.mapbox.com/geocoding/v5/';
+export const OPENWEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/';
+
 // temporary solution
 
 export const MODAL_SEASON_IMAGE = {
@@ -135,7 +146,7 @@ export const MOCKED_TESTIMONIALS = [
     review:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     specialty: 'CEO, Company',
-    image: '',
+    image: AvatarPlaceholder1,
   },
   {
     rating: 4,
@@ -143,14 +154,14 @@ export const MOCKED_TESTIMONIALS = [
     review:
       'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     specialty: 'Marketing Director, BrandX',
-    image: '',
+    image: AvatarPlaceholder2,
   },
   {
     rating: 5,
     name: 'Michael Lee',
     review: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     specialty: 'CFO, Financial Corp',
-    image: '',
+    image: AvatarPlaceholder3,
   },
   {
     rating: 3,
@@ -158,7 +169,7 @@ export const MOCKED_TESTIMONIALS = [
     review:
       'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     specialty: 'HR Manager, People First',
-    image: '',
+    image: AvatarPlaceholder4,
   },
   {
     rating: 4,
@@ -166,7 +177,7 @@ export const MOCKED_TESTIMONIALS = [
     review:
       'Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
     specialty: 'CTO, Tech Innovators',
-    image: '',
+    image: AvatarPlaceholder5,
   },
 ];
 
@@ -204,8 +215,3 @@ export const FOOTER_SOCIAL_LINKS = [
   { href: 'https://www.instagram.com', type: 'instagram' },
   { href: 'https://www.linkedin.com', type: 'linkedIn' },
 ];
-
-// endpoints
-
-export const MAPBOX_BASE_URL = 'https://api.mapbox.com/geocoding/v5/';
-export const OPENWEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/';
