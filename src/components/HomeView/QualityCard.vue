@@ -44,17 +44,21 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
 <style scoped lang="scss">
 .quality-card {
   align-items: center;
-  background: $gray;
+  background: $purple;
   border-radius: 20px;
   display: flex;
   flex-basis: calc(33.333% - 20px);
   height: 350px;
   justify-content: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
+  transition: all 0.3s ease;
 
   &::before,
   &::after {
+    opacity: 0;
+    transition: all 0.3s ease;
     animation: spin 6s linear infinite;
     content: '';
     height: 600px;
@@ -71,6 +75,16 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
     background-image: conic-gradient(transparent, transparent, transparent, $turquoise);
   }
 
+  &:hover {
+    transform: scale(1.05);
+    background: $gray;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+  }
+
   &__wrapper {
     align-items: center;
     background-color: $white;
@@ -78,7 +92,7 @@ const formatNumber = (value: number) => `${value.toFixed(0)}%`;
     color: $black;
     display: flex;
     flex-direction: column;
-    inset: 4px;
+    inset: 3px;
     justify-content: center;
     padding: 16px;
     position: absolute;

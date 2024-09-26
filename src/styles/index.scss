@@ -25,11 +25,11 @@ body {
 }
 
 .container {
-  margin: 0 auto;
+  margin-inline: auto;
   max-width: $breakpoint-xl;
 
   @media (max-width: $breakpoint-xl) {
-    margin: 0 $SIDE_SPACING;
+    margin-inline: $SIDE_SPACING;
   }
 }
 
