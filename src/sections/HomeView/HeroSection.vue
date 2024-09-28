@@ -1,5 +1,5 @@
 <template>
-  <div class="black-image-overlay" :style="{ backgroundImage: `url(${CITY_PAGE_VIEW_SEASON_IMAGE[season]})` }">
+  <section class="black-image-overlay" :style="{ backgroundImage: `url(${CITY_PAGE_VIEW_SEASON_IMAGE[season]})` }">
     <div class="hero-block">
       <h1 class="hero-block__title">Discover the Latest Weather Forecast Updates</h1>
       <div class="hero-block__search-wrapper">
@@ -32,7 +32,7 @@
       </ul>
       <ScrollBottomIcon />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

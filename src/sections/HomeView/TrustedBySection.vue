@@ -1,9 +1,11 @@
 <template>
-  <h2 class="section-title">Trusted By</h2>
-  <div class="container trusted-section">
-    <TrustedBy />
-    <TrustedBy :is-direction-right="true" />
-  </div>
+  <section>
+    <h2 class="section-title">Trusted By</h2>
+    <div class="container trusted-section">
+      <TrustedBy />
+      <TrustedBy :is-direction-right="true" />
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -25,24 +27,20 @@ import TrustedBy from '@/components/HomeView/TrustedBy.vue';
     top: 0;
     width: 200px;
     z-index: $z-10;
+
+    @media (max-width: $breakpoint-xsm) {
+      display: none;
+    }
   }
 
   &::before {
-    background: linear-gradient(90deg, #dceeff 10%, rgb(255 255 255 / 0%) 100%);
+    background: linear-gradient(90deg, $light-blue 10%, transparent 100%);
     left: 0;
-
-    @media (max-width: $breakpoint-xsm) {
-      display: none;
-    }
   }
 
   &::after {
-    background: linear-gradient(270deg, #dceeff 10%, rgb(255 255 255 / 0%) 100%);
+    background: linear-gradient(270deg, $light-blue 10%, transparent 100%);
     right: 0;
-
-    @media (max-width: $breakpoint-xsm) {
-      display: none;
-    }
   }
 }
 </style>

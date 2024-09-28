@@ -1,19 +1,18 @@
 <template>
-  <div class="subscribe-to-newsletter">
+  <section class="subscribe-to-newsletter">
     <h3 class="m-0">Join our newsletter</h3>
-    <p class="m-0 subscribe-to-newsletter__subtitle">
+    <p class="subscribe-to-newsletter__subtitle">
       Subscribe to our newsletter and never miss out on important weather updates!
     </p>
-    <form class="subscribe-to-newsletter__form">
-      <Input value="" type="email" placeholder="Enter your email" />
-      <Button variant="filled" type="submit">Subscribe</Button>
+    <form class="subscribe-to-newsletter__form" aria-label="Subscribe to newsletter form">
+      <Input type="email" placeholder="Enter your email" aria-label="Email input" />
+      <Button variant="filled" type="submit" aria-label="Subscribe button">Subscribe</Button>
     </form>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
-import Button from '@/atoms/Button.vue';
-import Input from '@/atoms/Input.vue';
+import { Button, Input } from '@/atoms';
 </script>
 
 <style scoped lang="scss">
@@ -24,8 +23,7 @@ import Input from '@/atoms/Input.vue';
   text-align: center;
 
   &__subtitle {
-    margin-inline: auto;
-    margin-top: 4px;
+    margin: 4px auto 0 auto;
     max-width: 400px;
     text-wrap: balance;
   }

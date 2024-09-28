@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 interface Props {
-  value: string;
+  value?: string;
   variant?: 'filled' | 'outlined' | 'standard';
   containerClass?: string;
   startInputIcon?: any;
@@ -23,6 +23,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   variant: 'outlined',
   containerClass: '',
+  value: '',
   startInputIcon: undefined,
   endInputIcon: undefined,
 });
