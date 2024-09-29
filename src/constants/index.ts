@@ -17,7 +17,7 @@ import AvatarPlaceholder5 from '../assets/images/UserAvatars/placeholder-5.jpeg'
 // endpoints
 
 export const MAPBOX_BASE_URL = 'https://api.mapbox.com/geocoding/v5/';
-export const OPENWEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/';
+export const OPEN_METEO_BASE_URL = 'https://api.open-meteo.com/v1/';
 
 // temporary solution
 

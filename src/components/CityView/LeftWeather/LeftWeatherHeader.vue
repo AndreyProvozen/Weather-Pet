@@ -1,7 +1,7 @@
 <template>
-  <div class="left-weather-wrapper">
-    <Input container-class="search-input" :start-input-icon="LocationIcon" :value="`${params.state}, ${params.city}`" />
-    <Button variant="filled" style="padding: 4px 8px" @click="addCityToLocalStorage">
+  <div class="left-weather-header">
+    <Input container-class="left-weather-header__search-input" :start-input-icon="LocationIcon" :value="inputValue" />
+    <Button variant="filled" class="left-weather-header__bookmark-button" @click="toggleBookmark">
       <BookmarkPlusIcon />
     </Button>
   </div>
@@ -11,46 +11,65 @@
 import { BookmarkPlusIcon, LocationIcon } from '@/assets/icons';
 import { useRoute } from 'vue-router';
 import { Button, Input } from '@/atoms';
-import { Ref, ref } from 'vue';
-import type { CityListItemData } from '@/interface';
+import { onMounted, ref, computed } from 'vue';
 import { get, set } from '@vueuse/core';
+import { SavedCitiesProps } from '@/interface';
 
-const { params, query } = useRoute();
-const savedCitiesList: Ref<CityListItemData[]> = ref([]);
+const {
+  params: { state, city },
+  query: { lat, lon },
+} = useRoute();
 
-const addCityToLocalStorage = () => {
-  const citiesList = localStorage.getItem('saved_cities_list') || '[]';
+const savedCitiesList = ref<SavedCitiesProps[]>([]);
 
-  if (citiesList.length) set(savedCitiesList, JSON.parse(citiesList));
+const inputValue = computed(() => `${state}, ${city}`);
 
-  const locationObj = {
-    id: `${params.state}&${params.city}`,
-    state: params.state as string,
-    city: params.city as string,
-    coordinates: {
-      lat: Number(query.lat),
-      lon: Number(query.lon),
-    },
-  };
+const toggleBookmark = () => {
+  const cityId = `${state}&${city}`;
+  const savedCities = get(savedCitiesList);
 
-  get(savedCitiesList).push(locationObj);
+  const cityExists = savedCities.some(city => city.id === cityId);
 
-  localStorage.setItem('saved_cities_list', JSON.stringify(get(savedCitiesList)));
+  const updatedCities = cityExists
+    ? savedCities.filter(city => city.id !== cityId)
+    : [
+        ...savedCities,
+        {
+          id: cityId,
+          state: state as string,
+          city: city as string,
+          coordinates: { lat: Number(lat), lon: Number(lon) },
+        },
+      ];
+
+  set(savedCitiesList, updatedCities);
+  localStorage.setItem('saved_cities_list', JSON.stringify(updatedCities));
 };
+
+const loadCitiesFromLocalStorage = () => {
+  const storedCities = JSON.parse(localStorage.getItem('saved_cities_list') || '[]');
+  set(savedCitiesList, storedCities);
+};
+
+onMounted(loadCitiesFromLocalStorage);
 </script>
 
 <style scoped lang="scss">
-.search-input {
-  width: 100%;
-}
-
-.left-weather-wrapper {
+.left-weather-header {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 
   @media (max-width: $breakpoint-lg) {
     display: none;
+  }
+
+  &__search-input {
+    width: 100%;
+  }
+
+  &__bookmark-button {
+    padding: 4px 8px;
   }
 }
 </style>

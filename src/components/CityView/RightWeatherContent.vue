@@ -6,21 +6,14 @@
         <h4 class="m-0">HOURLY FORECAST</h4>
       </div>
       <div class="content-list-wrapper">
-        <div
-          v-for="(hourWeather, i) in weatherData.hourly.slice(0, 24)"
-          :key="hourWeather.dt"
-          class="content-list-item"
-        >
+        <div v-for="(time, index) in hourlyData?.time" :key="`time-${time}`" class="content-list-item">
           <p class="m-0">
-            {{ i === 0 ? 'Now' : dayjs(hourWeather.currentTime).format('HH:mm') }}
+            {{ index === 0 ? 'Now' : dayjs(time).format('HH:mm') }}
           </p>
           <p class="temperature">
-            {{ `${Math.round(hourWeather.temp)}&deg;` }}
+            {{ `${Math.round(hourlyData.temperature_2m[index])}&deg;` }}
           </p>
-          <img
-            style="height: 50px; width: 50px"
-            :src="`/src/assets/weatherIcon/colorful/${hourWeather.weather[0].icon}.png`"
-          />
+          <img style="height: 50px; width: 50px" :src="`/src/assets/weatherIcon/colorful/04d.png`" />
         </div>
       </div>
     </div>
@@ -30,20 +23,17 @@
         <h4 class="m-0">7-DAY FORECAST</h4>
       </div>
       <div class="content-list-wrapper">
-        <div v-for="(dailyWeather, i) in weatherData.daily" :key="dailyWeather.dt" class="content-list-item">
+        <div v-for="(day, index) in dailyData?.time" :key="`day-${day}`" class="content-list-item">
           <p class="m-0">
-            {{ i === 0 ? 'Today' : dayjs.unix(dailyWeather.dt).format('ddd') }}
+            {{ index === 0 ? 'Today' : dayjs(day).format('ddd') }}
           </p>
           <p style="margin: 10px 0">
-            {{ dayjs.unix(dailyWeather.dt).format('DD/MM') }}
+            {{ dayjs(day).format('DD/MM') }}
           </p>
           <p class="temperature">
-            {{ `${Math.round(dailyWeather.temp.day)}&deg;` }}
+            {{ `${Math.round(dailyData.temperature_2m_max[index])}&deg;` }}
           </p>
-          <img
-            style="height: 50px; width: 50px"
-            :src="`/src/assets/weatherIcon/colorful/${dailyWeather.weather[0].icon}.png`"
-          />
+          <img style="height: 50px; width: 50px" :src="`/src/assets/weatherIcon/colorful/02d.png`" />
         </div>
       </div>
     </div>
@@ -53,7 +43,7 @@
         <h4 class="m-0">UV INDEX</h4>
       </div>
       <div style="margin-top: 5px">
-        <p class="m-0" style="font-size: 30px">{{ weatherData.daily[0].uvi.toFixed(1) }}</p>
+        <p class="m-0" style="font-size: 30px">{{ dailyData?.uv_index_max[0].toFixed(1) }}</p>
         <h4 style="font-weight: 400; margin: 5px 0 10px">{{ uvIndexData.label }}</h4>
         <div class="block" />
         <p class="subtitle">{{ uvIndexData.recommendations }}</p>
@@ -66,13 +56,16 @@
 import dayjs from 'dayjs';
 import { ClockIcon, CalendarIcon, UVIndexIcon } from '@/assets/icons';
 import { getUVIndexCategory } from '@/utils';
+import { useStore } from '@/store';
+import { computed } from 'vue';
 
-interface Props {
-  weatherData: any;
-}
+const { state } = useStore();
 
-const props = defineProps<Props>();
-const uvIndexData = getUVIndexCategory(props.weatherData.current.uvi);
+const weatherData = computed(() => state.weather.weatherData);
+const dailyData = computed(() => weatherData.value?.daily);
+const hourlyData = computed(() => weatherData.value?.hourly);
+
+const uvIndexData = getUVIndexCategory(dailyData.value?.uv_index_max[0] || 0);
 </script>
 
 <style scoped lang="scss">

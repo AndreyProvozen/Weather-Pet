@@ -1,7 +1,10 @@
-export { default } from './LeftWeather.vue';
-
 export interface LeftWeatherProps {
-  currentTemperature: number;
-  weatherToday: any;
-  currentVisibility: number;
+  temperatureNow: string;
+  visibilityNow: string;
+  temperatureMin: string;
+  temperatureMax: string;
+  weatherDescription: string;
+  humidity: string;
+  sunrise: string;
+  sunset: string;
 }
