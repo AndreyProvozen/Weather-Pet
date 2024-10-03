@@ -1,30 +1,33 @@
 <template>
-  <div v-if="state.weather.weatherData" class="container city-view">
-    <LeftWeather
-      :weather-today="state.weather.weatherData.daily[0]"
-      :current-temperature="state.weather.weatherData.current.temp"
-      :current-visibility="state.weather.weatherData.current.visibility"
-    />
-    <RightWeatherContent :weather-data="state.weather.weatherData" />
+  <div v-if="weatherData" class="container city-view">
+    <div class="left-weather">
+      <SearchSection />
+      <OverviewSection />
+    </div>
+    <WeatherForecastSection />
   </div>
 </template>
 
 <script setup lang="ts">
 import { type LocationQueryValue, useRoute } from 'vue-router';
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useStore } from '@/store';
-import LeftWeather from '@/components/CityView/LeftWeather';
-import RightWeatherContent from '@/components/CityView/RightWeatherContent.vue';
+
+import { SearchSection, OverviewSection, WeatherForecastSection } from '@/sections';
 
 const route = useRoute();
-const { dispatch, state } = useStore();
+const {
+  dispatch,
+  state: { weather },
+} = useStore();
 
 onMounted(() => {
   const lat = route.query.lat as LocationQueryValue;
   const lon = route.query.lon as LocationQueryValue;
-
   dispatch('fetchFullWeatherData', { lat, lon });
 });
+
+const weatherData = computed(() => weather.weatherData);
 </script>
 
 <style scoped lang="scss">
@@ -32,7 +35,7 @@ onMounted(() => {
   display: flex;
   gap: 30px;
   justify-content: space-between;
-  margin-top: 20px;
+  margin: 20px auto;
   min-height: calc(100vh - 90px);
 
   @media (max-width: $breakpoint-lg) {

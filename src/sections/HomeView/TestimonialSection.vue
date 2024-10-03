@@ -13,15 +13,16 @@
 import TestimonialCard from '@/components/HomeView/TestimonialCard.vue';
 import { MOCKED_TESTIMONIALS } from '@/constants';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import { computed } from 'vue';
 
-const splideOptions = {
+const splideOptions = computed(() => ({
   pagination: false,
   gap: '30px',
   mediaQuery: 'max',
   perPage: 3,
   breakpoints: { 1024: { perPage: 2 }, 640: { perPage: 1 } },
   perMove: 1,
-};
+}));
 </script>
 
 <style lang="scss">
