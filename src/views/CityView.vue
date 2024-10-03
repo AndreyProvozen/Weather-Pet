@@ -1,10 +1,10 @@
 <template>
   <div v-if="weatherData" class="container city-view">
     <div class="left-weather">
-      <LeftWeatherHeader />
-      <LeftWeatherContent />
+      <SearchSection />
+      <OverviewSection />
     </div>
-    <RightWeatherContent />
+    <WeatherForecastSection />
   </div>
 </template>
 
@@ -13,9 +13,7 @@ import { type LocationQueryValue, useRoute } from 'vue-router';
 import { computed, onMounted } from 'vue';
 import { useStore } from '@/store';
 
-import LeftWeatherHeader from '@/components/CityView/LeftWeather/LeftWeatherHeader.vue';
-import LeftWeatherContent from '@/components/CityView/LeftWeather/LeftWeatherContent.vue';
-import RightWeatherContent from '@/components/CityView/RightWeatherContent.vue';
+import { SearchSection, OverviewSection, WeatherForecastSection } from '@/sections';
 
 const route = useRoute();
 const {

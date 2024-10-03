@@ -1,10 +1,6 @@
 <template>
   <div style="display: flex; flex-direction: column; gap: 20px; width: 50%">
-    <div class="hourly-forecast">
-      <div class="title-wrapper">
-        <ClockIcon />
-        <h4 class="m-0">HOURLY FORECAST</h4>
-      </div>
+    <ForecastCardWrapper :icon="ClockIcon" title="HOURLY FORECAST">
       <div class="content-list-wrapper">
         <div v-for="(time, index) in hourlyData?.time" :key="`time-${time}`" class="content-list-item">
           <p class="m-0">
@@ -16,12 +12,8 @@
           <img style="height: 50px; width: 50px" :src="`/src/assets/weatherIcon/colorful/04d.png`" />
         </div>
       </div>
-    </div>
-    <div class="hourly-forecast">
-      <div class="title-wrapper">
-        <CalendarIcon />
-        <h4 class="m-0">7-DAY FORECAST</h4>
-      </div>
+    </ForecastCardWrapper>
+    <ForecastCardWrapper :icon="CalendarIcon" title="7-DAY FORECAST">
       <div class="content-list-wrapper">
         <div v-for="(day, index) in dailyData?.time" :key="`day-${day}`" class="content-list-item">
           <p class="m-0">
@@ -36,19 +28,15 @@
           <img style="height: 50px; width: 50px" :src="`/src/assets/weatherIcon/colorful/02d.png`" />
         </div>
       </div>
-    </div>
-    <div class="hourly-forecast">
-      <div class="title-wrapper">
-        <UVIndexIcon />
-        <h4 class="m-0">UV INDEX</h4>
-      </div>
+    </ForecastCardWrapper>
+    <ForecastCardWrapper :icon="UVIndexIcon" title="UV INDEX">
       <div style="margin-top: 5px">
         <p class="m-0" style="font-size: 30px">{{ dailyData?.uv_index_max[0].toFixed(1) }}</p>
         <h4 style="font-weight: 400; margin: 5px 0 10px">{{ uvIndexData.label }}</h4>
         <div class="block" />
         <p class="subtitle">{{ uvIndexData.recommendations }}</p>
       </div>
-    </div>
+    </ForecastCardWrapper>
   </div>
 </template>
 
@@ -58,6 +46,7 @@ import { ClockIcon, CalendarIcon, UVIndexIcon } from '@/assets/icons';
 import { getUVIndexCategory } from '@/utils';
 import { useStore } from '@/store';
 import { computed } from 'vue';
+import ForecastCardWrapper from '@/components/CityView/ForecastCardWrapper.vue';
 
 const { state } = useStore();
 
@@ -92,20 +81,5 @@ const uvIndexData = getUVIndexCategory(dailyData.value?.uv_index_max[0] || 0);
 .temperature {
   font-size: 30px;
   margin: 10px 0;
-}
-
-.hourly-forecast {
-  background: rgba($color: $dark-blue, $alpha: 40%);
-  border-radius: 10px;
-  padding: 16px;
-}
-
-.title-wrapper {
-  align-items: center;
-  border-bottom: 2px solid;
-  display: flex;
-  gap: 5px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
 }
 </style>

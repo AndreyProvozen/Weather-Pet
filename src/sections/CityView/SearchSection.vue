@@ -2,13 +2,14 @@
   <div class="left-weather-header">
     <Input container-class="left-weather-header__search-input" :start-input-icon="LocationIcon" :value="inputValue" />
     <Button variant="filled" class="left-weather-header__bookmark-button" @click="toggleBookmark">
-      <BookmarkPlusIcon />
+      <BookmarkMinusIcon v-if="isBookmarked" />
+      <BookmarkPlusIcon v-else />
     </Button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { BookmarkPlusIcon, LocationIcon } from '@/assets/icons';
+import { BookmarkPlusIcon, BookmarkMinusIcon, LocationIcon } from '@/assets/icons';
 import { useRoute } from 'vue-router';
 import { Button, Input } from '@/atoms';
 import { onMounted, ref, computed } from 'vue';
@@ -22,7 +23,21 @@ const {
 
 const savedCitiesList = ref<SavedCitiesProps[]>([]);
 
+const isBookmarked = computed(() => {
+  const cityId = `${state}&${city}`;
+  const savedCities = get(savedCitiesList);
+
+  return savedCities.some(city => city.id === cityId);
+});
+
 const inputValue = computed(() => `${state}, ${city}`);
+
+const loadCitiesFromLocalStorage = () => {
+  const storedCities = JSON.parse(localStorage.getItem('saved_cities_list') || '[]');
+  set(savedCitiesList, storedCities);
+};
+
+onMounted(loadCitiesFromLocalStorage);
 
 const toggleBookmark = () => {
   const cityId = `${state}&${city}`;
@@ -45,13 +60,6 @@ const toggleBookmark = () => {
   set(savedCitiesList, updatedCities);
   localStorage.setItem('saved_cities_list', JSON.stringify(updatedCities));
 };
-
-const loadCitiesFromLocalStorage = () => {
-  const storedCities = JSON.parse(localStorage.getItem('saved_cities_list') || '[]');
-  set(savedCitiesList, storedCities);
-};
-
-onMounted(loadCitiesFromLocalStorage);
 </script>
 
 <style scoped lang="scss">
