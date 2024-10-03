@@ -35,7 +35,7 @@ const weatherData = computed(() => weather.weatherData);
   display: flex;
   gap: 30px;
   justify-content: space-between;
-  margin-top: 20px;
+  margin: 20px auto;
   min-height: calc(100vh - 90px);
 
   @media (max-width: $breakpoint-lg) {

@@ -70,6 +70,10 @@ const imageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
   padding: 60px 20px;
   position: relative;
 
+  @media (max-width: $breakpoint-lg) {
+    height: auto;
+  }
+
   &::before {
     background-color: rgba($color: $black, $alpha: 60%);
     border-radius: 10px;
@@ -87,6 +91,7 @@ const imageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
     gap: 20px;
     justify-content: space-between;
     z-index: 1;
+    margin-top: 40px;
   }
 }
 </style>
