@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { Button, Input } from '@/atoms';
-import CityCard from '@/components/HomeView/CityCard.vue';
+import { CityCard } from '@/components';
 import { MoveIcon, TrashIcon, PlusIcon, SearchIcon } from '@/assets/icons';
 import { useStore } from '@/store';
 

@@ -18,8 +18,7 @@ import { useStore } from '@/store';
 import { getCurrentSeason, metersToKilometers } from '@/utils';
 import { SunriseIcon, SunsetIcon, HumidityIcon, EyeIcon } from '@/assets/icons';
 import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
-import OverviewCard from '@/components/CityView/OverviewCard.vue';
-import OverviewTopContent from '@/components/CityView/OverviewTopContent.vue';
+import { OverviewCard, OverviewTopContent } from '@/components';
 import dayjs from 'dayjs';
 
 const {

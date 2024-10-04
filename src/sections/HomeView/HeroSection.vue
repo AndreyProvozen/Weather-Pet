@@ -45,7 +45,7 @@ import { get, set, useDebounceFn } from '@vueuse/core';
 import type { CityData } from '@/interface';
 import { fetchCitiesAutoComplete } from '@/api';
 import { useRouter } from 'vue-router';
-import ScrollBottomIcon from '@/components/HomeView/ScrollBottomIcon.vue';
+import { ScrollBottomIcon } from '@/components';
 
 const router = useRouter();
 
@@ -88,6 +88,7 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
   clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 85% 100%, 15% 100%, 0% 85%);
   display: flex;
   flex-direction: column;
+  height: 100%;
   min-height: calc(100vh - $HEADER_HEIGHT);
   position: relative;
   text-align: center;
@@ -109,7 +110,7 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
   z-index: $z-10;
 
   &__title {
-    margin: 20px 10px;
+    margin: 20px;
     text-shadow: $black 1px 0 10px;
     text-wrap: balance;
 

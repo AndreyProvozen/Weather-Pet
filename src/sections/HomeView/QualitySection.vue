@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import QualityCard from '@/components/HomeView/QualityCard.vue';
+import { QualityCard } from '@/components';
 import { QUALITY_SECTION_DATA } from '@/constants';
 </script>
 

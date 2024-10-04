@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import TrustedBy from '@/components/HomeView/TrustedBy.vue';
+import { TrustedBy } from '@/components';
 </script>
 
 <style scoped lang="scss">

@@ -22,9 +22,7 @@
 import { CalendarIcon, ClockIcon } from '@/assets/icons';
 import { useStore } from '@/store';
 import { computed } from 'vue';
-
-import ForecastCard from '@/components/CityView/ForecastCard.vue';
-import UVIndexCard from '@/components/CityView/UVIndexCard.vue';
+import { ForecastCard, UVIndexCard } from '@/components';
 
 const { state } = useStore();
 

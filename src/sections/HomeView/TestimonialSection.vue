@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import TestimonialCard from '@/components/HomeView/TestimonialCard.vue';
+import { TestimonialCard } from '@/components';
 import { MOCKED_TESTIMONIALS } from '@/constants';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import { computed } from 'vue';
