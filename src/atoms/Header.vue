@@ -19,6 +19,7 @@ import { MenuIcon } from '@/assets/icons';
   align-items: center;
   background-color: $black;
   display: flex;
+  height: 60px;
   justify-content: space-between;
   padding: 10px $SIDE_SPACING;
   position: sticky;

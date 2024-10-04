@@ -1,18 +1,18 @@
-import autumnModalImage from '../assets/images/AddCityModal/autumn-image.jpg';
-import winterModalImage from '../assets/images/AddCityModal/winter-image.jpg';
-import springModalImage from '../assets/images/AddCityModal/spring-image.jpg';
-import summerModalImage from '../assets/images/AddCityModal/summer-image.jpg';
+import autumnModalImage from '../assets/images/AddCityModal/autumn-image.avif';
+import winterModalImage from '../assets/images/AddCityModal/winter-image.avif';
+import springModalImage from '../assets/images/AddCityModal/spring-image.avif';
+import summerModalImage from '../assets/images/AddCityModal/summer-image.avif';
 
-import autumnCityPageViewImage from '../assets/images/CityPageView/autumn-image.jpg';
-import winterCityPageViewImage from '../assets/images/CityPageView/winter-image.jpg';
-import springCityPageViewImage from '../assets/images/CityPageView/spring-image.jpg';
-import summerCityPageViewImage from '../assets/images/CityPageView/summer-image.jpg';
+import autumnCityPageViewImage from '../assets/images/CityPageView/autumn-image.webp';
+import winterCityPageViewImage from '../assets/images/CityPageView/winter-image.avif';
+import springCityPageViewImage from '../assets/images/CityPageView/spring-image.avif';
+import summerCityPageViewImage from '../assets/images/CityPageView/summer-image.avif';
 
-import AvatarPlaceholder1 from '../assets/images/UserAvatars/placeholder-1.jpeg';
-import AvatarPlaceholder2 from '../assets/images/UserAvatars/placeholder-2.jpeg';
-import AvatarPlaceholder3 from '../assets/images/UserAvatars/placeholder-3.jpeg';
-import AvatarPlaceholder4 from '../assets/images/UserAvatars/placeholder-4.jpeg';
-import AvatarPlaceholder5 from '../assets/images/UserAvatars/placeholder-5.jpeg';
+import AvatarPlaceholder1 from '../assets/images/UserAvatars/placeholder-1.webp';
+import AvatarPlaceholder2 from '../assets/images/UserAvatars/placeholder-2.webp';
+import AvatarPlaceholder3 from '../assets/images/UserAvatars/placeholder-3.avif';
+import AvatarPlaceholder4 from '../assets/images/UserAvatars/placeholder-4.webp';
+import AvatarPlaceholder5 from '../assets/images/UserAvatars/placeholder-5.avif';
 
 // endpoints
 
