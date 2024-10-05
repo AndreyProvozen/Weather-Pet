@@ -40,7 +40,7 @@ import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
 import { getCurrentSeason } from '@/utils';
 import { Button, Input } from '@/atoms';
 import { SearchIcon } from '@/assets/icons';
-import { type Ref, ref, watch } from 'vue';
+import { type Ref, ref, watch, onMounted } from 'vue';
 import { get, set, useDebounceFn } from '@vueuse/core';
 import type { CityData } from '@/interface';
 import { fetchCitiesAutoComplete } from '@/api';
@@ -77,6 +77,16 @@ const redirectToCityView = (place_name: string, geometry: CityData['geometry']) 
     query: { lon: geometry.coordinates[0], lat: geometry.coordinates[1] },
   });
 };
+
+onMounted(() => {
+  const link = document.createElement('link');
+
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = CITY_PAGE_VIEW_SEASON_IMAGE[season];
+
+  document.head.appendChild(link);
+});
 </script>
 
 <style scoped lang="scss">
