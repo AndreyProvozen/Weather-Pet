@@ -3,7 +3,6 @@
   <LazyLoadComponent style="min-height: 250px" :loader="getLoader('TrustedBy')" />
   <LazyLoadComponent style="min-height: 750px" :loader="getLoader('Quality')" />
   <LazyLoadComponent style="min-height: 450px" :loader="getLoader('Testimonial')" />
-  <LazyLoadComponent style="min-height: 200px" :loader="getLoader('SubscribeToNewsletter')" />
 </template>
 
 <script lang="ts" setup>

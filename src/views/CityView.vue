@@ -33,9 +33,9 @@ const weatherData = computed(() => weather.weatherData);
 <style scoped lang="scss">
 .city-view {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   justify-content: space-between;
-  margin: 20px auto;
+  margin-top: 20px;
   min-height: calc(100vh - 90px);
 
   @media (max-width: $breakpoint-lg) {

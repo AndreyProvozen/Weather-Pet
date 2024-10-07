@@ -41,7 +41,6 @@ const hourlyData = computed(() => weatherData.value?.hourly);
 
   @media (max-width: $breakpoint-lg) {
     width: auto;
-    margin-bottom: 20px;
   }
 }
 </style>
