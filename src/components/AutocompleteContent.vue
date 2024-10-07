@@ -15,32 +15,32 @@
 </template>
 
 <script setup lang="ts">
-import { CityData } from '@/interface';
+  import { CityData } from '@/interface';
 
-interface Props {
-  list: CityData[];
-}
+  interface Props {
+    list: CityData[];
+  }
 
-defineProps<Props>();
-defineEmits(['on-click']);
+  defineProps<Props>();
+  defineEmits(['on-click']);
 </script>
 
 <style scoped lang="scss">
-.autocomplete {
-  &__empty-state {
-    margin: 40px auto;
-    max-width: 400px;
-    text-align: center;
-  }
+  .autocomplete {
+    &__empty-state {
+      margin: 40px auto;
+      max-width: 400px;
+      text-align: center;
+    }
 
-  &__item {
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 8px;
+    &__item {
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 8px;
 
-    &:hover {
-      background: rgba($color: $purple, $alpha: 30%);
+      &:hover {
+        background: rgba($color: $purple, $alpha: 30%);
+      }
     }
   }
-}
 </style>

@@ -8,19 +8,19 @@
 </template>
 
 <script setup lang="ts">
-import { QualityCard } from '@/components';
-import { QUALITY_SECTION_DATA } from '@/constants';
+  import { QualityCard } from '@/components';
+  import { QUALITY_SECTION_DATA } from '@/constants';
 </script>
 
 <style scoped lang="scss">
-.quality-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
+  .quality-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 
-  @media (max-width: $breakpoint-md) {
-    gap: 16px;
+    @media (max-width: $breakpoint-md) {
+      gap: 16px;
+    }
   }
-}
 </style>

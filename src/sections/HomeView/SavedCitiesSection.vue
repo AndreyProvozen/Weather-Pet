@@ -25,47 +25,47 @@
 </template>
 
 <script setup lang="ts">
-import { Button, Input } from '@/atoms';
-import { CityCard } from '@/components';
-import { MoveIcon, TrashIcon, PlusIcon, SearchIcon } from '@/assets/icons';
-import { useStore } from '@/store';
+  import { Button, Input } from '@/atoms';
+  import { CityCard } from '@/components';
+  import { MoveIcon, TrashIcon, PlusIcon, SearchIcon } from '@/assets/icons';
+  import { useStore } from '@/store';
 
-const { state, commit } = useStore();
+  const { state, commit } = useStore();
 </script>
 
 <style scoped lang="scss">
-.saved-cities {
-  &__toolbar {
-    align-items: center;
-    display: flex;
-    gap: 40px;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  &__search-input {
-    flex: 1;
-    height: 40px;
-    max-width: 500px;
-    width: 100%;
-
-    @media (max-width: $breakpoint-lg) {
-      max-width: 100%;
-    }
-  }
-
-  &__city-cards-wrapper {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-
-    @media (max-width: $breakpoint-lg) {
-      grid-template-columns: repeat(2, 1fr);
+  .saved-cities {
+    &__toolbar {
+      align-items: center;
+      display: flex;
+      gap: 40px;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
 
-    @media (max-width: $breakpoint-sm) {
-      grid-template-columns: repeat(1, 1fr);
+    &__search-input {
+      flex: 1;
+      height: 40px;
+      max-width: 500px;
+      width: 100%;
+
+      @media (max-width: $breakpoint-lg) {
+        max-width: 100%;
+      }
+    }
+
+    &__city-cards-wrapper {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+
+      @media (max-width: $breakpoint-lg) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
   }
-}
 </style>

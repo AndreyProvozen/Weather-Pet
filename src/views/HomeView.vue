@@ -6,15 +6,15 @@
 </template>
 
 <script lang="ts" setup>
-import LazyLoadComponent from '@/atoms/LazyLoadComponent.vue';
+  import LazyLoadComponent from '@/atoms/LazyLoadComponent.vue';
 
-const getLoader = (componentName: string) => () => import(`../sections/HomeView/${componentName}Section.vue`);
+  const getLoader = (componentName: string) => () => import(`../sections/HomeView/${componentName}Section.vue`);
 </script>
 
 <style lang="scss">
-.section-title {
-  color: $black;
-  margin: 30px 0 15px;
-  text-align: center;
-}
+  .section-title {
+    color: $black;
+    margin: 30px 0 15px;
+    text-align: center;
+  }
 </style>

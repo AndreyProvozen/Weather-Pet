@@ -36,17 +36,17 @@
 </template>
 
 <script setup lang="ts">
-import type { CityListDataWithWeather } from '@/interface';
-import dayjs from 'dayjs';
+  import type { CityListDataWithWeather } from '@/interface';
+  import dayjs from 'dayjs';
 
-interface Props {
-  cityData: CityListDataWithWeather;
-}
+  interface Props {
+    cityData: CityListDataWithWeather;
+  }
 
-const props = defineProps<Props>();
+  const props = defineProps<Props>();
 
-const isDayTime = props.cityData.weather?.weather[0].main.includes('d');
-const cardBackgroundColor = isDayTime ? '#f2b107' : '#000066';
+  const isDayTime = props.cityData.weather?.weather[0].main.includes('d');
+  const cardBackgroundColor = isDayTime ? '#f2b107' : '#000066';
 
-console.log(props.cityData.weather?.weather[0].main);
+  console.log(props.cityData.weather?.weather[0].main);
 </script>

@@ -3,25 +3,25 @@
 </template>
 
 <script lang="ts" setup>
-import { RouterLink } from 'vue-router';
+  import { RouterLink } from 'vue-router';
 
-interface Props {
-  to: string;
-}
+  interface Props {
+    to: string;
+  }
 
-defineProps<Props>();
+  defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
-a {
-  color: $turquoise;
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s ease;
+  a {
+    color: $turquoise;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
 
-  &:hover {
-    color: $purple-light;
+    &:hover {
+      color: $purple-light;
+    }
   }
-}
 </style>

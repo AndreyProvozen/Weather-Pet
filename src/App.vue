@@ -9,9 +9,9 @@
 </template>
 
 <script setup lang="ts">
-import { Footer, Header, LazyLoadComponent } from '@/atoms';
-import dayjs from 'dayjs';
-import utcPlugin from 'dayjs/plugin/utc';
+  import { Footer, Header, LazyLoadComponent } from '@/atoms';
+  import dayjs from 'dayjs';
+  import utcPlugin from 'dayjs/plugin/utc';
 
-dayjs.extend(utcPlugin);
+  dayjs.extend(utcPlugin);
 </script>

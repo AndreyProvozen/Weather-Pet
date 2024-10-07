@@ -19,28 +19,28 @@
 </template>
 
 <script setup lang="ts">
-import { CalendarIcon, ClockIcon } from '@/assets/icons';
-import { useStore } from '@/store';
-import { computed } from 'vue';
-import { ForecastCard, UVIndexCard } from '@/components';
+  import { CalendarIcon, ClockIcon } from '@/assets/icons';
+  import { useStore } from '@/store';
+  import { computed } from 'vue';
+  import { ForecastCard, UVIndexCard } from '@/components';
 
-const { state } = useStore();
+  const { state } = useStore();
 
-const weatherData = computed(() => state.weather.weatherData);
+  const weatherData = computed(() => state.weather.weatherData);
 
-const dailyData = computed(() => weatherData.value?.daily);
-const hourlyData = computed(() => weatherData.value?.hourly);
+  const dailyData = computed(() => weatherData.value?.daily);
+  const hourlyData = computed(() => weatherData.value?.hourly);
 </script>
 
 <style scoped lang="scss">
-.weather-forecast-section {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 50%;
+  .weather-forecast-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
 
-  @media (max-width: $breakpoint-lg) {
-    width: auto;
+    @media (max-width: $breakpoint-lg) {
+      width: auto;
+    }
   }
-}
 </style>
