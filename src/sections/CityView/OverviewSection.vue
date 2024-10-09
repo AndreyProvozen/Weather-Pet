@@ -51,6 +51,10 @@
       value: `${currentData.value?.relative_humidity_2m ?? 0}${unitsData.value?.humidity ?? ''}`,
     },
     { icon: SunriseIcon, title: 'Sunrise', value: dayjs(dailyData.value?.sunrise?.[0]).format('HH:mm') || 'N/A' },
+    { icon: SunriseIcon, title: 'Clouds', value: '89%' },
+    { icon: SunriseIcon, title: 'Wind speed', value: '10km/h' },
+    { icon: SunriseIcon, title: 'Wind direction', value: '10km/h' },
+    { icon: SunriseIcon, title: 'Wind gust', value: '10km/h' },
     { icon: SunsetIcon, title: 'Sunset', value: dayjs(dailyData.value?.sunset?.[0]).format('HH:mm') || 'N/A' },
   ]);
 
