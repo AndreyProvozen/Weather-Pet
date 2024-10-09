@@ -9,7 +9,7 @@
     />
     <ForecastCard
       variant="daily"
-      title="7-DAY FORECAST"
+      title="10-DAY FORECAST"
       :icon="CalendarIcon"
       :temperature-list="dailyData?.temperature_2m_max || []"
       :times-list="dailyData?.time || []"

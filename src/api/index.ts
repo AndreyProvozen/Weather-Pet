@@ -17,6 +17,6 @@ export const getFullWeatherData = async ({ lat, lon }: CoordinatesProps) => {
   const dailyParams = 'sunrise,sunset,temperature_2m_max,temperature_2m_min,uv_index_max,weather_code';
 
   return await customFetch(
-    `${OPEN_METEO_BASE_URL}forecast?latitude=${lat}&longitude=${lon}&current=${currentProps}&hourly=${hourlyParams}&daily=${dailyParams}&timezone=auto&forecast_hours=24`
+    `${OPEN_METEO_BASE_URL}forecast?latitude=${lat}&longitude=${lon}&current=${currentProps}&hourly=${hourlyParams}&daily=${dailyParams}&timezone=auto&forecast_hours=24&forecast_days=10`
   );
 };

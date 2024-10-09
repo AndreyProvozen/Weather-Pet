@@ -31,10 +31,12 @@
     padding-inline: 20px;
     text-align: center;
 
+    /* stylelint-disable-next-line selector-class-pattern */
     .splide__slide {
       padding-top: 40px;
     }
 
+    /* stylelint-disable-next-line selector-class-pattern */
     .splide__arrow {
       background-color: $purple-light;
       border: 2px solid $purple;

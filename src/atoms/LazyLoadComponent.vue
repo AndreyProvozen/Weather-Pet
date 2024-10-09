@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, defineEmits, defineAsyncComponent, type Component } from 'vue';
+  import { ref, defineAsyncComponent, type Component } from 'vue';
   import { useIntersectionObserver } from '@vueuse/core';
 
   interface EmitProps {
