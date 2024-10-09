@@ -25,64 +25,64 @@
 </template>
 
 <script setup lang="ts">
-import { Icon, Link } from '@/atoms';
-import { FOOTER_COLUMN_LINKS } from '@/constants';
+  import { Icon, Link } from '@/atoms';
+  import { FOOTER_COLUMN_LINKS } from '@/constants';
 
-const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
+  const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
 </script>
 
 <style scoped lang="scss">
-.footer {
-  background-color: $black;
+  .footer {
+    background-color: $black;
 
-  &__content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 70px;
-    padding: 60px 20px;
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 70px;
+      padding: 60px 20px;
 
-    @media (max-width: $breakpoint-lg) {
-      & > div {
-        max-width: 210px;
-        width: 100%;
+      @media (max-width: $breakpoint-lg) {
+        & > div {
+          max-width: 210px;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        gap: 24px;
       }
     }
 
-    @media (max-width: $breakpoint-sm) {
-      gap: 24px;
+    &__section-title {
+      margin: 0 0 20px;
+
+      @media (max-width: $breakpoint-md) {
+        margin: 0 0 8px;
+      }
+    }
+
+    &__socials-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-right: auto;
+
+      @media (max-width: $breakpoint-lg) {
+        margin-right: 0;
+      }
+    }
+
+    &__social-icon {
+      background: $white;
+      border-radius: 10%;
+      color: $turquoise;
+      cursor: pointer;
+      padding: 8px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: $purple;
+        color: $white;
+      }
     }
   }
-
-  &__section-title {
-    margin: 0 0 20px;
-
-    @media (max-width: $breakpoint-md) {
-      margin: 0 0 8px;
-    }
-  }
-
-  &__socials-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin-right: auto;
-
-    @media (max-width: $breakpoint-lg) {
-      margin-right: 0;
-    }
-  }
-
-  &__social-icon {
-    background: $white;
-    cursor: pointer;
-    color: $turquoise;
-    border-radius: 10%;
-    padding: 8px;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background: $purple;
-      color: $white;
-    }
-  }
-}
 </style>

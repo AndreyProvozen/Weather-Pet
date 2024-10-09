@@ -12,37 +12,37 @@
 </template>
 
 <script setup lang="ts">
-import { Button, Input } from '@/atoms';
+  import { Button, Input } from '@/atoms';
 </script>
 
 <style scoped lang="scss">
-.subscribe-to-newsletter {
-  background: linear-gradient(45deg, $turquoise 0%, $deep-dark-blue 100%);
-  margin-top: 32px;
-  padding: 32px;
-  text-align: center;
+  .subscribe-to-newsletter {
+    background: linear-gradient(45deg, $turquoise 0%, $deep-dark-blue 100%);
+    margin-top: 32px;
+    padding: 32px;
+    text-align: center;
 
-  &__subtitle {
-    margin: 4px auto 0 auto;
-    max-width: 400px;
-    text-wrap: balance;
-  }
+    &__subtitle {
+      margin: 4px auto 0;
+      max-width: 400px;
+      text-wrap: balance;
+    }
 
-  &__form {
-    align-items: center;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
+    &__form {
+      align-items: center;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
 
-    @media (max-width: $breakpoint-xs) {
-      align-items: unset;
-      flex-direction: column;
+      @media (max-width: $breakpoint-xs) {
+        align-items: unset;
+        flex-direction: column;
 
-      button {
-        justify-content: center;
+        button {
+          justify-content: center;
+        }
       }
     }
   }
-}
 </style>

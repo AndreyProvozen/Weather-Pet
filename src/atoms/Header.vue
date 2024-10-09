@@ -10,39 +10,39 @@
 </template>
 
 <script lang="ts" setup>
-import { Link } from '@/atoms';
-import { MenuIcon } from '@/assets/icons';
+  import { Link } from '@/atoms';
+  import { MenuIcon } from '@/assets/icons';
 </script>
 
 <style lang="scss" scoped>
-.header {
-  align-items: center;
-  background-color: $black;
-  display: flex;
-  height: 60px;
-  justify-content: space-between;
-  padding: 10px $SIDE_SPACING;
-  position: sticky;
-  top: 0;
-  z-index: $z-30;
-
-  &__navigation {
+  .header {
     align-items: center;
-    column-gap: 15px;
+    background-color: $black;
     display: flex;
-    justify-content: flex-end;
+    height: 60px;
+    justify-content: space-between;
+    padding: 10px $SIDE_SPACING;
+    position: sticky;
+    top: 0;
+    z-index: $z-30;
 
-    @media (max-width: $breakpoint-md) {
+    &__navigation {
+      align-items: center;
+      column-gap: 15px;
+      display: flex;
+      justify-content: flex-end;
+
+      @media (max-width: $breakpoint-md) {
+        display: none;
+      }
+    }
+
+    &__burger {
       display: none;
+
+      @media (max-width: $breakpoint-md) {
+        display: block;
+      }
     }
   }
-
-  &__burger {
-    display: none;
-
-    @media (max-width: $breakpoint-md) {
-      display: block;
-    }
-  }
-}
 </style>

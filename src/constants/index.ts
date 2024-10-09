@@ -1,7 +1,7 @@
-import autumnModalImage from '../assets/images/AddCityModal/autumn-image.avif';
-import winterModalImage from '../assets/images/AddCityModal/winter-image.avif';
-import springModalImage from '../assets/images/AddCityModal/spring-image.avif';
-import summerModalImage from '../assets/images/AddCityModal/summer-image.avif';
+// import autumnModalImage from '../assets/images/AddCityModal/autumn-image.avif';
+// import winterModalImage from '../assets/images/AddCityModal/winter-image.avif';
+// import springModalImage from '../assets/images/AddCityModal/spring-image.avif';
+// import summerModalImage from '../assets/images/AddCityModal/summer-image.avif';
 
 import autumnCityPageViewImage from '../assets/images/CityPageView/autumn-image.webp';
 import winterCityPageViewImage from '../assets/images/CityPageView/winter-image.avif';
@@ -21,12 +21,12 @@ export const OPEN_METEO_BASE_URL = 'https://api.open-meteo.com/v1/';
 
 // temporary solution
 
-export const MODAL_SEASON_IMAGE = {
-  Winter: winterModalImage,
-  Spring: springModalImage,
-  Summer: summerModalImage,
-  Autumn: autumnModalImage,
-};
+// export const MODAL_SEASON_IMAGE = {
+//   Winter: winterModalImage,
+//   Spring: springModalImage,
+//   Summer: summerModalImage,
+//   Autumn: autumnModalImage,
+// };
 
 export const CITY_PAGE_VIEW_SEASON_IMAGE = {
   Winter: winterCityPageViewImage,
@@ -35,7 +35,7 @@ export const CITY_PAGE_VIEW_SEASON_IMAGE = {
   Autumn: autumnCityPageViewImage,
 };
 
-export type SEASON_KEY = keyof typeof MODAL_SEASON_IMAGE;
+export type SEASON_KEY = keyof typeof CITY_PAGE_VIEW_SEASON_IMAGE;
 export const SEASONS: SEASON_KEY[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
 
 export const QUALITY_SECTION_DATA = [

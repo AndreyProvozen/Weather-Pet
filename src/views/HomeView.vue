@@ -3,19 +3,18 @@
   <LazyLoadComponent style="min-height: 250px" :loader="getLoader('TrustedBy')" />
   <LazyLoadComponent style="min-height: 750px" :loader="getLoader('Quality')" />
   <LazyLoadComponent style="min-height: 450px" :loader="getLoader('Testimonial')" />
-  <LazyLoadComponent style="min-height: 200px" :loader="getLoader('SubscribeToNewsletter')" />
 </template>
 
 <script lang="ts" setup>
-import LazyLoadComponent from '@/atoms/LazyLoadComponent.vue';
+  import LazyLoadComponent from '@/atoms/LazyLoadComponent.vue';
 
-const getLoader = (componentName: string) => () => import(`../sections/HomeView/${componentName}Section.vue`);
+  const getLoader = (componentName: string) => () => import(`../sections/HomeView/${componentName}Section.vue`);
 </script>
 
 <style lang="scss">
-.section-title {
-  color: $black;
-  margin: 30px 0 15px;
-  text-align: center;
-}
+  .section-title {
+    color: $black;
+    margin: 30px 0 15px;
+    text-align: center;
+  }
 </style>

@@ -13,33 +13,33 @@
 </template>
 
 <script setup lang="ts">
-interface Props {
-  temperatureNow: string;
-  weatherDescription: string;
-  temperatureMax: string;
-  temperatureMin: string;
-}
+  interface Props {
+    temperatureNow: string;
+    weatherDescription: string;
+    temperatureMax: string;
+    temperatureMin: string;
+  }
 
-defineProps<Props>();
+  defineProps<Props>();
 </script>
 
 <style scoped lang="scss">
-.overview-top-content {
-  max-width: 600px;
-  margin-inline: auto;
-  text-align: center;
-  z-index: 1;
+  .overview-top-content {
+    margin-inline: auto;
+    max-width: 600px;
+    text-align: center;
+    z-index: 1;
 
-  &__temperature {
-    font-size: 100px;
-    margin: 0;
-    line-height: 120px;
-  }
+    &__temperature {
+      font-size: 100px;
+      line-height: 120px;
+      margin: 0;
+    }
 
-  &__description {
-    font-size: 30px;
-    line-height: 40px;
-    margin: 0;
+    &__description {
+      font-size: 30px;
+      line-height: 40px;
+      margin: 0;
+    }
   }
-}
 </style>

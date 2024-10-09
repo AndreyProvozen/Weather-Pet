@@ -6,31 +6,31 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowIcon, MouseIcon } from '@/assets/icons';
-import { set } from '@vueuse/core';
-import { ref, onMounted, onUnmounted } from 'vue';
+  import { ArrowIcon, MouseIcon } from '@/assets/icons';
+  import { set } from '@vueuse/core';
+  import { ref, onMounted, onUnmounted } from 'vue';
 
-const isHiddenIcon = ref(false);
+  const isHiddenIcon = ref(false);
 
-const handleScroll = () => set(isHiddenIcon, window.scrollY > 10);
+  const handleScroll = () => set(isHiddenIcon, window.scrollY > 10);
 
-onMounted(() => window.addEventListener('scroll', handleScroll));
-onUnmounted(() => window.removeEventListener('scroll', handleScroll));
+  onMounted(() => window.addEventListener('scroll', handleScroll));
+  onUnmounted(() => window.removeEventListener('scroll', handleScroll));
 </script>
 
 <style lang="scss" scoped>
-.scroll-bottom-icon {
-  animation: bounce 2s infinite;
-  bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 50%;
-  transition: opacity 0.5s ease;
-  translate: 50%;
+  .scroll-bottom-icon {
+    animation: bounce 2s infinite;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 50%;
+    transition: opacity 0.5s ease;
+    translate: 50%;
 
-  &.hidden {
-    opacity: 0;
+    &.hidden {
+      opacity: 0;
+    }
   }
-}
 </style>

@@ -18,47 +18,47 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs';
-import ForecastCardWrapper from './ForecastCardWrapper.vue';
-import { computed } from 'vue';
+  import dayjs from 'dayjs';
+  import ForecastCardWrapper from './ForecastCardWrapper.vue';
+  import { computed } from 'vue';
 
-interface Props {
-  timesList: string[];
-  icon: any;
-  title: string;
-  temperatureList: number[];
-  variant: 'hourly' | 'daily';
-}
+  interface Props {
+    timesList: string[];
+    icon: any;
+    title: string;
+    temperatureList: number[];
+    variant: 'hourly' | 'daily';
+  }
 
-const { variant } = defineProps<Props>();
+  const { variant } = defineProps<Props>();
 
-const isDaily = computed(() => variant === 'daily');
-const firsElementValue = computed(() => (isDaily.value ? 'Today' : 'Now'));
-const topDateFormat = computed(() => (isDaily.value ? 'ddd' : 'HH:mm'));
+  const isDaily = computed(() => variant === 'daily');
+  const firsElementValue = computed(() => (isDaily.value ? 'Today' : 'Now'));
+  const topDateFormat = computed(() => (isDaily.value ? 'ddd' : 'HH:mm'));
 </script>
 
 <style lang="scss">
-.forecast-card-content {
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-
-  &__item {
+  .forecast-card-content {
     align-items: center;
     display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
+    gap: 10px;
+    overflow-x: auto;
 
-  &__temperature {
-    font-size: 30px;
-    margin: 10px 0;
-  }
+    &__item {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+    }
 
-  &__image {
-    height: 50px;
-    width: 50px;
+    &__temperature {
+      font-size: 30px;
+      margin: 10px 0;
+    }
+
+    &__image {
+      height: 50px;
+      width: 50px;
+    }
   }
-}
 </style>
