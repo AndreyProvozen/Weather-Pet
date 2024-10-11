@@ -24,6 +24,9 @@ interface CurrentWeatherProps {
   time: string;
   interval: number;
   temperature_2m: number;
+  wind_speed_10m: number;
+  wind_direction_10m: number;
+  wind_gusts_10m: number;
   relative_humidity_2m: number;
 }
 

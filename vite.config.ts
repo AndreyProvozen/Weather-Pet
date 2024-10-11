@@ -27,7 +27,5 @@ export default defineConfig({
   resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
   server: { port: Number(process.env.VITE_PORT) || 8081, open: true },
   css: { preprocessorOptions: { scss: { api: 'modern', additionalData: '@import "@/styles/index.scss";' } } },
-  build: {
-    target: 'esnext',
-  },
+  build: { target: 'esnext' },
 });

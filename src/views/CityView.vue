@@ -1,10 +1,18 @@
 <template>
-  <div v-if="weatherData" class="container city-view">
-    <div class="left-weather">
-      <SearchSection />
-      <OverviewSection />
+  <div v-if="weatherData && currentWeather" class="container">
+    <div class="city-view">
+      <div class="left-weather">
+        <SearchSection />
+        <OverviewSection />
+      </div>
+      <WeatherForecastSection />
     </div>
-    <WeatherForecastSection />
+    <WindCard
+      :speed="currentWeather.wind_speed_10m"
+      :gust="currentWeather.wind_gusts_10m"
+      :direction-in-degrees="currentWeather.wind_direction_10m"
+    />
+    >
   </div>
 </template>
 
@@ -14,6 +22,7 @@
   import { useStore } from '@/store';
 
   import { SearchSection, OverviewSection, WeatherForecastSection } from '@/sections';
+  import { WindCard } from '@/components';
 
   const route = useRoute();
   const {
@@ -28,6 +37,7 @@
   });
 
   const weatherData = computed(() => weather.weatherData);
+  const currentWeather = computed(() => weatherData.value?.current);
 </script>
 
 <style scoped lang="scss">
@@ -35,7 +45,7 @@
     display: flex;
     gap: 20px;
     justify-content: space-between;
-    margin-top: 20px;
+    margin: 20px 0;
     min-height: calc(100vh - 90px);
 
     @media (max-width: $breakpoint-lg) {

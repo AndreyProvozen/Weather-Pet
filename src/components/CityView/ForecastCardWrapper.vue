@@ -1,5 +1,5 @@
 <template>
-  <div class="forecast-card-wrapper">
+  <div v-bind="$attrs" class="forecast-card-wrapper">
     <div class="forecast-card-wrapper__title">
       <component :is="icon" />
       <h4 class="m-0">{{ title }}</h4>

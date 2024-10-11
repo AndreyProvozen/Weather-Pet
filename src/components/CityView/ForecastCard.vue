@@ -9,7 +9,7 @@
           {{ dayjs(time).format('DD/MM') }}
         </p>
         <p class="forecast-card-content__temperature">
-          {{ `${Math.round(temperatureList[index])}&deg;` }}
+          {{ `${Math.round(temperatureList[index] as number)}&deg;` }}
         </p>
         <img class="forecast-card-content__image" :src="`/src/assets/weatherIcon/colorful/04d.png`" />
       </div>
