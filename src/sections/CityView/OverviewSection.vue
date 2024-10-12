@@ -16,10 +16,9 @@
   import { computed } from 'vue';
   import { useStore } from '@/store';
   import { getCurrentSeason, metersToKilometers } from '@/utils';
-  import { SunriseIcon, SunsetIcon, HumidityIcon, EyeIcon } from '@/assets/icons';
+  import { SunriseIcon, HumidityIcon, EyeIcon } from '@/assets/icons';
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
   import { OverviewCard, OverviewTopContent } from '@/components';
-  import dayjs from 'dayjs';
 
   const {
     state: { weather },
@@ -50,9 +49,7 @@
       title: 'Humidity',
       value: `${currentData.value?.relative_humidity_2m ?? 0}${unitsData.value?.humidity ?? ''}`,
     },
-    { icon: SunriseIcon, title: 'Sunrise', value: dayjs(dailyData.value?.sunrise?.[0]).format('HH:mm') || 'N/A' },
     { icon: SunriseIcon, title: 'Clouds', value: '89%' },
-    { icon: SunsetIcon, title: 'Sunset', value: dayjs(dailyData.value?.sunset?.[0]).format('HH:mm') || 'N/A' },
   ]);
 
   const imageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();

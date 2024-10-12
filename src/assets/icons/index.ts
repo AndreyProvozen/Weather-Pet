@@ -31,3 +31,5 @@ export { default as TwitterIcon } from './twitter.svg';
 export { default as UVIndexIcon } from './uv-index.svg';
 export { default as StarFilledIcon } from './star-filled.svg';
 export { default as StarOutlinedIcon } from './star-outlined.svg';
+export { default as CompassArrowIcon } from './compass-arrow.svg';
+export { default as WindIcon } from './wind.svg';

@@ -9,15 +9,10 @@ interface DailyWeatherProps {
 
 interface HourlyWeatherProps {
   time: string[];
-  apparent_temperature: number[];
   temperature_2m: number[];
-  relative_humidity_2m: number[];
-  dew_point_2m: number[];
   cloud_cover: number[];
-  precipitation: number[];
   weather_code: number[];
   visibility: number[];
-  is_day: number[];
 }
 
 interface CurrentWeatherProps {

@@ -6,6 +6,7 @@ const GLOBAL_UNITS = {
   precipitation: 'mm',
   visibility: 'm',
   humidity: '%',
+  wind: 'km/h',
 };
 
 const fetchFullWeatherDataDTO = (data: ForecastWeatherData) => ({

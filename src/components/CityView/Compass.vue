@@ -1,6 +1,6 @@
 <template>
   <div class="compass">
-    <div class="compass__arrow" :style="{ transform: `rotate(${directionInDegrees}deg)` }" />
+    <CompassArrowIcon :style="{ transform: `rotate(${directionInDegrees}deg)`, zIndex: 10 }" />
     <b class="north">N</b>
     <b class="south">S</b>
     <b class="west">W</b>
@@ -9,6 +9,8 @@
 </template>
 
 <script setup lang="ts">
+  import { CompassArrowIcon } from '@/assets/icons';
+
   interface Props {
     directionInDegrees: number;
   }
@@ -18,40 +20,60 @@
 
 <style scoped lang="scss">
   .compass {
-    border: 2px solid white;
+    border: 2px solid $white;
     border-radius: 50%;
-    width: 170px;
-    height: 170px;
+    width: 130px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    background-color: #8a9aa8;
 
-    &__arrow {
-      width: 3px;
-      height: 30px;
-      background: white;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 4px dotted $white;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      border: 2px solid $white;
     }
 
     b {
+      color: $white;
+      background-color: #8a9aa8;
       position: absolute;
-      color: white;
+      line-height: 1;
+      font-size: 18px;
     }
 
     .north {
-      top: 5px;
+      top: 3px;
+      padding-inline: 5px;
     }
 
     .south {
-      bottom: 5px;
+      bottom: 3px;
+      padding-inline: 5px;
     }
 
     .west {
-      left: 10px;
+      left: 3px;
+      padding: 5px 0;
     }
 
     .east {
-      right: 10px;
+      right: 7px;
+      padding: 5px 0;
     }
   }
 </style>

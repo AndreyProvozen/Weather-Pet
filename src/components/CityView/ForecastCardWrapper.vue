@@ -19,7 +19,7 @@
 
 <style scoped lang="scss">
   .forecast-card-wrapper {
-    background: rgba($color: $dark-blue, $alpha: 40%);
+    background: rgba($color: $dark-blue, $alpha: 60%);
     border-radius: 10px;
     padding: 16px;
 
