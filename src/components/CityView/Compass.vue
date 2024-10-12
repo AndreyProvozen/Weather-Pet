@@ -20,45 +20,45 @@
 
 <style scoped lang="scss">
   .compass {
+    align-items: center;
+    background-color: #8a9aa8;
     border: 2px solid $white;
     border-radius: 50%;
-    width: 130px;
-    height: 130px;
     display: flex;
-    align-items: center;
+    height: 130px;
     justify-content: center;
     position: relative;
-    background-color: #8a9aa8;
+    width: 130px;
 
     &::after {
+      border: 4px dotted $white;
+      border-radius: 50%;
       content: '';
+      height: 70px;
       position: absolute;
       width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 4px dotted $white;
     }
 
     &::before {
+      border: 2px solid $white;
+      border-radius: 50%;
       content: '';
+      height: 105px;
       position: absolute;
       width: 105px;
-      height: 105px;
-      border-radius: 50%;
-      border: 2px solid $white;
     }
 
     b {
-      color: $white;
       background-color: #8a9aa8;
-      position: absolute;
-      line-height: 1;
+      color: $white;
       font-size: 18px;
+      line-height: 1;
+      position: absolute;
     }
 
     .north {
-      top: 3px;
       padding-inline: 5px;
+      top: 3px;
     }
 
     .south {
@@ -72,8 +72,8 @@
     }
 
     .east {
-      right: 7px;
       padding: 5px 0;
+      right: 7px;
     }
   }
 </style>

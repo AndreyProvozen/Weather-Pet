@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint:eslint": "eslint . --ext .js,.vue,.ts",
-    "lint:prettier": "prettier --write \"**/*.{json,scss,vue,html,ts}\"",
-    "lint:stylelint": "stylelint --fix \"**/*.{vue,scss}\"",
-    "lint": "npm run lint:prettier && npm run lint:stylelint && npm run lint:eslint"
+    "lint:js": "eslint --ext \".ts,.vue\"",
+    "lint:style": "stylelint \"**/*.{scss,vue}\"",
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run lint:prettier && npm run lint:stylelint && npm run lint:eslint",
+    "lint:fix": "prettier --write --list-different . && npm run lint:js -- --fix && npm run lint:style -- --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
@@ -25,6 +27,10 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "husky": "^8.0.1",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "lint-staged": "^13.0.3",
     "babel-plugin-transform-imports": "^2.0.0",
     "@babel/preset-typescript": "^7.24.7",
     "@babel/core": "^7.25.2",
@@ -51,5 +57,10 @@
     "vite-svg-loader": "^5.1.0",
     "vue-eslint-parser": "^9.4.2",
     "vue-tsc": "^2.0.14"
+  },
+  "lint-staged": {
+    "*.{ts,vue}": "eslint --cache",
+    "*.{scss,html,vue}": "stylelint",
+    "*.**": "prettier --check --ignore-unknown"
   }
 }

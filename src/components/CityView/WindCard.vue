@@ -32,15 +32,15 @@
 
 <style scoped lang="scss">
   .wind-card {
-    display: flex;
     align-items: center;
+    display: flex;
     gap: 40px;
     justify-content: space-between;
 
     &__vertical-line {
-      width: 2px;
-      height: 65px;
       background-color: $white;
+      height: 65px;
+      width: 2px;
     }
 
     &__info-wrapper {
@@ -49,8 +49,8 @@
       gap: 2px;
 
       h4 {
-        margin: 0;
         font-weight: 400;
+        margin: 0;
         text-wrap: nowrap;
       }
     }
