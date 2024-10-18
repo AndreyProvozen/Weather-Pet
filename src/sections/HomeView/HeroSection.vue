@@ -5,7 +5,6 @@
       <div class="hero-block__search-wrapper">
         <Input
           style="flex: 1"
-          :end-input-icon="SearchIcon"
           placeholder="Enter the location you're searching for"
           :value="searchValue"
           @on-change="onSearchValueChange"
@@ -36,15 +35,14 @@
 </template>
 
 <script setup lang="ts">
+  import { get, set, useDebounceFn } from '@vueuse/core';
+  import { type Ref, ref, watch, onMounted } from 'vue';
+  import { useRouter } from 'vue-router';
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
   import { getCurrentSeason } from '@/utils';
   import { Button, Input } from '@/atoms';
-  import { SearchIcon } from '@/assets/icons';
-  import { type Ref, ref, watch, onMounted } from 'vue';
-  import { get, set, useDebounceFn } from '@vueuse/core';
   import type { CityData } from '@/interface';
   import { fetchCitiesAutoComplete } from '@/api';
-  import { useRouter } from 'vue-router';
   import { ScrollBottomIcon } from '@/components';
 
   const router = useRouter();
@@ -68,12 +66,12 @@
     set(searchCitiesList, undefined);
   });
 
-  const redirectToCityView = (place_name: string, geometry: CityData['geometry']) => {
-    const [city, state] = place_name.split(',');
+  const redirectToCityView = (placeName: string, geometry: CityData['geometry']) => {
+    const [city, state] = placeName.split(',');
 
     router.push({
       name: 'cityView',
-      params: { city, state: state.replaceAll(' ', '') },
+      params: { city, state: state?.replaceAll(' ', '') },
       query: { lon: geometry.coordinates[0], lat: geometry.coordinates[1] },
     });
   };

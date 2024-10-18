@@ -5,13 +5,12 @@
       <Link to="/">Main</Link>
       <Link to="#">Test</Link>
     </div>
-    <MenuIcon class="header__burger" />
+    <nuxt-icon name="menu" class="header__burger" />
   </header>
 </template>
 
 <script lang="ts" setup>
   import { Link } from '@/atoms';
-  import { MenuIcon } from '@/assets/icons';
 </script>
 
 <style lang="scss" scoped>

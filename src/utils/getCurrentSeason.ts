@@ -16,7 +16,7 @@ const getCurrentSeason = (): SEASON_KEY => {
 
   const seasonIndex = Math.floor((currentMonth % 12) / 3);
 
-  return SEASONS[seasonIndex];
+  return SEASONS[seasonIndex]!;
 };
 
 export default getCurrentSeason;
