@@ -21,6 +21,7 @@
     "*.**": "prettier --check --ignore-unknown"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.5.5",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@splidejs/vue-splide": "^0.6.12",
@@ -29,10 +30,10 @@
     "dayjs-plugin-utc": "^0.1.2",
     "nuxt": "3.10.3",
     "nuxt-icons": "^3.2.1",
+    "pinia": "^2.2.4",
     "vue": "^3.4.26",
     "vue-number-animation": "^2.0.2",
-    "vue-router": "^4.3.2",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

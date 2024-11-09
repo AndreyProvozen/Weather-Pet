@@ -1,7 +1,7 @@
 <template>
   <div :class="{ hidden: isHiddenIcon }" class="scroll-bottom-icon">
-    <nuxt-icon name="mouse" />
-    <nuxt-icon name="arrow" />
+    <NuxtIcon name="mouse" class="scroll-bottom-icon__icon" />
+    <NuxtIcon name="arrow" class="scroll-bottom-icon__icon" />
   </div>
 </template>
 
@@ -30,6 +30,11 @@
 
     &.hidden {
       opacity: 0;
+    }
+
+    &__icon {
+      height: 36px;
+      width: 36px;
     }
   }
 </style>

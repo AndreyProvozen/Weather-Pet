@@ -5,7 +5,7 @@
       <Link to="/">Main</Link>
       <Link to="#">Test</Link>
     </div>
-    <nuxt-icon name="menu" class="header__burger" />
+    <NuxtIcon name="menu" class="header__burger" />
   </header>
 </template>
 
@@ -41,6 +41,8 @@
 
       @media (max-width: $breakpoint-md) {
         display: block;
+        width: 36px;
+        height: 36px;
       }
     }
   }

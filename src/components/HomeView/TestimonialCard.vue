@@ -7,7 +7,7 @@
     <div class="testimonial-rating">
       <!-- eslint-disable-next-line vue/no-v-for-template-key -->
       <template v-for="item in 5" :key="item">
-        <nuxt-icon :name="item <= rating ? 'star-filled' : 'star-outlined'" />
+        <NuxtIcon :name="item <= rating ? 'star-filled' : 'star-outlined'" class="testimonial-rating__icon" />
       </template>
     </div>
     <p class="m-0">{{ review }}</p>
@@ -53,5 +53,11 @@
   .testimonial-rating {
     color: orange;
     margin: 6px 0 16px;
+
+    &__icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+    }
   }
 </style>

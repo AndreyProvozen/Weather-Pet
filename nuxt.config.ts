@@ -4,7 +4,8 @@ import { fileURLToPath } from 'url';
 export default defineNuxtConfig({
   srcDir: 'src/',
   typescript: { shim: false, strict: true },
-  modules: ['nuxt-icons'],
+  modules: ['nuxt-icons', '@pinia/nuxt'],
+  imports: { dirs: ['@/stores'] },
   alias: {
     '@': fileURLToPath(new URL('./src', import.meta.url)),
   },

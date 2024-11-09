@@ -2,7 +2,7 @@
   <div class="trusted-by">
     <Splide :options="splideOptions" :extensions="extensions">
       <SplideSlide v-for="{ icon, name } in TRUSTED_BY_LIST" :key="name" class="trusted-by__slide">
-        <nuxt-icon filled :name="icon" />
+        <NuxtIcon filled :name="icon" class="trusted-by__icon" />
         <h5 class="trusted-by__text">{{ name }}</h5>
       </SplideSlide>
     </Splide>
@@ -46,12 +46,11 @@
       padding: 0 10px;
       text-align: center;
     }
-  }
 
-  // .nuxt-icon {
-  //   svg {
-  //     height: 70px;
-  //     width: 70px;
-  //   }
-  // }
+    &__icon {
+      height: 70px;
+      width: 70px;
+      display: block;
+    }
+  }
 </style>
