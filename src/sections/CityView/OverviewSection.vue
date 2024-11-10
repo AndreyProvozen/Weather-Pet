@@ -14,42 +14,34 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { useStore } from '@/store';
   import { getCurrentSeason, metersToKilometers } from '@/utils';
-  import { SunriseIcon, HumidityIcon, EyeIcon } from '@/assets/icons';
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
   import { OverviewCard, OverviewTopContent } from '@/components';
+  import { useWeatherStore } from '@/stores/weather';
 
-  const {
-    state: { weather },
-  } = useStore();
+  const { weatherData } = useWeatherStore();
   const season = getCurrentSeason();
 
-  const weatherData = computed(() => weather.weatherData);
-  const dailyData = computed(() => weatherData.value?.daily);
-  const currentData = computed(() => weatherData.value?.current);
-  const hourlyData = computed(() => weatherData.value?.hourly);
-  const unitsData = computed(() => weatherData.value?.units);
+  const weatherDescription = 'test description';
 
-  const weatherDescription = computed(() => 'test description');
   const temperatureNow = computed(
-    () => `${Math.round(currentData.value?.temperature_2m ?? 0)}${unitsData.value?.degree ?? ''}`
+    () => `${Math.round(weatherData?.current?.temperature_2m ?? 0)}${weatherData?.units?.degree ?? ''}`
   );
   const temperatureMax = computed(
-    () => `${Math.round(dailyData.value?.temperature_2m_max?.[0] ?? 0)}${unitsData.value?.temperature ?? ''}`
+    () => `${Math.round(weatherData?.daily?.temperature_2m_max?.[0] ?? 0)}${weatherData?.units?.temperature ?? ''}`
   );
   const temperatureMin = computed(
-    () => `${Math.round(dailyData.value?.temperature_2m_min?.[0] ?? 0)}${unitsData.value?.temperature ?? ''}`
+    () => `${Math.round(weatherData?.daily?.temperature_2m_min?.[0] ?? 0)}${weatherData?.units?.temperature ?? ''}`
   );
 
   const weatherDetails = computed(() => [
-    { icon: EyeIcon, title: 'Visibility', value: `${metersToKilometers(hourlyData.value?.visibility?.[0] ?? 0)}` },
+    { icon: 'eye', title: 'Visibility', value: `${metersToKilometers(weatherData?.hourly?.visibility?.[0] ?? 0)}` },
     {
-      icon: HumidityIcon,
+      icon: 'humidity',
       title: 'Humidity',
-      value: `${currentData.value?.relative_humidity_2m ?? 0}${unitsData.value?.humidity ?? ''}`,
+      value: `${weatherData?.current?.relative_humidity_2m ?? 0}${weatherData?.units?.humidity ?? ''}`,
     },
-    { icon: SunriseIcon, title: 'Clouds', value: '89%' },
+    { icon: 'sunrise', title: 'Clouds', value: '89%' },
   ]);
 
   const imageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();

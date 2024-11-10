@@ -37,15 +37,13 @@
 <script setup lang="ts">
   import { get, set, useDebounceFn } from '@vueuse/core';
   import { type Ref, ref, watch, onMounted } from 'vue';
-  import { useRouter } from 'vue-router';
+  import { navigateTo } from 'nuxt/app';
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
   import { getCurrentSeason } from '@/utils';
   import { Button, Input } from '@/atoms';
   import type { CityData } from '@/interface';
   import { fetchCitiesAutoComplete } from '@/api';
   import { ScrollBottomIcon } from '@/components';
-
-  const router = useRouter();
 
   const searchValue = ref('');
   const searchCitiesList: Ref<CityData[] | undefined> = ref();
@@ -68,10 +66,10 @@
 
   const redirectToCityView = (placeName: string, geometry: CityData['geometry']) => {
     const [city, state] = placeName.split(',');
+    const locationSlug = `${state?.trim()?.replaceAll(' ', '-')}--${city?.replaceAll(' ', '-')}`.toLowerCase();
 
-    router.push({
-      name: 'cityView',
-      params: { city, state: state?.replaceAll(' ', '') },
+    navigateTo({
+      path: `/weather/${locationSlug}`,
       query: { lon: geometry.coordinates[0], lat: geometry.coordinates[1] },
     });
   };

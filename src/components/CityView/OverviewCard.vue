@@ -1,6 +1,6 @@
 <template>
   <div class="overview-card">
-    <component :is="icon" />
+    <NuxtIcon :name="icon" filled style="height: 60px; width: 60px" />
     <div class="overview-card__text-wrapper">
       <h5 class="m-0">{{ title }}</h5>
       <p class="overview-card__value">{{ value }}</p>

@@ -1,56 +1,47 @@
 <template>
   <div class="left-weather-header">
-    <Input container-class="left-weather-header__search-input" :start-input-icon="LocationIcon" :value="inputValue" />
+    <Input container-class="left-weather-header__search-input" :value="inputValue" />
     <Button variant="filled" class="left-weather-header__bookmark-button" @click="toggleBookmark">
-      <BookmarkMinusIcon v-if="isBookmarked" />
-      <BookmarkPlusIcon v-else />
+      <NuxtIcon :name="isBookmarked ? 'bookmark-plus' : 'bookmark-minus'" style="width: 24px; height: 24px" />
     </Button>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { BookmarkPlusIcon, BookmarkMinusIcon, LocationIcon } from '@/assets/icons';
-  import { useRoute } from 'vue-router';
-  import { Button, Input } from '@/atoms';
+  import { useRoute } from 'nuxt/app';
   import { onMounted, ref, computed } from 'vue';
   import { get, set } from '@vueuse/core';
+  import { Button, Input } from '@/atoms';
   import { SavedCitiesProps } from '@/interface';
+  import { parseLocationSlug } from '@/utils';
 
   const {
-    params: { state, city },
+    params: { locationSlug },
     query: { lat, lon },
   } = useRoute();
 
   const savedCitiesList = ref<SavedCitiesProps[]>([]);
 
-  const isBookmarked = computed(() => {
-    const cityId = `${state}&${city}`;
-    const savedCities = get(savedCitiesList);
-
-    return savedCities.some(city => city.id === cityId);
-  });
-
+  const { city, state } = parseLocationSlug(locationSlug);
   const inputValue = computed(() => `${state}, ${city}`);
+  const isBookmarked = computed(() => get(savedCitiesList).some(city => city.id === locationSlug));
 
   const loadCitiesFromLocalStorage = () => {
     const storedCities = JSON.parse(localStorage.getItem('saved_cities_list') || '[]');
     set(savedCitiesList, storedCities);
   };
 
-  onMounted(loadCitiesFromLocalStorage);
-
   const toggleBookmark = () => {
-    const cityId = `${state}&${city}`;
     const savedCities = get(savedCitiesList);
 
-    const cityExists = savedCities.some(city => city.id === cityId);
+    const cityExists = savedCities.some(city => city.id === locationSlug);
 
     const updatedCities = cityExists
-      ? savedCities.filter(city => city.id !== cityId)
+      ? savedCities.filter(city => city.id !== locationSlug)
       : [
           ...savedCities,
           {
-            id: cityId,
+            id: locationSlug,
             state: state as string,
             city: city as string,
             coordinates: { lat: Number(lat), lon: Number(lon) },
@@ -60,6 +51,8 @@
     set(savedCitiesList, updatedCities);
     localStorage.setItem('saved_cities_list', JSON.stringify(updatedCities));
   };
+
+  onMounted(loadCitiesFromLocalStorage);
 </script>
 
 <style scoped lang="scss">

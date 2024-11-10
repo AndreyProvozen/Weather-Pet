@@ -1,5 +1,5 @@
 <template>
-  <ForecastCardWrapper style="width: max-content" :icon="WindIcon" title="Wind">
+  <ForecastCardWrapper style="width: max-content" icon="wind" title="Wind">
     <div class="wind-card">
       <div class="wind-card__info-wrapper">
         <h4>Speed: {{ Math.round(speed) }} {{ units.wind }}</h4>
@@ -16,7 +16,6 @@
 </template>
 
 <script setup lang="ts">
-  import { WindIcon } from '@/assets/icons';
   import ForecastCardWrapper from './ForecastCardWrapper.vue';
   import Compass from './Compass.vue';
 

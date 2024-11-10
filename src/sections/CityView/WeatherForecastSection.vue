@@ -3,14 +3,14 @@
     <ForecastCard
       variant="hourly"
       title="HOURLY FORECAST"
-      :icon="ClockIcon"
+      icon="clock"
       :temperature-list="hourlyData?.temperature_2m || []"
       :times-list="hourlyData?.time || []"
     />
     <ForecastCard
       variant="daily"
       title="10-DAY FORECAST"
-      :icon="CalendarIcon"
+      icon="calendar"
       :temperature-list="dailyData?.temperature_2m_max || []"
       :times-list="dailyData?.time || []"
     />
@@ -19,17 +19,14 @@
 </template>
 
 <script setup lang="ts">
-  import { CalendarIcon, ClockIcon } from '@/assets/icons';
-  import { useStore } from '@/store';
   import { computed } from 'vue';
   import { ForecastCard, UVIndexCard } from '@/components';
+  import { useWeatherStore } from '@/stores/weather';
 
-  const { state } = useStore();
+  const { weatherData } = useWeatherStore();
 
-  const weatherData = computed(() => state.weather.weatherData);
-
-  const dailyData = computed(() => weatherData.value?.daily);
-  const hourlyData = computed(() => weatherData.value?.hourly);
+  const dailyData = computed(() => weatherData?.daily);
+  const hourlyData = computed(() => weatherData?.hourly);
 </script>
 
 <style scoped lang="scss">

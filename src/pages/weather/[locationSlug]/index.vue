@@ -22,35 +22,29 @@
 </template>
 
 <script setup lang="ts">
-  import { type LocationQueryValue, useRoute } from 'vue-router';
-  import { computed, onMounted } from 'vue';
-  import { useStore } from '@/store';
-
-  import { SearchSection, OverviewSection, WeatherForecastSection } from '@/sections';
-  import { OverviewCard, WindCard } from '@/components';
+  import { useAsyncData, useRoute } from 'nuxt/app';
+  import { computed } from 'vue';
   import dayjs from 'dayjs';
-  import { SunriseIcon, SunsetIcon } from '@/assets/icons';
+  import SearchSection from '@/sections/CityView/SearchSection.vue';
+  import { useWeatherStore } from '@/stores/weather';
+  import { OverviewCard, WindCard } from '@/components';
+  import OverviewSection from '@/sections/CityView/OverviewSection.vue';
+  import WeatherForecastSection from '@/sections/CityView/WeatherForecastSection.vue';
 
-  const route = useRoute();
   const {
-    dispatch,
-    state: { weather },
-  } = useStore();
+    query: { lat, lon },
+  } = useRoute();
 
-  onMounted(() => {
-    const lat = route.query.lat as LocationQueryValue;
-    const lon = route.query.lon as LocationQueryValue;
-    dispatch('fetchFullWeatherData', { lat, lon });
-  });
+  const { fetchFullWeatherData, weatherData } = useWeatherStore();
 
-  const weatherData = computed(() => weather.weatherData);
+  useAsyncData('weatherData', () => fetchFullWeatherData({ lat, lon }));
 
-  const currentWeather = computed(() => weatherData.value?.current);
-  const dailyData = computed(() => weatherData.value?.daily);
+  const currentWeather = computed(() => weatherData?.current);
+  const dailyData = computed(() => weatherData?.daily);
 
   const sunData = computed(() => [
-    { icon: SunsetIcon, title: 'Sunset', value: dayjs(dailyData.value?.sunset?.[0]).format('HH:mm') || 'N/A' },
-    { icon: SunriseIcon, title: 'Sunrise', value: dayjs(dailyData.value?.sunrise?.[0]).format('HH:mm') || 'N/A' },
+    { icon: 'sunset', title: 'Sunset', value: dayjs(dailyData.value?.sunset?.[0]).format('HH:mm') || 'N/A' },
+    { icon: 'sunrise', title: 'Sunrise', value: dayjs(dailyData.value?.sunrise?.[0]).format('HH:mm') || 'N/A' },
   ]);
 </script>
 

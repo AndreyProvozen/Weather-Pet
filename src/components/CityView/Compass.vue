@@ -1,6 +1,6 @@
 <template>
   <div class="compass">
-    <CompassArrowIcon :style="{ transform: `rotate(${directionInDegrees}deg)`, zIndex: 10 }" />
+    <NuxtIcon name="compass-arrow" :style="{ transform: `rotate(${directionInDegrees}deg)`, zIndex: 10 }" />
     <b class="north">N</b>
     <b class="south">S</b>
     <b class="west">W</b>
@@ -9,8 +9,6 @@
 </template>
 
 <script setup lang="ts">
-  import { CompassArrowIcon } from '@/assets/icons';
-
   interface Props {
     directionInDegrees: number;
   }
