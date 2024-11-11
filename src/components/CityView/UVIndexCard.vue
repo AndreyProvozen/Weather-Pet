@@ -1,5 +1,5 @@
 <template>
-  <ForecastCardWrapper :icon="UVIndexIcon" title="UV INDEX">
+  <ForecastCardWrapper icon="uv-index" title="UV INDEX">
     <div class="uv-index-card-content">
       <p class="uv-index-card-content__index">{{ uvIndex.toFixed(1) }}</p>
       <h4 class="uv-index-card-content__label">{{ label }}</h4>
@@ -10,9 +10,8 @@
 </template>
 
 <script setup lang="ts">
-  import { getUVIndexCategory } from '@/utils';
   import ForecastCardWrapper from './ForecastCardWrapper.vue';
-  import { UVIndexIcon } from '@/assets/icons';
+  import { getUVIndexCategory } from '@/utils';
 
   interface Props {
     uvIndex: number;

@@ -4,7 +4,7 @@
       <div v-show="isModalOpen" class="modal-wrapper" @click="handleClickOutside">
         <Transition name="modal-inner">
           <form v-if="isModalOpen" action="" class="modal-wrapper__modal-content" @submit="submitForm" @click.stop>
-            <Icon name="close" class="modal-wrapper__close-icon" @click="closeModal" />
+            <!-- <Icon name="close" class="modal-wrapper__close-icon" @click="closeModal" /> -->
             <slot />
             <div class="modal-wrapper__btn-wrapper">
               <Button type="button" @click="closeModal">Close</Button>
@@ -18,8 +18,8 @@
 </template>
 
 <script setup lang="ts">
-  import { Button, Icon } from '.';
   import { useEventListener } from '@vueuse/core';
+  import { Button } from '.';
 
   interface Props {
     isModalOpen: boolean;

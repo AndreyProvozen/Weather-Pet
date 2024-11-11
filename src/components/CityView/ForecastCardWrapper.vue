@@ -1,7 +1,7 @@
 <template>
   <div v-bind="$attrs" class="forecast-card-wrapper">
     <div class="forecast-card-wrapper__title">
-      <NuxtIcon :name="icon" filled style="height: 20px; width: 20px" />
+      <NuxtIcon :name="icon" filled style="height: 24px; width: 24px" />
       <h4 class="m-0">{{ title }}</h4>
     </div>
     <slot />

@@ -44,6 +44,7 @@
       opacity: 1;
       transform: translateY(calc(-50% + 20px));
       width: 40px;
+      transition: opacity 0.3s ease;
 
       &--prev {
         left: -20px;
@@ -59,6 +60,12 @@
         > svg {
           fill: $white;
         }
+      }
+
+      &[disabled] {
+        border-color: $gray-dark;
+        background-color: $gray;
+        pointer-events: none;
       }
     }
   }
