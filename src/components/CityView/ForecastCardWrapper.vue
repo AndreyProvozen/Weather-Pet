@@ -1,7 +1,7 @@
 <template>
   <div v-bind="$attrs" class="forecast-card-wrapper">
     <div class="forecast-card-wrapper__title">
-      <component :is="icon" />
+      <NuxtIcon :name="icon" filled style="height: 20px; width: 20px" />
       <h4 class="m-0">{{ title }}</h4>
     </div>
     <slot />
@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
   interface Props {
-    icon: any;
+    icon: string;
     title: string;
   }
 

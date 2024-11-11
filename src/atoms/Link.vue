@@ -1,10 +1,8 @@
 <template>
-  <RouterLink v-bind="$attrs" :to="to"><slot /></RouterLink>
+  <NuxtLink v-bind="$attrs" :to="to"><slot /></NuxtLink>
 </template>
 
 <script lang="ts" setup>
-  import { RouterLink } from 'vue-router';
-
   interface Props {
     to: string;
   }

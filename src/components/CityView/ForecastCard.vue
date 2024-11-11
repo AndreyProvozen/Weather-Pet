@@ -19,12 +19,12 @@
 
 <script setup lang="ts">
   import dayjs from 'dayjs';
-  import ForecastCardWrapper from './ForecastCardWrapper.vue';
   import { computed } from 'vue';
+  import ForecastCardWrapper from './ForecastCardWrapper.vue';
 
   interface Props {
     timesList: string[];
-    icon: any;
+    icon: string;
     title: string;
     temperatureList: number[];
     variant: 'hourly' | 'daily';

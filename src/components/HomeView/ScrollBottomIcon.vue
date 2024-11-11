@@ -1,12 +1,11 @@
 <template>
   <div :class="{ hidden: isHiddenIcon }" class="scroll-bottom-icon">
-    <MouseIcon />
-    <ArrowIcon />
+    <NuxtIcon name="mouse" class="scroll-bottom-icon__icon" />
+    <NuxtIcon name="arrow" class="scroll-bottom-icon__icon" />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ArrowIcon, MouseIcon } from '@/assets/icons';
   import { set } from '@vueuse/core';
   import { ref, onMounted, onUnmounted } from 'vue';
 
@@ -31,6 +30,11 @@
 
     &.hidden {
       opacity: 0;
+    }
+
+    &__icon {
+      height: 36px;
+      width: 36px;
     }
   }
 </style>

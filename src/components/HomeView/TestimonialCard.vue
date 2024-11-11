@@ -5,9 +5,9 @@
     <h5 class="m-0">{{ name }}</h5>
     <p class="m-0">{{ specialty }}</p>
     <div class="testimonial-rating">
+      <!-- eslint-disable-next-line vue/no-v-for-template-key -->
       <template v-for="item in 5" :key="item">
-        <StarFilledIcon v-if="item <= rating" />
-        <StarOutlinedIcon v-else />
+        <NuxtIcon :name="item <= rating ? 'star-filled' : 'star-outlined'" class="testimonial-rating__icon" />
       </template>
     </div>
     <p class="m-0">{{ review }}</p>
@@ -15,8 +15,6 @@
 </template>
 
 <script setup lang="ts">
-  import { StarFilledIcon, StarOutlinedIcon } from '@/assets/icons';
-
   interface Props {
     rating: number;
     name: string;
@@ -55,5 +53,11 @@
   .testimonial-rating {
     color: orange;
     margin: 6px 0 16px;
+
+    &__icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+    }
   }
 </style>

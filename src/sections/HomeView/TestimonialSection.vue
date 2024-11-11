@@ -10,10 +10,10 @@
 </template>
 
 <script setup lang="ts">
+  import { computed } from 'vue';
+  import { Splide, SplideSlide } from '@splidejs/vue-splide';
   import { TestimonialCard } from '@/components';
   import { MOCKED_TESTIMONIALS } from '@/constants';
-  import { Splide, SplideSlide } from '@splidejs/vue-splide';
-  import { computed } from 'vue';
 
   const splideOptions = computed(() => ({
     pagination: false,

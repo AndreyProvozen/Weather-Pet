@@ -4,14 +4,7 @@
       <div class="footer__socials-wrapper">
         <h2 style="margin: 0 0 10px">Weather-Pet</h2>
         <div style="display: flex; gap: 13px">
-          <Icon
-            v-for="social in socialsList"
-            :key="social"
-            viewBox="0 0 24 24"
-            :svg-id="social"
-            class="footer__social-icon"
-            :name="social"
-          />
+          <NuxtIcon v-for="social in socialsList" :key="social" class="footer__social-icon" :name="social" />
         </div>
       </div>
       <div v-for="{ name, links } in FOOTER_COLUMN_LINKS" :key="name">
@@ -25,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-  import { Icon, Link } from '@/atoms';
+  import { Link } from '@/atoms';
   import { FOOTER_COLUMN_LINKS } from '@/constants';
 
   const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
@@ -76,6 +69,8 @@
       border-radius: 10%;
       color: $turquoise;
       cursor: pointer;
+      width: 40px;
+      height: 40px;
       padding: 8px;
       transition: all 0.2s ease;
 
