@@ -1,5 +1,6 @@
 <template>
-  <div v-if="weatherData && currentWeather" class="container">
+  <div v-if="!weatherData">Loading...</div>
+  <div v-else-if="weatherData" class="container">
     <div class="city-view">
       <div class="left-weather">
         <SearchSection />
@@ -10,9 +11,9 @@
     <div style="display: flex; gap: 20px">
       <WindCard
         :units="weatherData.units"
-        :speed="currentWeather.wind_speed_10m"
-        :gust="currentWeather.wind_gusts_10m"
-        :direction-in-degrees="currentWeather.wind_direction_10m"
+        :speed="weatherData.current.wind_speed_10m"
+        :gust="weatherData.current.wind_gusts_10m"
+        :direction-in-degrees="weatherData.current.wind_direction_10m"
       />
       <div style="display: flex; flex-direction: column; gap: 20px">
         <OverviewCard v-for="card in sunData" :key="card.title" v-bind="card" />
@@ -39,12 +40,9 @@
 
   useAsyncData('weatherData', () => fetchFullWeatherData({ lat, lon }));
 
-  const currentWeather = computed(() => weatherData?.current);
-  const dailyData = computed(() => weatherData?.daily);
-
   const sunData = computed(() => [
-    { icon: 'sunset', title: 'Sunset', value: dayjs(dailyData.value?.sunset?.[0]).format('HH:mm') || 'N/A' },
-    { icon: 'sunrise', title: 'Sunrise', value: dayjs(dailyData.value?.sunrise?.[0]).format('HH:mm') || 'N/A' },
+    { icon: 'sunset', title: 'Sunset', value: dayjs(weatherData?.daily?.sunset?.[0]).format('HH:mm') || 'N/A' },
+    { icon: 'sunrise', title: 'Sunrise', value: dayjs(weatherData?.daily?.sunrise?.[0]).format('HH:mm') || 'N/A' },
   ]);
 </script>
 
