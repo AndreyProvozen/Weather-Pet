@@ -2,12 +2,14 @@
   <footer class="footer">
     <div class="container footer__content">
       <div class="footer__socials-wrapper">
-        <h2 style="margin: 0 0 10px">Weather-Pet</h2>
+        <Link to="/" style="color: #fff" aria-label="Go to homepage">
+          <h2 style="margin: 0 0 10px">Weather-Pet</h2>
+        </Link>
         <div style="display: flex; gap: 13px">
-          <NuxtIcon v-for="social in socialsList" :key="social" class="footer__social-icon" :name="social" />
+          <NuxtIcon v-for="{ type } in FOOTER_SOCIAL_LINKS" :key="type" class="footer__social-icon" :name="type" />
         </div>
       </div>
-      <div v-for="{ name, links } in FOOTER_COLUMN_LINKS" :key="name">
+      <div v-for="{ name, links } in FOOTER_COLUMN_LINKS" :key="name" aria-label="Footer navigation">
         <h4 class="footer__section-title">{{ name }}</h4>
         <div v-for="{ href = '', title } in links" :key="title">
           <Link :to="href">{{ title }}</Link>
@@ -18,10 +20,42 @@
 </template>
 
 <script setup lang="ts">
-  import { Link } from '@/atoms';
-  import { FOOTER_COLUMN_LINKS } from '@/constants';
+  import Link from './Link.vue';
 
-  const socialsList = ['facebook', 'linkedin', 'twitter', 'instagram'];
+  const FOOTER_COLUMN_LINKS = [
+    {
+      name: 'GETTING STARTED',
+      links: [
+        { title: 'Get in touch', href: '#' },
+        { title: 'Help Centre', href: '#' },
+        { title: 'Blog', href: '#' },
+        { title: 'Help Centre', href: '#' },
+      ],
+    },
+    {
+      name: 'Legal',
+      links: [
+        { title: 'Cookie Policy', href: '#' },
+        { title: 'Privacy Policy', href: '#' },
+        { title: 'Terms & Conditions', href: '#' },
+        { title: 'Cookie Settings', type: 'cookie' },
+      ],
+    },
+    {
+      name: 'CONTACTS',
+      links: [
+        { title: '+1-825-888-0000', type: 'phone' },
+        { title: 'testemail@gmail.com', type: 'email' },
+      ],
+    },
+  ];
+
+  const FOOTER_SOCIAL_LINKS = [
+    { href: 'https://twitter.com', type: 'twitter' },
+    { href: 'https://www.facebook.com', type: 'facebook' },
+    { href: 'https://www.instagram.com', type: 'instagram' },
+    { href: 'https://www.linkedin.com', type: 'linkedIn' },
+  ];
 </script>
 
 <style scoped lang="scss">

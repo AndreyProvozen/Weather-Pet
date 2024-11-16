@@ -11,10 +11,6 @@
   </section>
 </template>
 
-<script setup lang="ts">
-  import { Button, Input } from '@/atoms';
-</script>
-
 <style scoped lang="scss">
   .subscribe-to-newsletter {
     background: linear-gradient(45deg, $turquoise 0%, $deep-dark-blue 100%);

@@ -10,20 +10,22 @@
           @on-change="onSearchValueChange"
         />
         <div class="hero-block__buttons-container">
-          <Button variant="filled">Search</Button>
-          <Button variant="outlined">Saved</Button>
+          <Button variant="filled" aria-label="Search for the location">Search</Button>
+          <Button variant="outlined" aria-label="View saved locations">Saved</Button>
         </div>
       </div>
-      <ul v-if="searchCitiesList" class="hero-block__autocomplete-wrapper">
+      <ul v-if="searchCitiesList" role="list" class="hero-block__autocomplete-wrapper">
         <div v-if="searchCitiesList.length === 0" style="margin: 40px auto; max-width: 400px">
           <b style="font-size: 24px">We’re sorry we couldn’t find a place with that name 🤷</b>
           <p class="mb-0">Please double check the spelling and try again</p>
         </div>
         <li
           v-for="{ id, place_name, geometry } in searchCitiesList"
-          v-else
           :key="id"
+          role="listitem"
           class="hero-block__autocomplete-item"
+          aria-label="Select location {{ place_name }}"
+          @keydown.enter="redirectToCityView(place_name, geometry)"
           @click="redirectToCityView(place_name, geometry)"
         >
           {{ place_name }}
@@ -36,19 +38,18 @@
 
 <script setup lang="ts">
   import { get, set, useDebounceFn } from '@vueuse/core';
-  import { type Ref, ref, watch, onMounted } from 'vue';
-  import { navigateTo } from 'nuxt/app';
+  import { type Ref, ref, watch } from 'vue';
+  import { navigateTo, useHead } from 'nuxt/app';
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
   import { getCurrentSeason } from '@/utils';
-  import { Button, Input } from '@/atoms';
   import type { CityData } from '@/interface';
   import { fetchCitiesAutoComplete } from '@/api';
   import { ScrollBottomIcon } from '@/components';
 
+  const season = getCurrentSeason();
+
   const searchValue = ref('');
   const searchCitiesList: Ref<CityData[] | undefined> = ref();
-
-  const season = getCurrentSeason();
 
   const searchCitiesAutoComplete = useDebounceFn(async () => {
     const { features } = await fetchCitiesAutoComplete(get(searchValue));
@@ -74,15 +75,7 @@
     });
   };
 
-  onMounted(() => {
-    const link = document.createElement('link');
-
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = CITY_PAGE_VIEW_SEASON_IMAGE[season];
-
-    document.head.appendChild(link);
-  });
+  useHead({ link: [{ rel: 'preload', as: 'image', href: CITY_PAGE_VIEW_SEASON_IMAGE[season] }] });
 </script>
 
 <style scoped lang="scss">

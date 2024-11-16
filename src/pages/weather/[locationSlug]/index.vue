@@ -1,6 +1,5 @@
 <template>
-  <div v-if="!weatherData">Loading...</div>
-  <div v-else-if="weatherData" class="container">
+  <div v-if="weatherData" class="container">
     <div class="city-view">
       <div class="left-weather">
         <SearchSection />

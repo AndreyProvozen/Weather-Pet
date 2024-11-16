@@ -9,10 +9,7 @@ export default defineNuxtConfig({
   alias: {
     '@': fileURLToPath(new URL('./src', import.meta.url)),
   },
-  components: [
-    { pathPrefix: false, path: '@/components' },
-    { pathPrefix: false, path: '@/atoms' },
-  ],
+  components: [{ pathPrefix: false, path: '@/atoms' }],
   vite: {
     server: { open: true },
     css: { preprocessorOptions: { scss: { api: 'modern', additionalData: '@import "@/assets/styles/index.scss";' } } },

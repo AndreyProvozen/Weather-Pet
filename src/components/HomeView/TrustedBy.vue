@@ -12,7 +12,6 @@
 <script setup lang="ts">
   import { Options, Splide, SplideSlide } from '@splidejs/vue-splide';
   import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-  import { TRUSTED_BY_LIST } from '@/constants';
 
   interface Props {
     isDirectionRight?: boolean;
@@ -30,6 +29,18 @@
     drag: 'free',
     autoScroll: { speed: isDirectionRight ? -1 : 1 },
   };
+
+  const TRUSTED_BY_LIST = [
+    { name: 'Necklace', icon: 'necklace' },
+    { name: 'Cardboard', icon: 'cardboard' },
+    { name: 'Honey Jar', icon: 'honey-jar' },
+    { name: 'Purple Ouija', icon: 'purple-ouija' },
+    { name: 'Sand Bucket', icon: 'sand-bucket' },
+    { name: 'Straw Basket', icon: 'straw-basket' },
+    { name: 'Green Pipe', icon: 'green-pipe' },
+    { name: 'Stylish Bag', icon: 'stylish-bag' },
+    { name: 'Cauldron', icon: 'cauldron' },
+  ];
 
   const extensions = { AutoScroll };
 </script>
@@ -49,6 +60,7 @@
 
     &__icon {
       height: 70px;
+      margin-inline: auto;
       width: 70px;
       display: block;
     }

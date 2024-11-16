@@ -6,12 +6,12 @@
 </template>
 
 <script setup lang="ts">
-  import { set } from '@vueuse/core';
+  import { set, useDebounceFn } from '@vueuse/core';
   import { ref, onMounted, onUnmounted } from 'vue';
 
   const isHiddenIcon = ref(false);
 
-  const handleScroll = () => set(isHiddenIcon, window.scrollY > 10);
+  const handleScroll = useDebounceFn(() => set(isHiddenIcon, window.scrollY > 10), 100);
 
   onMounted(() => window.addEventListener('scroll', handleScroll));
   onUnmounted(() => window.removeEventListener('scroll', handleScroll));

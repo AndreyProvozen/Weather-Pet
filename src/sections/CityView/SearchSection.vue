@@ -9,9 +9,8 @@
 
 <script setup lang="ts">
   import { useRoute } from 'nuxt/app';
-  import { onMounted, ref, computed } from 'vue';
-  import { get, set } from '@vueuse/core';
-  import { Button, Input } from '@/atoms';
+  import { computed } from 'vue';
+  import { get, set, useLocalStorage } from '@vueuse/core';
   import { SavedCitiesProps } from '@/interface';
   import { parseLocationSlug } from '@/utils';
 
@@ -20,16 +19,12 @@
     query: { lat, lon },
   } = useRoute();
 
-  const savedCitiesList = ref<SavedCitiesProps[]>([]);
+  const savedCitiesList = useLocalStorage<SavedCitiesProps[]>('saved_cities_list', []);
 
   const { city, state } = parseLocationSlug(locationSlug);
+
   const inputValue = computed(() => `${state}, ${city}`);
   const isBookmarked = computed(() => get(savedCitiesList).some(city => city.id === locationSlug));
-
-  const loadCitiesFromLocalStorage = () => {
-    const storedCities = JSON.parse(localStorage.getItem('saved_cities_list') || '[]');
-    set(savedCitiesList, storedCities);
-  };
 
   const toggleBookmark = () => {
     const savedCities = get(savedCitiesList);
@@ -49,10 +44,7 @@
         ];
 
     set(savedCitiesList, updatedCities);
-    localStorage.setItem('saved_cities_list', JSON.stringify(updatedCities));
   };
-
-  onMounted(loadCitiesFromLocalStorage);
 </script>
 
 <style scoped lang="scss">

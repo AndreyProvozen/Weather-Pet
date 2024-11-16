@@ -1,14 +1,17 @@
 <template>
   <div class="testimonial-card">
+    <!-- TODO: rewrite to NuxtIcon -->
     <img v-if="image" :src="image" :alt="`${name} avatar`" class="testimonial-card__image" />
     <div v-else class="testimonial-card__image" />
     <h5 class="m-0">{{ name }}</h5>
     <p class="m-0">{{ specialty }}</p>
-    <div class="testimonial-rating">
-      <!-- eslint-disable-next-line vue/no-v-for-template-key -->
-      <template v-for="item in 5" :key="item">
-        <NuxtIcon :name="item <= rating ? 'star-filled' : 'star-outlined'" class="testimonial-rating__icon" />
-      </template>
+    <div class="testimonial-card__rating" aria-label="Rating: {{ rating }} out of 5">
+      <NuxtIcon
+        v-for="item in 5"
+        :key="item"
+        :name="item <= rating ? 'star-filled' : 'star-outlined'"
+        class="testimonial-card__star"
+      />
     </div>
     <p class="m-0">{{ review }}</p>
   </div>
@@ -48,13 +51,13 @@
       top: -50px;
       width: 100px;
     }
-  }
 
-  .testimonial-rating {
-    color: orange;
-    margin: 6px 0 16px;
+    &__rating {
+      color: orange;
+      margin: 6px 0 16px;
+    }
 
-    &__icon {
+    &__star {
       display: inline-block;
       width: 24px;
       height: 24px;

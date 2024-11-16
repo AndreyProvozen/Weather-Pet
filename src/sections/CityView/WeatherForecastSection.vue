@@ -4,29 +4,25 @@
       variant="hourly"
       title="HOURLY FORECAST"
       icon="clock"
-      :temperature-list="hourlyData?.temperature_2m || []"
-      :times-list="hourlyData?.time || []"
+      :temperature-list="weatherData?.hourly?.temperature_2m || []"
+      :times-list="weatherData?.hourly?.time || []"
     />
     <ForecastCard
       variant="daily"
       title="10-DAY FORECAST"
       icon="calendar"
-      :temperature-list="dailyData?.temperature_2m_max || []"
-      :times-list="dailyData?.time || []"
+      :temperature-list="weatherData?.daily?.temperature_2m_max || []"
+      :times-list="weatherData?.daily?.time || []"
     />
-    <UVIndexCard :uv-index="dailyData?.uv_index_max[0] || 0" />
+    <UVIndexCard :uv-index="weatherData?.daily?.uv_index_max[0] || 0" />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
   import { ForecastCard, UVIndexCard } from '@/components';
   import { useWeatherStore } from '@/stores/weather';
 
   const { weatherData } = useWeatherStore();
-
-  const dailyData = computed(() => weatherData?.daily);
-  const hourlyData = computed(() => weatherData?.hourly);
 </script>
 
 <style scoped lang="scss">

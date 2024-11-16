@@ -1,16 +1,18 @@
 <template>
   <header class="header">
-    <h1 class="m-0">Weather-Pet</h1>
-    <div class="header__navigation">
-      <Link to="/">Main</Link>
-      <Link to="#">Test</Link>
+    <Link to="/" style="color: #fff" aria-label="Go to homepage">
+      <h1 class="m-0">Weather-Pet</h1>
+    </Link>
+    <div class="header__navigation" aria-label="Main navigation">
+      <Link to="/">Home</Link>
+      <Link to="/">Search</Link>
     </div>
-    <NuxtIcon name="menu" class="header__burger" />
+    <NuxtIcon name="menu" aria-label="Open navigation menu" class="header__burger" />
   </header>
 </template>
 
 <script lang="ts" setup>
-  import { Link } from '@/atoms';
+  import Link from './Link.vue';
 </script>
 
 <style lang="scss" scoped>

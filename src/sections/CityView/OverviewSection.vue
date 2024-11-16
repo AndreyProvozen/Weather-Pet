@@ -1,5 +1,5 @@
 <template>
-  <div class="overview-section" :style="{ backgroundImage: `url(${imageUrl})` }">
+  <div class="overview-section" :style="{ backgroundImage: `url(${CITY_PAGE_VIEW_SEASON_IMAGE[season]})` }">
     <OverviewTopContent
       :weather-description="weatherDescription"
       :temperature-min="temperatureMin"
@@ -24,27 +24,39 @@
 
   const weatherDescription = 'test description';
 
-  const temperatureNow = computed(
-    () => `${Math.round(weatherData?.current?.temperature_2m ?? 0)}${weatherData?.units?.degree ?? ''}`
-  );
-  const temperatureMax = computed(
-    () => `${Math.round(weatherData?.daily?.temperature_2m_max?.[0] ?? 0)}${weatherData?.units?.temperature ?? ''}`
-  );
-  const temperatureMin = computed(
-    () => `${Math.round(weatherData?.daily?.temperature_2m_min?.[0] ?? 0)}${weatherData?.units?.temperature ?? ''}`
-  );
+  const temperatureNow = computed(() => {
+    const temperature = weatherData?.current?.temperature_2m ?? 0;
+    const unit = weatherData?.units?.degree ?? '';
 
-  const weatherDetails = computed(() => [
-    { icon: 'eye', title: 'Visibility', value: `${metersToKilometers(weatherData?.hourly?.visibility?.[0] ?? 0)}` },
-    {
-      icon: 'humidity',
-      title: 'Humidity',
-      value: `${weatherData?.current?.relative_humidity_2m ?? 0}${weatherData?.units?.humidity ?? ''}`,
-    },
-    { icon: 'sunrise', title: 'Clouds', value: '89%' },
-  ]);
+    return `${Math.round(temperature)}${unit}`;
+  });
 
-  const imageUrl = (() => CITY_PAGE_VIEW_SEASON_IMAGE[season])();
+  const temperatureMax = computed(() => {
+    const temperature = weatherData?.daily?.temperature_2m_max?.[0] ?? 0;
+    const unit = weatherData?.units?.temperature ?? '';
+
+    return `${Math.round(temperature)}${unit}`;
+  });
+
+  const temperatureMin = computed(() => {
+    const temperature = weatherData?.daily?.temperature_2m_min?.[0] ?? 0;
+    const unit = weatherData?.units?.temperature ?? '';
+
+    return `${Math.round(temperature)}${unit}`;
+  });
+
+  const weatherDetails = computed(() => {
+    const visibility = metersToKilometers(weatherData?.hourly?.visibility?.[0] ?? 0);
+    const humidity = weatherData?.current?.relative_humidity_2m ?? 0;
+    // TODO: implement logic for clouds
+    const clouds = '89%';
+
+    return [
+      { icon: 'eye', title: 'Visibility', value: `${visibility}` },
+      { icon: 'humidity', title: 'Humidity', value: `${humidity}${weatherData?.units?.humidity ?? ''}` },
+      { icon: 'sunrise', title: 'Clouds', value: clouds },
+    ];
+  });
 </script>
 
 <style lang="scss" scoped>
