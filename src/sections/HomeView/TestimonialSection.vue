@@ -84,8 +84,8 @@
       height: 40px;
       opacity: 1;
       transform: translateY(calc(-50% + 20px));
-      width: 40px;
       transition: opacity 0.3s ease;
+      width: 40px;
 
       &--prev {
         left: -20px;
@@ -104,8 +104,8 @@
       }
 
       &[disabled] {
-        border-color: $gray-dark;
         background-color: $gray;
+        border-color: $gray-dark;
         pointer-events: none;
       }
     }

@@ -43,8 +43,8 @@
 
       @media (max-width: $breakpoint-md) {
         display: block;
-        width: 36px;
         height: 36px;
+        width: 36px;
       }
     }
   }

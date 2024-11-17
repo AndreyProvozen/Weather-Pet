@@ -104,10 +104,10 @@
       border-radius: 10%;
       color: $turquoise;
       cursor: pointer;
-      width: 40px;
       height: 40px;
       padding: 8px;
       transition: all 0.2s ease;
+      width: 40px;
 
       &:hover {
         background: $purple;

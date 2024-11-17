@@ -59,10 +59,10 @@
     }
 
     &__icon {
+      display: block;
       height: 70px;
       margin-inline: auto;
       width: 70px;
-      display: block;
     }
   }
 </style>

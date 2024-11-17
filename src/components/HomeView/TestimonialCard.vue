@@ -63,8 +63,8 @@
 
     &__star {
       display: inline-block;
-      width: 24px;
       height: 24px;
+      width: 24px;
     }
   }
 </style>

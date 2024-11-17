@@ -2,7 +2,7 @@
   <div class="left-weather-header">
     <Input container-class="left-weather-header__search-input" :value="inputValue" />
     <Button variant="filled" class="left-weather-header__bookmark-button" @click="toggleBookmark">
-      <NuxtIcon :name="isBookmarked ? 'bookmark-plus' : 'bookmark-minus'" style="width: 24px; height: 24px" />
+      <NuxtIcon :name="isBookmarked ? 'bookmark-plus' : 'bookmark-minus'" style="height: 24px; width: 24px" />
     </Button>
   </div>
 </template>
