@@ -1,6 +1,6 @@
 <template>
   <div class="compass">
-    <NuxtIcon name="compass-arrow" :style="{ transform: `rotate(${directionInDegrees}deg)`, zIndex: 10 }" />
+    <NuxtIcon filled name="compass-arrow" :style="{ transform: `rotate(${directionInDegrees}deg)`, zIndex: 10 }" />
     <b class="north">N</b>
     <b class="south">S</b>
     <b class="west">W</b>

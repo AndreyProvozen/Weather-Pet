@@ -1,6 +1,6 @@
 <template>
   <button v-bind="$attrs" :class="variant">
-    <component :is="startButtonIcon" v-if="startButtonIcon" />
+    <NuxtIcon v-if="startIcon" :name="startIcon" />
     <slot />
   </button>
 </template>
@@ -8,10 +8,10 @@
 <script lang="ts" setup>
   interface Props {
     variant?: 'outlined' | 'filled' | 'danger';
-    startButtonIcon?: any;
+    startIcon?: string;
   }
 
-  withDefaults(defineProps<Props>(), { variant: 'outlined', startButtonIcon: undefined });
+  withDefaults(defineProps<Props>(), { variant: 'outlined', startIcon: undefined });
 </script>
 
 <style lang="scss" scoped>

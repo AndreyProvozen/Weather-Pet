@@ -12,7 +12,7 @@
   interface Props {
     title: string;
     value: string;
-    icon: any;
+    icon: string;
   }
 
   defineProps<Props>();

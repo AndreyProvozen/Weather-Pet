@@ -20,9 +20,10 @@
 </template>
 
 <script setup lang="ts">
+  import { readonly } from 'vue';
   import Link from './Link.vue';
 
-  const FOOTER_COLUMN_LINKS = [
+  const FOOTER_COLUMN_LINKS = readonly([
     {
       name: 'GETTING STARTED',
       links: [
@@ -48,14 +49,14 @@
         { title: 'testemail@gmail.com', type: 'email' },
       ],
     },
-  ];
+  ]);
 
-  const FOOTER_SOCIAL_LINKS = [
+  const FOOTER_SOCIAL_LINKS = readonly([
     { href: 'https://twitter.com', type: 'twitter' },
     { href: 'https://www.facebook.com', type: 'facebook' },
     { href: 'https://www.instagram.com', type: 'instagram' },
-    { href: 'https://www.linkedin.com', type: 'linkedIn' },
-  ];
+    { href: 'https://www.linkedin.com', type: 'linkedin' },
+  ]);
 </script>
 
 <style scoped lang="scss">

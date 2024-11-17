@@ -1,7 +1,13 @@
 <template>
   <div class="testimonial-card">
-    <!-- TODO: rewrite to NuxtIcon -->
-    <img v-if="image" :src="image" :alt="`${name} avatar`" class="testimonial-card__image" />
+    <NuxtImg
+      v-if="image"
+      width="100px"
+      height="100px"
+      :src="image"
+      :alt="`${name} avatar`"
+      class="testimonial-card__image"
+    />
     <div v-else class="testimonial-card__image" />
     <h5 class="m-0">{{ name }}</h5>
     <p class="m-0">{{ specialty }}</p>
@@ -46,10 +52,8 @@
       background-color: #ccc;
       border: 10px solid $light-blue;
       border-radius: 50%;
-      height: 100px;
       position: absolute;
       top: -50px;
-      width: 100px;
     }
 
     &__rating {

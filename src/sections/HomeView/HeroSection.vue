@@ -1,5 +1,5 @@
 <template>
-  <section class="black-image-overlay" :style="{ backgroundImage: `url(${CITY_PAGE_VIEW_SEASON_IMAGE[season]})` }">
+  <section class="black-image-overlay" :style="{ backgroundImage: `url(${imageUrl})` }">
     <div class="hero-block">
       <h1 class="hero-block__title">Discover the Latest Weather Forecast Updates</h1>
       <div class="hero-block__search-wrapper">
@@ -75,7 +75,9 @@
     });
   };
 
-  useHead({ link: [{ rel: 'preload', as: 'image', href: CITY_PAGE_VIEW_SEASON_IMAGE[season] }] });
+  const imageUrl = CITY_PAGE_VIEW_SEASON_IMAGE[season];
+
+  useHead({ link: [{ rel: 'preload', as: 'image', href: imageUrl }] });
 </script>
 
 <style scoped lang="scss">

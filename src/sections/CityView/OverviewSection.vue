@@ -1,5 +1,5 @@
 <template>
-  <div class="overview-section" :style="{ backgroundImage: `url(${CITY_PAGE_VIEW_SEASON_IMAGE[season]})` }">
+  <div class="overview-section" :style="{ backgroundImage: `url(${imageUrl})` }">
     <OverviewTopContent
       :weather-description="weatherDescription"
       :temperature-min="temperatureMin"
@@ -14,6 +14,7 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
+  import { useHead } from 'nuxt/app';
   import { getCurrentSeason, metersToKilometers } from '@/utils';
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
   import { OverviewCard, OverviewTopContent } from '@/components';
@@ -57,6 +58,10 @@
       { icon: 'sunrise', title: 'Clouds', value: clouds },
     ];
   });
+
+  const imageUrl = CITY_PAGE_VIEW_SEASON_IMAGE[season];
+
+  useHead({ link: [{ rel: 'preload', as: 'image', href: imageUrl }] });
 </script>
 
 <style lang="scss" scoped>

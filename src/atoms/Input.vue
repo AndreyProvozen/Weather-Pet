@@ -1,13 +1,13 @@
 <template>
   <div :class="['input-container', variant, containerClass]">
-    <component :is="startInputIcon" v-if="startInputIcon" class="input-icon start" />
+    <NuxtIcon v-if="startIcon" :name="startIcon" class="input-icon start" />
     <input
-      :class="{ 'has-start-icon': startInputIcon, 'has-end-icon': endInputIcon }"
+      :class="{ 'has-start-icon': startIcon, 'has-end-icon': endIcon }"
       :value="value"
       v-bind="$attrs"
       @input="$emit('on-change', ($event.target as HTMLInputElement).value)"
     />
-    <component :is="endInputIcon" v-if="endInputIcon" class="input-icon end" />
+    <NuxtIcon v-if="endIcon" :name="endIcon" class="input-icon end" />
   </div>
 </template>
 
@@ -16,16 +16,16 @@
     value?: string;
     variant?: 'filled' | 'outlined' | 'standard';
     containerClass?: string;
-    startInputIcon?: any;
-    endInputIcon?: any;
+    startIcon?: string;
+    endIcon?: string;
   }
 
   withDefaults(defineProps<Props>(), {
     variant: 'outlined',
     containerClass: '',
     value: '',
-    startInputIcon: undefined,
-    endInputIcon: undefined,
+    startIcon: undefined,
+    endIcon: undefined,
   });
 
   defineEmits(['on-change']);
