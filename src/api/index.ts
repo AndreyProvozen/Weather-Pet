@@ -8,7 +8,7 @@ const MAPBOX_API_KEY = import.meta.env.VITE_APP_MAPBOX_API_KEY;
 export const getFullWeatherData = async ({ lat, lon }: CoordinatesProps) => {
   const currentProps = 'temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,wind_gusts_10m';
   // weather_code, apparent_temperature, is_day
-  const hourlyParams = 'temperature_2m,cloud_cover,visibility,precipitation_probability';
+  const hourlyParams = 'temperature_2m,cloud_cover,visibility,precipitation_probability,,weather_code';
   const dailyParams = 'sunrise,sunset,temperature_2m_max,temperature_2m_min,uv_index_max';
 
   return await customFetch(
