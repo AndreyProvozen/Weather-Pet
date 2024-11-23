@@ -5,6 +5,7 @@ interface DailyWeatherProps {
   temperature_2m_max: number[];
   temperature_2m_min: number[];
   uv_index_max: number[];
+  weather_code: number[];
 }
 
 interface HourlyWeatherProps {
@@ -12,6 +13,7 @@ interface HourlyWeatherProps {
   temperature_2m: number[];
   cloud_cover: number[];
   weather_code: number[];
+  is_day: number[];
   visibility: number[];
 }
 

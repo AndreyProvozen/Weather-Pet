@@ -1,5 +1,5 @@
 <template>
-  <ForecastCardWrapper :icon="icon" :title="title">
+  <ForecastCardWrapper :icon="titleIcon" :title="title">
     <div class="forecast-card-content">
       <div v-for="(time, index) in timesList" :key="`${variant}-${time}`" class="forecast-card-content__item">
         <p class="m-0">
@@ -11,7 +11,12 @@
         <p class="forecast-card-content__temperature">
           {{ `${Math.round(temperatureList[index] as number)}&deg;` }}
         </p>
-        <img class="forecast-card-content__image" :src="`/src/assets/weatherIcon/colorful/04d.png`" />
+        <NuxtImg
+          width="50px"
+          height="50px"
+          alt="Forecast icon"
+          :src="`/weather-icon/colorful/${getWeatherIconName({ code: weatherCodes[index], isDay: isDaily || false })}.svg`"
+        />
       </div>
     </div>
   </ForecastCardWrapper>
@@ -21,11 +26,14 @@
   import dayjs from 'dayjs';
   import { computed } from 'vue';
   import ForecastCardWrapper from './ForecastCardWrapper.vue';
+  import getWeatherIconName from '@/utils/getWeatherIconName';
 
   interface Props {
-    timesList: string[];
-    icon: string;
+    titleIcon: string;
     title: string;
+    timesList: string[];
+    // isDay: number[];
+    weatherCodes: number[];
     temperatureList: number[];
     variant: 'hourly' | 'daily';
   }

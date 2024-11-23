@@ -3,14 +3,16 @@
     <ForecastCard
       variant="hourly"
       title="HOURLY FORECAST"
-      icon="clock"
+      :weather-codes="weatherData?.hourly?.weather_code || []"
+      title-icon="clock"
       :temperature-list="weatherData?.hourly?.temperature_2m || []"
       :times-list="weatherData?.hourly?.time || []"
     />
     <ForecastCard
       variant="daily"
       title="10-DAY FORECAST"
-      icon="calendar"
+      :weather-codes="weatherData?.daily?.weather_code || []"
+      title-icon="calendar"
       :temperature-list="weatherData?.daily?.temperature_2m_max || []"
       :times-list="weatherData?.daily?.time || []"
     />
