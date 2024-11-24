@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer v-bind="$attrs" class="footer">
     <div class="container footer__content">
       <div class="footer__socials-wrapper">
         <Link to="/" style="color: #fff" aria-label="Go to homepage">

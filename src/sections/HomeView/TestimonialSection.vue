@@ -21,7 +21,7 @@
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       specialty: 'CEO, Company',
-      image: 'UserAvatars/placeholder-1.webp',
+      image: '/user-avatars/placeholder-1.webp',
     },
     {
       rating: 4,
@@ -29,14 +29,14 @@
       review:
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       specialty: 'Marketing Director, BrandX',
-      image: 'UserAvatars/placeholder-2.webp',
+      image: '/user-avatars/placeholder-2.webp',
     },
     {
       rating: 5,
       name: 'Michael Lee',
       review: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       specialty: 'CFO, Financial Corp',
-      image: 'UserAvatars/placeholder-3.avif',
+      image: '/user-avatars/placeholder-3.avif',
     },
     {
       rating: 3,
@@ -44,7 +44,7 @@
       review:
         'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
       specialty: 'HR Manager, People First',
-      image: 'UserAvatars/placeholder-4.webp',
+      image: '/user-avatars/placeholder-4.webp',
     },
     {
       rating: 4,
@@ -52,7 +52,7 @@
       review:
         'Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
       specialty: 'CTO, Tech Innovators',
-      image: 'UserAvatars/placeholder-5.avif',
+      image: '/user-avatars/placeholder-5.avif',
     },
   ]);
 

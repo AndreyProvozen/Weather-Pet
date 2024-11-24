@@ -5,6 +5,7 @@
     <QualitySection />
     <TestimonialSection />
     <SubscribeToNewsletterSection />
+    <Footer />
   </div>
 </template>
 
