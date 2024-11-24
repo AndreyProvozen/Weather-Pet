@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <main>
     <HeroSection />
     <TrustedBySection />
     <QualitySection />
     <TestimonialSection />
     <SubscribeToNewsletterSection />
-    <Footer />
-  </div>
+  </main>
 </template>
 
 <script lang="ts" setup>

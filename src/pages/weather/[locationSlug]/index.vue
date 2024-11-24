@@ -1,27 +1,24 @@
 <template>
-  <div>
-    <div v-if="weatherData" class="container">
-      <div class="city-view">
-        <div class="left-weather">
-          <SearchSection />
-          <OverviewSection />
-        </div>
-        <WeatherForecastSection />
+  <main v-if="weatherData" class="container">
+    <div class="city-view">
+      <div class="left-weather">
+        <SearchSection />
+        <OverviewSection />
       </div>
-      <div style="display: flex; gap: 20px">
-        <WindCard
-          :units="weatherData.units"
-          :speed="weatherData.current.wind_speed_10m"
-          :gust="weatherData.current.wind_gusts_10m"
-          :direction-in-degrees="weatherData.current.wind_direction_10m"
-        />
-        <div style="display: flex; flex-direction: column; gap: 20px">
-          <OverviewCard v-for="card in sunData" :key="card.title" v-bind="card" />
-        </div>
+      <WeatherForecastSection />
+    </div>
+    <div style="display: flex; gap: 20px">
+      <WindCard
+        :units="weatherData.units"
+        :speed="weatherData.current.wind_speed_10m"
+        :gust="weatherData.current.wind_gusts_10m"
+        :direction-in-degrees="weatherData.current.wind_direction_10m"
+      />
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <OverviewCard v-for="card in sunData" :key="card.title" v-bind="card" />
       </div>
     </div>
-    <Footer style="margin-top: 20px" />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
