@@ -17,7 +17,6 @@
   import { useHead } from 'nuxt/app';
   import { getCurrentSeason, metersToKilometers } from '@/utils';
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
-  import { OverviewCard, OverviewTopContent } from '@/components';
   import { useWeatherStore } from '@/stores/weather';
 
   const { weatherData } = useWeatherStore();

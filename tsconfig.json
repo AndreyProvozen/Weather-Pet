@@ -28,6 +28,6 @@
   },
 
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
-
+  "extends": "./.nuxt/tsconfig.json",
   "exclude": ["node_modules"]
 }

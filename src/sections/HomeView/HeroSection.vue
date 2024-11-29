@@ -44,7 +44,6 @@
   import { getCurrentSeason } from '@/utils';
   import type { CityData } from '@/interface';
   import { fetchCitiesAutoComplete } from '@/api';
-  import { ScrollBottomIcon } from '@/components';
 
   const season = getCurrentSeason();
 
