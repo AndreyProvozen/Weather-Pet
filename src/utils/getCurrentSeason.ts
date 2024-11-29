@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { SEASONS, SEASON_KEY } from '../constants';
+import { SEASONS, type SEASON_KEY } from '../constants';
 
 /**
  * Returns the current season based on the current date.

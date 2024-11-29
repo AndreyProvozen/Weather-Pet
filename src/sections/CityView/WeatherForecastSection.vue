@@ -21,7 +21,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ForecastCard, UVIndexCard } from '@/components';
   import { useWeatherStore } from '@/stores/weather';
 
   const { weatherData } = useWeatherStore();

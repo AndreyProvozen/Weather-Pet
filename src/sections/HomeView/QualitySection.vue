@@ -9,7 +9,6 @@
 
 <script setup lang="ts">
   import { readonly } from 'vue';
-  import { QualityCard } from '@/components';
 
   const QUALITY_SECTION_DATA = readonly([
     {

@@ -1,4 +1,4 @@
-import { ForecastWeatherData } from '@/interface';
+import type { ForecastWeatherData } from '@/interface';
 
 const GLOBAL_UNITS = {
   temperature: '°C',

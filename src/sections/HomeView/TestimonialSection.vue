@@ -12,7 +12,6 @@
 <script setup lang="ts">
   import { computed, readonly } from 'vue';
   import { Splide, SplideSlide } from '@splidejs/vue-splide';
-  import { TestimonialCard } from '@/components';
 
   const MOCKED_TESTIMONIALS = readonly([
     {

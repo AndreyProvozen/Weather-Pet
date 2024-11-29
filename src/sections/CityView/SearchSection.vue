@@ -11,7 +11,7 @@
   import { useRoute } from 'nuxt/app';
   import { computed } from 'vue';
   import { get, set, useLocalStorage } from '@vueuse/core';
-  import { SavedCitiesProps } from '@/interface';
+  import type { SavedCitiesProps } from '@/interface';
   import { parseLocationSlug } from '@/utils';
 
   const {

@@ -8,10 +8,6 @@
   </section>
 </template>
 
-<script setup lang="ts">
-  import { TrustedBy } from '@/components';
-</script>
-
 <style scoped lang="scss">
   .trusted-section {
     display: flex;

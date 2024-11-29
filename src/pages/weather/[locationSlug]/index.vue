@@ -27,7 +27,6 @@
   import dayjs from 'dayjs';
   import SearchSection from '@/sections/CityView/SearchSection.vue';
   import { useWeatherStore } from '@/stores/weather';
-  import { OverviewCard, WindCard } from '@/components';
   import OverviewSection from '@/sections/CityView/OverviewSection.vue';
   import WeatherForecastSection from '@/sections/CityView/WeatherForecastSection.vue';
 
