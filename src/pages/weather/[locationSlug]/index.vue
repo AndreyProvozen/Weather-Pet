@@ -22,8 +22,6 @@
 </template>
 
 <script setup lang="ts">
-  import { useAsyncData, useRoute } from 'nuxt/app';
-  import { computed } from 'vue';
   import dayjs from 'dayjs';
   import SearchSection from '@/sections/CityView/SearchSection.vue';
   import { useWeatherStore } from '@/stores/weather';

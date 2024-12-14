@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
 import { fetchCitiesAutoComplete } from '@/api';
 import type { CityData } from '@/interface';
 

@@ -20,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-  import { readonly } from 'vue';
   import Link from './Link.vue';
 
   const FOOTER_COLUMN_LINKS = readonly([

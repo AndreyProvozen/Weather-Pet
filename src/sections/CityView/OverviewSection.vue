@@ -13,9 +13,6 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import { useHead } from 'nuxt/app';
-  import { getCurrentSeason, metersToKilometers } from '@/utils';
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
   import { useWeatherStore } from '@/stores/weather';
 

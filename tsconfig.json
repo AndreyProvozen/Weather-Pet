@@ -27,7 +27,7 @@
     "noUncheckedIndexedAccess": true
   },
 
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "env.d.ts", ".nuxt/nuxt.d.ts"],
   "extends": "./.nuxt/tsconfig.json",
   "exclude": ["node_modules"]
 }

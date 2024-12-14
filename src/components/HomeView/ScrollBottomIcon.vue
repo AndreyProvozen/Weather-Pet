@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
   import { set, useDebounceFn } from '@vueuse/core';
-  import { ref, onMounted, onUnmounted } from 'vue';
 
   const isHiddenIcon = ref(false);
 

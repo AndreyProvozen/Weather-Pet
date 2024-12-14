@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
 import { getFullWeatherData } from '@/api';
 import fetchFullWeatherDataDTO from '@/utils/fetchFullWeatherDataDTO';
 import type { CoordinatesProps } from '@/interface';

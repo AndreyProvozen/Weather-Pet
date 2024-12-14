@@ -8,11 +8,8 @@
 </template>
 
 <script setup lang="ts">
-  import { useRoute } from 'nuxt/app';
-  import { computed } from 'vue';
   import { get, set, useLocalStorage } from '@vueuse/core';
   import type { SavedCitiesProps } from '@/interface';
-  import { parseLocationSlug } from '@/utils';
 
   const {
     params: { locationSlug },

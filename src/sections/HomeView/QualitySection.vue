@@ -8,8 +8,6 @@
 </template>
 
 <script setup lang="ts">
-  import { readonly } from 'vue';
-
   const QUALITY_SECTION_DATA = readonly([
     {
       title: 'Accuracy',

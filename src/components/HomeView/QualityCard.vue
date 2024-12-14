@@ -18,7 +18,6 @@
 
 <script setup lang="ts">
   import { get, set, useElementVisibility } from '@vueuse/core';
-  import { ref, watch } from 'vue';
   import NumberAnimation from 'vue-number-animation';
 
   interface Props {

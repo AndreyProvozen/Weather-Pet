@@ -14,7 +14,7 @@
           <Button variant="outlined" aria-label="View saved locations">Saved</Button>
         </div>
       </div>
-      <ul v-if="searchCitiesList" role="list" class="hero-block__autocomplete-wrapper">
+      <ul v-if="searchCitiesList" class="hero-block__autocomplete-wrapper">
         <div v-if="searchCitiesList.length === 0" style="margin: 40px auto; max-width: 400px">
           <b style="font-size: 24px">We’re sorry we couldn’t find a place with that name 🤷</b>
           <p class="mb-0">Please double check the spelling and try again</p>
@@ -22,7 +22,6 @@
         <li
           v-for="{ id, place_name, geometry } in searchCitiesList"
           :key="id"
-          role="listitem"
           class="hero-block__autocomplete-item"
           aria-label="Select location {{ place_name }}"
           @keydown.enter="redirectToCityView(place_name, geometry)"
@@ -38,10 +37,7 @@
 
 <script setup lang="ts">
   import { get, set, useDebounceFn } from '@vueuse/core';
-  import { type Ref, ref, watch } from 'vue';
-  import { navigateTo, useHead } from 'nuxt/app';
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
-  import { getCurrentSeason } from '@/utils';
   import type { CityData } from '@/interface';
   import { fetchCitiesAutoComplete } from '@/api';
 

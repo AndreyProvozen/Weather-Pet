@@ -24,15 +24,12 @@
 
 <script setup lang="ts">
   import dayjs from 'dayjs';
-  import { computed } from 'vue';
   import ForecastCardWrapper from './ForecastCardWrapper.vue';
-  import getWeatherIconName from '@/utils/getWeatherIconName';
 
   interface Props {
     titleIcon: string;
     title: string;
     timesList: string[];
-    // isDay: number[];
     weatherCodes: number[];
     temperatureList: number[];
     variant: 'hourly' | 'daily';

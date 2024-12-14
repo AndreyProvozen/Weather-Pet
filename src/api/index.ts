@@ -1,8 +1,6 @@
 import { MAPBOX_BASE_URL, OPEN_METEO_BASE_URL } from '@/constants';
 import type { CitiesAutoCompleteResponse, CoordinatesProps } from '@/interface';
 
-import { customFetch } from '@/utils';
-
 const MAPBOX_API_KEY = import.meta.env.VITE_APP_MAPBOX_API_KEY;
 
 export const getFullWeatherData = async ({ lat, lon }: CoordinatesProps) => {

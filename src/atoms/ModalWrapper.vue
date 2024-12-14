@@ -4,7 +4,7 @@
       <div v-show="isModalOpen" class="modal-wrapper" @click="handleClickOutside">
         <Transition name="modal-inner">
           <form v-if="isModalOpen" action="" class="modal-wrapper__modal-content" @submit="submitForm" @click.stop>
-            <!-- <Icon name="close" class="modal-wrapper__close-icon" @click="closeModal" /> -->
+            <NuxtIcon name="close" class="modal-wrapper__close-icon" @click="closeModal" />
             <slot />
             <div class="modal-wrapper__btn-wrapper">
               <Button type="button" @click="closeModal">Close</Button>
@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
   import { useEventListener } from '@vueuse/core';
-  import { Button } from '.';
+  import Button from './Button.vue';
 
   interface Props {
     isModalOpen: boolean;

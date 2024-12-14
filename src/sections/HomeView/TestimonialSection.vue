@@ -10,7 +10,6 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, readonly } from 'vue';
   import { Splide, SplideSlide } from '@splidejs/vue-splide';
 
   const MOCKED_TESTIMONIALS = readonly([

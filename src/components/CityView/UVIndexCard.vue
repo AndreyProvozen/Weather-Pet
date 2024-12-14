@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
   import ForecastCardWrapper from './ForecastCardWrapper.vue';
-  import { getUVIndexCategory } from '@/utils';
 
   interface Props {
     uvIndex: number;
