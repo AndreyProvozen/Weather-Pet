@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   ],
   vite: {
     server: { open: true },
-    css: { preprocessorOptions: { scss: { api: 'modern', additionalData: '@import "@/assets/styles/index.scss";' } } },
+    css: { preprocessorOptions: { scss: { api: 'modern', additionalData: `@use "@/assets/styles/index" as *;` } } },
     build: { target: 'esnext', sourcemap: true },
   },
   ssr: false,

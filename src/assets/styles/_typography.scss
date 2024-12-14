@@ -1,3 +1,5 @@
+@use './breakpoints' as styles;
+
 h1 {
   font-size: 36px;
   font-weight: 700;
@@ -34,7 +36,7 @@ p {
   line-height: 20px;
 }
 
-@media (max-width: $breakpoint-md) {
+@media (max-width: styles.$breakpoint-md) {
   h1 {
     font-size: 28px;
     line-height: 34px;
