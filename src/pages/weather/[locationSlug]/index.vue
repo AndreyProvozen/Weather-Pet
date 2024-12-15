@@ -24,7 +24,6 @@
 <script setup lang="ts">
   import dayjs from 'dayjs';
   import SearchSection from '@/sections/CityView/SearchSection.vue';
-  import { useWeatherStore } from '@/stores/weather';
   import OverviewSection from '@/sections/CityView/OverviewSection.vue';
   import WeatherForecastSection from '@/sections/CityView/WeatherForecastSection.vue';
 

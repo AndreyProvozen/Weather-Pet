@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
   import { CITY_PAGE_VIEW_SEASON_IMAGE } from '@/constants';
-  import { useWeatherStore } from '@/stores/weather';
 
   const { weatherData } = useWeatherStore();
   const season = getCurrentSeason();

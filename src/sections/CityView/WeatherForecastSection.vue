@@ -21,8 +21,6 @@
 </template>
 
 <script setup lang="ts">
-  import { useWeatherStore } from '@/stores/weather';
-
   const { weatherData } = useWeatherStore();
 </script>
 

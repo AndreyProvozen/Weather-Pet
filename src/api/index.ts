@@ -1,7 +1,7 @@
 import { MAPBOX_BASE_URL, OPEN_METEO_BASE_URL } from '@/constants';
 import type { CitiesAutoCompleteResponse, CoordinatesProps } from '@/interface';
 
-const MAPBOX_API_KEY = import.meta.env.VITE_APP_MAPBOX_API_KEY;
+const config = useRuntimeConfig();
 
 export const getFullWeatherData = async ({ lat, lon }: CoordinatesProps) => {
   const currentProps = 'temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,wind_gusts_10m';
@@ -14,5 +14,8 @@ export const getFullWeatherData = async ({ lat, lon }: CoordinatesProps) => {
   );
 };
 
-export const fetchCitiesAutoComplete = async (searchQuery: string): Promise<CitiesAutoCompleteResponse> =>
-  await customFetch(`${MAPBOX_BASE_URL}mapbox.places/${searchQuery}.json?access_token=${MAPBOX_API_KEY}&types=place`);
+export const fetchCitiesAutoComplete = async (searchQuery: string): Promise<CitiesAutoCompleteResponse> => {
+  return await customFetch(
+    `${MAPBOX_BASE_URL}mapbox.places/${searchQuery}.json?access_token=${config.public.MAPBOX_API_KEY}&types=place`
+  );
+};
